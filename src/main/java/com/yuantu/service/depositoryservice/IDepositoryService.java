@@ -6,6 +6,7 @@ import com.yuantu.po.depositorypo.MsleStorehousePO;
 import java.util.List;
 
 public interface IDepositoryService {
+
     List<MsleStorehousePO> getAreasById(String id);
 
     MsleStorehousePO getAlertLineById(String storehouseId, Integer areaId);

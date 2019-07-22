@@ -2,9 +2,9 @@ package com.yuantu.service.depositoryservice.impl;
 
 import com.yuantu.dao.depositorydao.IDepositoryDao;
 import com.yuantu.dao.depositorydao.IReserveDao;
-import com.yuantu.po.depositorypo.MsleGoDownEntryPO;
-import com.yuantu.po.depositorypo.MsleOutBoundPO;
-import com.yuantu.po.depositorypo.MsleReservePO;
+import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
+import com.yuantu.po.depositorypo.MsleOutBoundPo;
+import com.yuantu.po.depositorypo.MsleReservePo;
 import com.yuantu.po.depositorypo.MsleStorehousePO;
 import com.yuantu.service.depositoryservice.IReserveService;
 import com.yuantu.util.DateUtil;
@@ -28,7 +28,7 @@ public class ReserveServiceImpl implements IReserveService {
      * @return 0 入库单添加失败 1库存信息更新失败 2 入库单以及库存信息更新成功
      */
     @Override
-    public int addGodownentry(MsleGoDownEntryPO goDownEntryPO) {
+    public int addGodownentry(MsleGoDownEntryPo goDownEntryPO) {
         goDownEntryPO.setGodownentryId(UUID.createID());
        if(!reserveDao.addGodownentry(goDownEntryPO)){
            return 0;
@@ -49,7 +49,7 @@ public class ReserveServiceImpl implements IReserveService {
      * @return 0 出库单添加失败 1库存信息更新失败 2 出库单以及库存信息更新成功
      */
     @Override
-    public int addOutbound(MsleOutBoundPO outBoundPO) {
+    public int addOutbound(MsleOutBoundPo outBoundPO) {
         outBoundPO.setOutboundId(UUID.createID());
         if(!reserveDao.addOutBound(outBoundPO)){
             return 0;
@@ -63,12 +63,12 @@ public class ReserveServiceImpl implements IReserveService {
         }
     }
 
-    public boolean addReserve(MsleGoDownEntryPO goDownEntryPO){
+    public boolean addReserve(MsleGoDownEntryPo goDownEntryPO){
         String id=UUID.createID();
         return  reserveDao.addReserve(goDownEntryPO,id);
     }
 
-    public boolean deleteReserve(MsleOutBoundPO outBoundPO){
+    public boolean deleteReserve(MsleOutBoundPo outBoundPO){
         String outbound_ExpressNo=outBoundPO.getOutboundExpressNo();
         return  reserveDao.deleteReserve(outbound_ExpressNo);
     }
@@ -91,7 +91,7 @@ public class ReserveServiceImpl implements IReserveService {
      * @return
      */
     @Override
-    public List<MsleReservePO> getReserveByClosurePoint(String storehouseid) {
+    public List<MsleReservePo> getReserveByClosurePoint(String storehouseid) {
         String closure=this.getClosure();
 
         if(closure==null||closure.length()<=9){
@@ -128,32 +128,32 @@ public class ReserveServiceImpl implements IReserveService {
     }
 
     @Override
-    public MsleGoDownEntryPO getGoDownEntryById(String id) {
+    public MsleGoDownEntryPo getGoDownEntryById(String id) {
        return reserveDao.getGoDownEntryById(id);
     }
 
     @Override
-    public MsleOutBoundPO getOutBoundById(String id) {
+    public MsleOutBoundPo getOutBoundById(String id) {
         return  reserveDao.getOutBoundById(id);
     }
 
     @Override
-    public List<MsleGoDownEntryPO> getGoDownEntryByListId(String godownentryGodownentryId) {
+    public List<MsleGoDownEntryPo> getGoDownEntryByListId(String godownentryGodownentryId) {
         return reserveDao.getGoDownEntryByListId(godownentryGodownentryId);
     }
 
     @Override
-    public List<MsleOutBoundPO> getOutBoundByListId(String outboundOutboundId) {
+    public List<MsleOutBoundPo> getOutBoundByListId(String outboundOutboundId) {
         return reserveDao.getOutBoundByListId(outboundOutboundId);
     }
 
 //    @Override
-//    public List<MsleGoDownEntryPO> getGoDownEntryByStatus(String status) {
+//    public List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status) {
 //        return reserveDao.getGoDownEntryByStatus(status);
 //    }
 //
 //    @Override
-//    public List<MsleOutBoundPO> getOutBoundByStatus(String status) {
+//    public List<MsleOutBoundPo> getOutBoundByStatus(String status) {
 //        return reserveDao.getOutBoundByStatus(status);
 //    }
 //

@@ -9,7 +9,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class MsleLoadingListPO {
-    private String  loadingListId;//营业厅装车记录id
+    //营业厅装车记录id
+    private String  loadingListId;
     private String  loadingListLoadId;//装车id
     private String  loadingListLoadDate;//装车日期
     private String  loadingListHallNo;//营业厅id

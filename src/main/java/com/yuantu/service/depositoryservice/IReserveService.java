@@ -1,37 +1,37 @@
 package com.yuantu.service.depositoryservice;
 
 
-import com.yuantu.po.depositorypo.MsleGoDownEntryPO;
-import com.yuantu.po.depositorypo.MsleOutBoundPO;
-import com.yuantu.po.depositorypo.MsleReservePO;
+import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
+import com.yuantu.po.depositorypo.MsleOutBoundPo;
+import com.yuantu.po.depositorypo.MsleReservePo;
 
 import java.util.List;
 
 public interface IReserveService {
-    int  addGodownentry(MsleGoDownEntryPO goDownEntryPO);
+    int  addGodownentry(MsleGoDownEntryPo goDownEntryPO);
 
-    int  addOutbound(MsleOutBoundPO outBoundPO);
+    int  addOutbound(MsleOutBoundPo outBoundPO);
 
     String getClosure();
 
-    List<MsleReservePO> getReserveByClosurePoint(String storehouseid);
+    List<MsleReservePo> getReserveByClosurePoint(String storehouseid);
 
     boolean updateReserve(String id ,String checkStatus);
 
     String  checkAlertline(String storehouseid,Integer areaid);
 
-    MsleGoDownEntryPO getGoDownEntryById(String id);
+    MsleGoDownEntryPo getGoDownEntryById(String id);
 
-    MsleOutBoundPO getOutBoundById(String id);
+    MsleOutBoundPo getOutBoundById(String id);
 
-    List<MsleGoDownEntryPO> getGoDownEntryByListId(String godownentryGodownentryId);
+    List<MsleGoDownEntryPo> getGoDownEntryByListId(String godownentryGodownentryId);
 
-    List<MsleOutBoundPO> getOutBoundByListId(String outboundOutboundId);
+    List<MsleOutBoundPo> getOutBoundByListId(String outboundOutboundId);
 
 
-//    List<MsleGoDownEntryPO> getGoDownEntryByStatus(String status);
+//    List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status);
 //
-//    List<MsleOutBoundPO> getOutBoundByStatus( String status);
+//    List<MsleOutBoundPo> getOutBoundByStatus( String status);
 //    boolean updateGoDownEntryStatus(Integer id,String status);
 //
 //    boolean updateOutBoundStatus(Integer id,String status);

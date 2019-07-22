@@ -2,9 +2,9 @@ package com.yuantu.controller.depositorycontroller;
 
 
 
-import com.yuantu.po.depositorypo.MsleGoDownEntryPO;
-import com.yuantu.po.depositorypo.MsleOutBoundPO;
-import com.yuantu.po.depositorypo.MsleReservePO;
+import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
+import com.yuantu.po.depositorypo.MsleOutBoundPo;
+import com.yuantu.po.depositorypo.MsleReservePo;
 import com.yuantu.service.depositoryservice.IReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,13 +22,13 @@ public class ReserveController {
 private IReserveService reserveService;
     @RequestMapping(value="/addgodownentry",method = RequestMethod.POST)
     @ResponseBody
-    public int addGodownentry(@RequestBody MsleGoDownEntryPO goDownEntryPO){
+    public int addGodownentry(@RequestBody MsleGoDownEntryPo goDownEntryPO){
         return reserveService.addGodownentry(goDownEntryPO);
     }
 
     @RequestMapping(value="/addoutbound",method = RequestMethod.POST)
     @ResponseBody
-    public int addOutbound(@RequestBody MsleOutBoundPO outBoundPO){
+    public int addOutbound(@RequestBody MsleOutBoundPo outBoundPO){
         return reserveService.addOutbound(outBoundPO);
     }
 
@@ -40,7 +40,7 @@ private IReserveService reserveService;
 
     @RequestMapping(value="/getReserveByClosurePoint",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleReservePO> getReserveByClosurePoint(String storehouseid){
+    public List<MsleReservePo> getReserveByClosurePoint(String storehouseid){
        return  reserveService.getReserveByClosurePoint(storehouseid);
     }
 
@@ -58,39 +58,39 @@ private IReserveService reserveService;
 
 //    @RequestMapping(value="/getGoDownEntryByStatus",method = RequestMethod.GET)
 //    @ResponseBody
-//    public List<MsleGoDownEntryPO> getGoDownEntryByStatus(String status){
+//    public List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status){
 //        return  reserveService.getGoDownEntryByStatus(status);
 //    }
 //
 //    @RequestMapping(value="/getOutBoundByStatus",method = RequestMethod.GET)
 //    @ResponseBody
-//    public List<MsleOutBoundPO> getOutBoundByStatus(String status){
+//    public List<MsleOutBoundPo> getOutBoundByStatus(String status){
 //
 //        return  reserveService.getOutBoundByStatus(status);
 //    }
 
     @RequestMapping(value="/getGoDownEntryById",method = RequestMethod.GET)
     @ResponseBody
-    public MsleGoDownEntryPO getGoDownEntryById(String id){
+    public MsleGoDownEntryPo getGoDownEntryById(String id){
         return  reserveService.getGoDownEntryById(id);
     }
 
     @RequestMapping(value="/getOutBoundById",method = RequestMethod.GET)
     @ResponseBody
-    public MsleOutBoundPO getOutBoundById(String id){
+    public MsleOutBoundPo getOutBoundById(String id){
 
         return  reserveService.getOutBoundById(id);
     }
 
     @RequestMapping(value="/getGoDownEntryByListId",method = RequestMethod.GET)
     @ResponseBody
-    public  List<MsleGoDownEntryPO> getGoDownEntryByListId(String godownentryGodownentryId){
+    public  List<MsleGoDownEntryPo> getGoDownEntryByListId(String godownentryGodownentryId){
         return  reserveService.getGoDownEntryByListId(godownentryGodownentryId);
     }
 
     @RequestMapping(value="/getOutBoundByListId",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleOutBoundPO> getOutBoundByListId(String outboundOutboundId){
+    public List<MsleOutBoundPo> getOutBoundByListId(String outboundOutboundId){
 
         return  reserveService.getOutBoundByListId(outboundOutboundId);
     }

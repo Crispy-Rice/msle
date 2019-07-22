@@ -3,7 +3,7 @@ package com.yuantu.po.depositorypo;
 /**
  * 库存po类
  */
-public class MsleReservePO {
+public class MsleReservePo {
   private String   reserveId;//库存id
   private String   reserveStorehouseId;//仓库id
   private String   reserveExpressNo;//快递编号
@@ -16,7 +16,7 @@ public class MsleReservePO {
   private String   reserveCheckStatus;//盘点状态
   private String   reserveStatus;//审核状态
 
-    public MsleReservePO(String reserveId, String reserveStorehouseId,
+    public MsleReservePo(String reserveId, String reserveStorehouseId,
                          String reserveExpressNo, String reserveEntryDate,
                          String reserveDestination, Integer reserveAreaNo,
                          Integer reserveLineNo, Integer reserveShelfNo,
@@ -35,7 +35,7 @@ public class MsleReservePO {
         this.reserveStatus = reserveStatus;
     }
 
-    public MsleReservePO() {
+    public MsleReservePo() {
     }
 
     public String getReserveId() {

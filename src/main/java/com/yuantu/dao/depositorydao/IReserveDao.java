@@ -1,8 +1,8 @@
 package com.yuantu.dao.depositorydao;
 
-import com.yuantu.po.depositorypo.MsleGoDownEntryPO;
-import com.yuantu.po.depositorypo.MsleOutBoundPO;
-import com.yuantu.po.depositorypo.MsleReservePO;
+import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
+import com.yuantu.po.depositorypo.MsleOutBoundPo;
+import com.yuantu.po.depositorypo.MsleReservePo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public interface IReserveDao {
             "#{godownentryGodownentryId},#{godownenrtyDestination},#{godownenrtyEntryDate}," +
             "#{godownentryAreaNo},#{godownentryLineNo},#{godownentryShelfNo}," +
             "#{godownentryPositionNo},#{godownentryStatus})")
-    boolean addGodownentry(MsleGoDownEntryPO goDownEntryPO);
+    boolean addGodownentry(MsleGoDownEntryPo goDownEntryPO);
 
     /**
      * 添加库存信息
@@ -31,7 +31,7 @@ public interface IReserveDao {
             "'${goDownEntryPO.godownentryAreaNo}','${goDownEntryPO.godownentryLineNo}'," +
             "'${goDownEntryPO.godownentryShelfNo}'," +
             "'${goDownEntryPO.godownentryPositionNo}','待盘点','草稿')")
-    boolean addReserve(@Param("goDownEntryPO") MsleGoDownEntryPO goDownEntryPO , @Param("id") String id);
+    boolean addReserve(@Param("goDownEntryPO") MsleGoDownEntryPo goDownEntryPO , @Param("id") String id);
 
     /**
      * 添加出库单
@@ -42,7 +42,7 @@ public interface IReserveDao {
             "#{outboundOutboundId},#{outboundExressNo},#{outboundDestination}," +
             "#{outboundOutdate},#{outboundAreaNo},#{outboundLineNo}," +
             "#{outboundShelfNo},#{outboundPositionNo},#{outboundStatus})")
-    boolean addOutBound(MsleOutBoundPO outBoundPO);
+    boolean addOutBound(MsleOutBoundPo outBoundPO);
 
     /**
      * 删除库存信息
@@ -61,7 +61,7 @@ public interface IReserveDao {
     @Select("select * from msle_reserve where  TO_SECONDS(reserve_entryDate) BETWEEN " +
             "TO_SECONDS('${begintime}') AND TO_SECONDS('${clourse}')" +
             " and reserve_storehouseId='${storehouseid}' ")
-    List<MsleReservePO> getReserveByClosurePoint(@Param("begintime") String beginTime,
+    List<MsleReservePo> getReserveByClosurePoint(@Param("begintime") String beginTime,
                                                  @Param("clourse") String clourse,
                                                  @Param("storehouseid") String storehousseid);
 
@@ -88,23 +88,23 @@ public interface IReserveDao {
 
 
     @Select("select * from msle_godownentry where godownentry_id='${godownentryId}'")
-    MsleGoDownEntryPO getGoDownEntryById(@Param("godownentryId") String godownentryId);
+    MsleGoDownEntryPo getGoDownEntryById(@Param("godownentryId") String godownentryId);
 
     @Select("select * from msle_godownentry where godownentry_godownentryid='${godownentryGodownentryId}'")
-    List<MsleGoDownEntryPO> getGoDownEntryByListId(@Param("godownentryGodownentryId") String godownentryGodownentryId);
+    List<MsleGoDownEntryPo> getGoDownEntryByListId(@Param("godownentryGodownentryId") String godownentryGodownentryId);
 
     @Select("select * from msle_outbound where outbound_id='${outboundId}'")
-    MsleOutBoundPO getOutBoundById(@Param("outboundId") String outboundId);
+    MsleOutBoundPo getOutBoundById(@Param("outboundId") String outboundId);
 
     @Select("select * from msle_outbound where outbound_outboundid='${outboundOutboundId}'")
-    List<MsleOutBoundPO> getOutBoundByListId(@Param("outboundOutboundId") String outboundOutboundId);
+    List<MsleOutBoundPo> getOutBoundByListId(@Param("outboundOutboundId") String outboundOutboundId);
 
 //    @Select("select * from msle_godownentry wheregodownentryStatus='${status}'")
-//    List<MsleGoDownEntryPO> getGoDownEntryByStatus(@Param("status") String status);
+//    List<MsleGoDownEntryPo> getGoDownEntryByStatus(@Param("status") String status);
 
 
 //    @Select("select * from msle_outbound where outbound_status='${status}'")
-//    List<MsleOutBoundPO> getOutBoundByStatus(@Param("status") String status);
+//    List<MsleOutBoundPo> getOutBoundByStatus(@Param("status") String status);
 //
 //    @Update("update msle_goDownEntry setgodownentryStatus='${status}'" +
 //            "where godownentry_id='${id}'")
