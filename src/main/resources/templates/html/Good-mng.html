@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- 接件管理 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../../static/css/layui.css" media="all">
+		<script src="../../static/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<table class="layui-hide" id="test" lay-filter="test"></table>
+<script type="text/html" id="toolbarDemo">
+			<div class="demoTable"  style="float:left;>
+		  搜索ID：
+		  <div class="layui-inline"">
+		    <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+		  </div>
+		  <button class="layui-btn" data-type="reload">搜索</button>
+		</div>
+		<div
+		 <button data-method="offset" data-type="auto" id="test2" class="layui-btn layui-btn-normal">
+			<i class="layui-icon layui-icon-add-circle-fine"></i>添加接件单</button>
+			</div>
+  </div>
+	
+</script>
+ 
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+		<script src="../../static/layui.js"></script>
+		<script>
+layui.use(['table','layer'], function(){
+  var table = layui.table;
+  var layer = layui.layer;
+  var $ = layui.jquery;
+   table.render({
+     elem: '#test'
+     ,url:'../json/good-mng.json'
+     ,toolbar: '#toolbarDemo'
+     ,title: '用户数据表'
+     ,cols: [[
+       {type: 'checkbox', fixed: 'left'}
+       ,{field:'loadinglist_id', title:'ID', width:0, fixed: 'left', unresize: true, sort: true,align:'center'}
+       ,{field:'username', title:'到达日期', align:'center', width:0, edit: 'text'}
+       ,{field:'email', title:'中转单编号', width:0,templet: function(res){
+         return '<em>'+ res.email +'</em>'
+       }}
+       ,{field:'sex', title:'出发地', width:0}
+       ,{field:'city', title:'状态', width:0}
+       ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:0}
+     ]]
+     ,page: true
+   });
+   
+  //监听行工具事件
+  table.on('tool(test)', function(obj){
+    var data = obj.data;
+    //console.log(obj)
+    if(obj.event === 'del'){
+      layer.confirm('确认删除吗？', function(index){
+        obj.del();
+        layer.close(index);
+      });
+    } else if(obj.event === 'edit'){
+      layer.prompt({
+        formType: 2
+        ,value: data.email
+      }, function(value, index){
+        obj.update({
+          email: value,
+					sex:value,
+        });
+        layer.close(index);
+      });
+    }
+  });
+   $.post('url', {}, function(str){
+  layer.open({
+    type: 1,
+    content: str //注意，如果str是object，那么需要字符拼接。
+  });
+});
+
+$('#test2').on('click', function(){
+    layer.open({
+      type: 2,
+      title: '添加接件单',
+      maxmin: true,
+      shadeClose: true, //点击遮罩关闭层
+      area : ['800px' , '500px'],
+      content: 'Good-add.html'
+    });
+  });
+});
+  </script>
+	</body>
+</html>
