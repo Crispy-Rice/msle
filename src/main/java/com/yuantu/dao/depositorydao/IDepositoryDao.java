@@ -1,6 +1,6 @@
 package com.yuantu.dao.depositorydao;
 
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface IDepositoryDao {
     @Select("select * from msle_storehouse where storehouse_id='${storehouseId}'")
-    List<MsleStorehousePO> getAreasById(@Param("storehouseId") String storehouseId);
+    List<MsleStorehousePo> getAreasById(@Param("storehouseId") String storehouseId);
 
     @Select("select * from msle_storehouse where storehouse_id='${storehouseId}' " +
             "and storehouse_areaid='${storehouseAreaId}'")
-    MsleStorehousePO getAlertLineById(@Param("storehouseId") String storehouseId,
+    MsleStorehousePo getAlertLineById(@Param("storehouseId") String storehouseId,
                                       @Param("storehouseAreaId") Integer storehouseAreaId);
 
     @Update("update msle_storehouse set storehouse_alertLine='${alertline}' where " +

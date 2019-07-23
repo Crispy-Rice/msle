@@ -1,9 +1,9 @@
 package com.yuantu.controller.accountcontroller;
 
 
-import com.yuantu.po.accountpo.MsleAccountPo;
-import com.yuantu.po.accountpo.MslePaymentPo;
-import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountPo.MsleaccountPo;
+import com.yuantu.po.accountPo.MslepaymentPo;
+import com.yuantu.po.accountPo.MsleReceiptPo;
 import com.yuantu.service.accountservice.IAccountService;
 import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,9 +54,9 @@ public class AccountController {
 
     }
 
-    @RequestMapping(value = "/updateReceiptStatUS", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateReceiptStatuS", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updateReceiptStatUS(String receiptStatus
+    public boolean updateReceiptStatuS(String receiptStatus
             , String receiptId) {//根据id查询收款单
         return accountService.updateReceiptStatuS(receiptStatus, receiptId);
 
@@ -138,8 +138,8 @@ public class AccountController {
 
     @RequestMapping(value = "/addAccount", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addAccount(@Valid  @RequestBody MsleAccountPo accountPO) {//增加账户
-        return accountService.addAccount(accountPO);
+    public boolean addAccount(@Valid  @RequestBody MsleaccountPo accountPo) {//增加账户
+        return accountService.addAccount(accountPo);
 
 
     }
@@ -162,7 +162,7 @@ public class AccountController {
 
     @RequestMapping(value = "/getAccountByName", method = RequestMethod.GET)
     @ResponseBody
-    public MsleAccountPo getAccountByName(String accountName) {//查询账户
+    public MsleaccountPo getAccountByName(String accountName) {//查询账户
         return accountService.getAccountByName(accountName);
 
 
@@ -170,8 +170,8 @@ public class AccountController {
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addPayment(@RequestBody MslePaymentPo paymentPO) {//新建付款单
-        return accountService.addPayment(paymentPO);
+    public boolean addPayment(@RequestBody MslepaymentPo paymentPo) {//新建付款单
+        return accountService.addPayment(paymentPo);
 
 
     }
@@ -186,15 +186,15 @@ public class AccountController {
 
     @RequestMapping(value = "/updatePayment", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updatePayment(@RequestBody MslePaymentPo paymentPO) {
-        return accountService.updatePayment(paymentPO);//更新付款单
+    public boolean updatePayment(@RequestBody MslepaymentPo paymentPo) {
+        return accountService.updatePayment(paymentPo);//更新付款单
 
 
     }
 
     @RequestMapping(value = "/getPaymentById", method = RequestMethod.GET)
     @ResponseBody
-    public MslePaymentPo getPaymentById(String id) {//根据id查询付款单
+    public MslepaymentPo getPaymentById(String id) {//根据id查询付款单
         return accountService.getPaymentById(id);
 
 
@@ -202,7 +202,7 @@ public class AccountController {
 
     @RequestMapping(value = "/getPaymentByBeginAndEndDay", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
+    public List<MslepaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
         return accountService.getPaymentByBeginAndEndDay(beginDay, endDay);
 
 
@@ -210,7 +210,7 @@ public class AccountController {
 
     @RequestMapping(value = "/selectPaymentByType", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> selectPaymentByType(String type) {
+    public List<MslepaymentPo> selectPaymentByType(String type) {
         return accountService.selectPaymentByType(type);
 
 
@@ -218,7 +218,7 @@ public class AccountController {
 
     @RequestMapping(value = "/selectPayments", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> selectPayments() {
+    public List<MslepaymentPo> selectPayments() {
         return accountService.selectPayments();
 
 
@@ -226,7 +226,7 @@ public class AccountController {
 
     @RequestMapping(value = "/getAccountById", method = RequestMethod.GET)
     @ResponseBody
-    public MsleAccountPo getAccountById(String id) {
+    public MsleaccountPo getAccountById(String id) {
         return accountService.getAccountById(id);
 
 
@@ -234,7 +234,7 @@ public class AccountController {
 
     @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleAccountPo> getAccount() {
+    public List<MsleaccountPo> getAccount() {
         return accountService.getAccount();
 
 

@@ -2,9 +2,9 @@ package com.yuantu.service.accountservice.impl;
 
 import com.yuantu.constant.ListStatus;
 import com.yuantu.dao.accountdao.IAccountDao;
-import com.yuantu.po.accountpo.MsleAccountPo;
-import com.yuantu.po.accountpo.MslePaymentPo;
-import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountPo.MsleaccountPo;
+import com.yuantu.po.accountPo.MslepaymentPo;
+import com.yuantu.po.accountPo.MsleReceiptPo;
 import com.yuantu.service.accountservice.IAccountService;
 import com.yuantu.util.UUID;
 import org.springframework.stereotype.Service;
@@ -36,9 +36,9 @@ public class AccountServiceImpl implements IAccountService {
     public boolean updateReceiptStatuS(String receiptStatus, String receiptId) {
         accountDao.updateReceiptStatuS(receiptStatus, receiptId);
         if(receiptStatus.equals(ListStatus.SUCCESS)){
-            MsleReceiptPo myReceipPO=accountDao.getReceiptById(receiptId);
-            double receiptMoney=myReceipPO.getReceiptCollections();
-            String accountName=myReceipPO.getReceiptAccountName();
+            MsleReceiptPo myReceipPo=accountDao.getReceiptById(receiptId);
+            double receiptMoney=myReceipPo.getReceiptCollections();
+            String accountName=myReceipPo.getReceiptAccountName();
             double accountSurplus=accountDao.getAccountByName(accountName).getAccountSurplus();
             double newaccountSurplus=accountSurplus+receiptMoney;
             return accountDao.updateAccount(accountName,newaccountSurplus);
@@ -80,10 +80,10 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean addAccount(MsleAccountPo accountPO) {
+    public boolean addAccount(MsleaccountPo accountPo) {
 
-        accountPO.setAccountId(UUID.createID());
-        return accountDao.addAccount(accountPO);
+        accountPo.setAccountId(UUID.createID());
+        return accountDao.addAccount(accountPo);
     }
 
     @Override
@@ -97,14 +97,14 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public MsleAccountPo getAccountByName(String accountName) {
+    public MsleaccountPo getAccountByName(String accountName) {
         return accountDao.getAccountByName(accountName);
     }
 
     @Override
-    public boolean addPayment(MslePaymentPo paymentPO)
-    {   paymentPO.setPaymentId(UUID.createID());
-        return accountDao.addPayment(paymentPO);
+    public boolean addPayment(MslepaymentPo paymentPo)
+    {   paymentPo.setPaymentId(UUID.createID());
+        return accountDao.addPayment(paymentPo);
     }
 
     @Override
@@ -116,9 +116,9 @@ public class AccountServiceImpl implements IAccountService {
     public boolean updatePaymentStatus(String paymentStatus, String paymentId) {
         accountDao.updatePaymentStatus(paymentStatus, paymentId);
         if(paymentStatus.equals(ListStatus.SUCCESS)){
-            MslePaymentPo myPaymentPO=accountDao.getPaymentById(paymentId);
-            double payMoney=myPaymentPO.getPaymentAmount();
-            String accountName=myPaymentPO.getPaymentAccount();
+            MslepaymentPo mypaymentPo=accountDao.getPaymentById(paymentId);
+            double payMoney=mypaymentPo.getPaymentAmount();
+            String accountName=mypaymentPo.getPaymentAccount();
             double accountSurplus=accountDao.getAccountByName(accountName).getAccountSurplus();
             double newAccountSurplus=accountSurplus-payMoney;
             return accountDao.updateAccount(accountName,newAccountSurplus);
@@ -135,37 +135,37 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean updatePayment(MslePaymentPo paymentPO) {
-        return accountDao.updatePayment(paymentPO);
+    public boolean updatePayment(MslepaymentPo paymentPo) {
+        return accountDao.updatePayment(paymentPo);
     }
 
     @Override
-    public MslePaymentPo getPaymentById(String id) {
+    public MslepaymentPo getPaymentById(String id) {
         return accountDao.getPaymentById(id);
     }
 
     @Override
-    public List<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
+    public List<MslepaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
         return accountDao.getPaymentByBeginAndEndDay(beginDay, endDay);
     }
 
     @Override
-    public List<MslePaymentPo> selectPaymentByType(String type) {
+    public List<MslepaymentPo> selectPaymentByType(String type) {
         return accountDao.selectPaymentByType(type);
     }
 
     @Override
-    public List<MslePaymentPo> selectPayments() {
+    public List<MslepaymentPo> selectPayments() {
         return accountDao.selectPayments();
     }
 
     @Override
-    public MsleAccountPo getAccountById(String id) {
+    public MsleaccountPo getAccountById(String id) {
         return accountDao.getAccountById(id);
     }
 
     @Override
-    public List<MsleAccountPo> getAccount() {
+    public List<MsleaccountPo> getAccount() {
         return accountDao.getAccount();
     }
 }

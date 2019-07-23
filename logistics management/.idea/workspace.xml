@@ -1,40 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4fed0d-4279-43a6-8eaf-fb4c56934077" name="Default" comment="" />
+    <list default="true" id="ea4fed0d-4279-43a6-8eaf-fb4c56934077" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/accountcontroller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/accountcontroller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/depositorycontroller/DepositoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/depositorycontroller/DepositoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/trancontroller/TranController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/controller/trancontroller/TranController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/ILogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/ILogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/accountdao/IAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/accountdao/IAccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/depositorydao/IDepositoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/depositorydao/IDepositoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/trandao/ITranDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/dao/trandao/ITranDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MsleAccountPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MsleAccountPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MslePaymentPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MslePaymentPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MsleReceiptPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/accountpo/MsleReceiptPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleReservePo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleReservePo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleStorehousePO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleStorehousePo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleStorehouseStatePO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/depositorypo/MsleStorehouseStatePo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleArrivalPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleArrivalPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleCarPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleCarPO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleCenterLoadPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleCenterLoadPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleDispatchPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleDispatchPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleDriverPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleDriverPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleLoadingListPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleLoadingListPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleReceivePO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleReceivePo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleTransferPO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/po/tranpo/MsleTransferPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/accountservice/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/accountservice/IAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/accountservice/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/accountservice/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/IDepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/IDepositoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/impl/DepositoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/impl/DepositoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/impl/ReserveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/depositoryservice/impl/ReserveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/logservice/LogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/logservice/LogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/transervice/ITranService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/transervice/ITranService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/transervice/impl/TranserviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/service/transervice/impl/TranserviceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/serviceinterface/loginterface/ILogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/serviceinterface/loginterface/ILogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/yuantu/util/AOPUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/com/yuantu/util/AOPUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/accountcontroller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/accountcontroller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/depositorycontroller/DepositoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/depositorycontroller/DepositoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/depositorycontroller/ReserveController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/depositorycontroller/ReserveController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/trancontroller/TranController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/controller/trancontroller/TranController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/ILogDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/ILogDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/accountdao/IAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/accountdao/IAccountDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/depositorydao/IDepositoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/depositorydao/IDepositoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/depositorydao/IReserveDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/depositorydao/IReserveDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/trandao/ITranDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/dao/trandao/ITranDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/Msle_LogPo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MsleAccountPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MsleAccountPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MslePaymentPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MslePaymentPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MsleReceiptPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/accountpo/MsleReceiptPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleGoDownEntryPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleGoDownEntryPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleOutBoundPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleOutBoundPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleReservePO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleReservePO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleStorehousePO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/depositorypo/MsleStorehousePO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/po/tranpo/MsleLoadingListPO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/po/tranpo/MsleLoadingListPO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/accountservice/IAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/accountservice/IAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/accountservice/impl/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/accountservice/impl/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/IDepositoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/IDepositoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/IReserveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/IReserveService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/impl/DepositoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/impl/DepositoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/impl/ReserveServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/depositoryservice/impl/ReserveServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/logservice/LogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/logservice/LogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/transervice/ITranService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/transervice/ITranService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/service/transervice/impl/TranserviceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/service/transervice/impl/TranserviceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/serviceinterface/loginterface/ILogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/com/yuantu/serviceinterface/loginterface/ILogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/com/yuantu/util/WebLogAspect.class" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SalesClerk.html" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/layui/SalesClerk.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="132">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Warehouse.html" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/layui/Warehouse.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="123">
-              <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
-              <folding />
+              <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -43,30 +107,15 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1340" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -87,13 +136,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -107,9 +155,6 @@
       </list>
     </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -121,58 +166,51 @@
       <option name="presentableId" value="Default" />
       <updated>1563796380956</updated>
       <workItem from="1563796383468" duration="521000" />
+      <workItem from="1563872476671" duration="383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="521000" />
+    <option name="totallyTimeSpent" value="904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962631" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/layui/SalesClerk.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="132">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/layui/Warehouse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
-          <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
-          <folding />
+          <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
         </state>
       </provider>
     </entry>

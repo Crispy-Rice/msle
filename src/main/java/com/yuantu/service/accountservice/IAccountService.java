@@ -1,8 +1,8 @@
 package com.yuantu.service.accountservice;
 
-import com.yuantu.po.accountpo.MsleAccountPo;
-import com.yuantu.po.accountpo.MslePaymentPo;
-import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountPo.MsleaccountPo;
+import com.yuantu.po.accountPo.MslepaymentPo;
+import com.yuantu.po.accountPo.MsleReceiptPo;
 
 
 import java.util.List;
@@ -37,7 +37,7 @@ public interface IAccountService {
 
     Double getTotalReceiptByBeginAndEndDay( String beginDay, String endDay);
 
-    boolean addAccount(MsleAccountPo accountPO);
+    boolean addAccount(MsleaccountPo accountPo);
 
 
     boolean updateAccount(String accountName,Double accountSurplus);
@@ -45,11 +45,11 @@ public interface IAccountService {
 
     boolean deleteAccountById(String id);
 
-    MsleAccountPo getAccountByName(String accountName);
+    MsleaccountPo getAccountByName(String accountName);
 
 
 
-    boolean addPayment(MslePaymentPo paymentPO);
+    boolean addPayment(MslepaymentPo paymentPo);
 
 
     boolean updatePaymentDeleteState(String paymentDeleteState,
@@ -63,26 +63,26 @@ public interface IAccountService {
     boolean deletePaymentById( String id);
 
 
-    boolean updatePayment(MslePaymentPo paymentPO);
+    boolean updatePayment(MslepaymentPo paymentPo);
 
 
-    MslePaymentPo getPaymentById(String id);
-
-
-
-    List<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay);
-
-
-    List<MslePaymentPo> selectPaymentByType(String type);
-
-
-    List<MslePaymentPo> selectPayments();
+    MslepaymentPo getPaymentById(String id);
 
 
 
-    MsleAccountPo getAccountById(String Id);
+    List<MslepaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay);
 
 
-    List<MsleAccountPo> getAccount();
+    List<MslepaymentPo> selectPaymentByType(String type);
+
+
+    List<MslepaymentPo> selectPayments();
+
+
+
+    MsleaccountPo getAccountById(String Id);
+
+
+    List<MsleaccountPo> getAccount();
 
 }

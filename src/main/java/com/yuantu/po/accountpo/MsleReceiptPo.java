@@ -1,4 +1,4 @@
-package com.yuantu.po.accountpo;
+package com.yuantu.po.accountPo;
 
 import lombok.Data;
 import lombok.ToString;

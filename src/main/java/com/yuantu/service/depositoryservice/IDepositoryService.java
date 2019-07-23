@@ -1,15 +1,15 @@
 package com.yuantu.service.depositoryservice;
 
 
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 
 import java.util.List;
 
 public interface IDepositoryService {
 
-    List<MsleStorehousePO> getAreasById(String id);
+    List<MsleStorehousePo> getAreasById(String id);
 
-    MsleStorehousePO getAlertLineById(String storehouseId, Integer areaId);
+    MsleStorehousePo getAlertLineById(String storehouseId, Integer areaId);
 
     int updateAlertLineById(String storehouseId,Integer areaId,double alertline);
 

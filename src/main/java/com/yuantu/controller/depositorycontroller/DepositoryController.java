@@ -1,6 +1,6 @@
 package com.yuantu.controller.depositorycontroller;
 
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 import com.yuantu.service.depositoryservice.IDepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ public class DepositoryController {
 private IDepositoryService depositoryService;
     @RequestMapping(value="/getAreasById", method = RequestMethod.GET)//通过id查找仓库区域
     @ResponseBody
-    public List<MsleStorehousePO>getAreasById(String id){
+    public List<MsleStorehousePo>getAreasById(String id){
        return depositoryService.getAreasById(id);
 
 
@@ -25,7 +25,7 @@ private IDepositoryService depositoryService;
     }
     @RequestMapping(value="/getAlertLineById", method = RequestMethod.GET)
     @ResponseBody
-    public MsleStorehousePO getAlertLineById(String storehouseid, Integer areaid){
+    public MsleStorehousePo getAlertLineById(String storehouseid, Integer areaid){
         return depositoryService.getAlertLineById(storehouseid,areaid);
 
 

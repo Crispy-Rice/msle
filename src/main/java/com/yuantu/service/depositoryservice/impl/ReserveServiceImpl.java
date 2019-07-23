@@ -5,7 +5,7 @@ import com.yuantu.dao.depositorydao.IReserveDao;
 import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
 import com.yuantu.po.depositorypo.MsleOutBoundPo;
 import com.yuantu.po.depositorypo.MsleReservePo;
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 import com.yuantu.service.depositoryservice.IReserveService;
 import com.yuantu.util.DateUtil;
 import com.yuantu.util.UUID;
@@ -111,7 +111,7 @@ public class ReserveServiceImpl implements IReserveService {
 
     @Override
     public String checkAlertline(String storehouseid,Integer areaid) {
-        MsleStorehousePO storehousePO=depositoryDao.getAlertLineById(storehouseid, areaid);
+        MsleStorehousePo storehousePO=depositoryDao.getAlertLineById(storehouseid, areaid);
         System.out.println(storehousePO.getStorehouseAlertLine());
         Double alertline=storehousePO.getStorehouseAlertLine();
         Integer    store=storehousePO.getStorehouseStore();

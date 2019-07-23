@@ -1,7 +1,7 @@
 package com.yuantu.service.depositoryservice.impl;
 
 import com.yuantu.dao.depositorydao.IDepositoryDao;
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 import com.yuantu.service.depositoryservice.IDepositoryService;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,12 @@ public class DepositoryServiceImpl implements IDepositoryService {
     private IDepositoryDao depositoryDao;
 
     @Override
-    public List<MsleStorehousePO> getAreasById(String id) {
+    public List<MsleStorehousePo> getAreasById(String id) {
         return depositoryDao.getAreasById(id);
     }
 
     @Override
-    public MsleStorehousePO getAlertLineById(String storehouseid, Integer areaid) {
+    public MsleStorehousePo getAlertLineById(String storehouseid, Integer areaid) {
         return depositoryDao.getAlertLineById(storehouseid, areaid);
     }
 
