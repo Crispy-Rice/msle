@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>寄件人</title>
 		<link rel="stylesheet" href="../css/layui.css">
-		
+
 		<script type="text/javascript">
 			//自定义日期格式
 			laydate.render({
@@ -18,10 +18,11 @@
 			<div class="layui-form-item pane">
 				<div class="layui-form-item">
 					<label class="layui-form-label">收款日期</label>
-					<div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
-					  <input type="text" class="layui-input" readonly id="test1" placeholder="请选择收款日期">
+					<div class="layui-inline">
+						<!-- 注意：这一层元素并不是必须的 -->
+						<input type="text" class="layui-input" readonly id="test1" placeholder="请选择收款日期">
 					</div>
-					</div>
+				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">收款金额</label>
 					<div class="layui-input-block">
@@ -33,21 +34,21 @@
 					<div class="layui-input-block">
 						<input type="text" name="title" required lay-verify="required" placeholder="请选择快递员" autocomplete="off" class="layui-input">
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">条形码</label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="请选择条形码" autocomplete="off" class="layui-input">
-						</div>
-						
-						<div class="layui-form-item">
-							<div class="layui-input-block" align="center">
-						<button class="layui-btn" lay-submit lay-filter="formDemo" href=""
-						>确认添加</button>
-								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-							</div>
-						</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">条形码</label>
+					<div class="layui-input-block">
+						<input type="text" name="title" required lay-verify="required" placeholder="请选择条形码" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-input-block" align="center">
+						<button class="layui-btn" lay-submit lay-filter="formDemo" href="">确认添加</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
 		</form>
-<script src="../layui.js"></script>
+		<script src="../layui.js"></script>
 		<script>
 			//Demo
 			layui.use('form', function() {
@@ -59,14 +60,14 @@
 					return false;
 				});
 			});
-			
-			layui.use('laydate', function(){
-			  var laydate = layui.laydate;
-			  
-			  //执行一个laydate实例
-			  laydate.render({
-			    elem: '#test1' //指定元素
-			  });
+
+			layui.use('laydate', function() {
+				var laydate = layui.laydate;
+
+				//执行一个laydate实例
+				laydate.render({
+					elem: '#test1' //指定元素
+				});
 			});
 		</script>
 	</body>

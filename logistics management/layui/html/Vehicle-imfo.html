@@ -19,7 +19,7 @@
 		</div>
 		
 		 <button data-method="offset" data-type="auto" id="test2" class="layui-btn layui-btn-normal">
-			<i class="layui-icon layui-icon-add-circle-fine"></i>添加派件单</button>
+			<i class="layui-icon layui-icon-add-circle-fine"></i>添加车辆</button>
 			
   </div>
 	
@@ -33,8 +33,6 @@
 		<script>
 			layui.use(['table', 'layer'], function() {
 				var table = layui.table;
-				var layer = layui.layer;
-				var $ = layui.jquery;
 				table.render({
 					elem: '#test',
 					url: 'http://192.168.2.220:8080/tran/queryAllCars?carHallId=1',
@@ -57,14 +55,26 @@
 							title: '车辆代号',
 							edit: 'text'
 						}, {
+							field:'carEngineNo',
+							align:'center',
+							title:'发动机号'
+						},{
+							field:'carBaseplateNo',
+							align:'center',
+							title:'底盘编号'
+						},{
 							field: 'carNo',
 							align: 'center',
 							title: '车牌号'
-						}, {
+						},{
+							field: 'carBuyTime',
+							align: 'center',
+							title: '购车时间'
+						},{
 							field: 'carAge',
 							title: '服役时间(年)',
 							align: 'center'
-						}, {
+						},{
 							fixed: 'right',
 							title: '操作',
 							toolbar: '#barDemo',

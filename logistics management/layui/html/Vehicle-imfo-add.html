@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>寄件人</title>
-        <script src="../jquery-3.3.1.min.js"></script>
+		<script src="../jquery-3.3.1.min.js"></script>
 		<link rel="stylesheet" href="../css/layui.css">
-        <script src="../layui.js"></script>
+		<script src="../layui.js"></script>
 		<script type="text/javascript">
 			//自定义日期格式
 			// laydate.render({
@@ -18,43 +18,45 @@
 		<form class="layui-form layui-form-pane" action="">
 			<div class="layui-form-item pane">
 				<div class="layui-form-item">
-					<label class="layui-form-label">汽运编号</label>
+					<label class="layui-form-label">车辆代号</label>
 					<div class="layui-input-block">
-						<input type="text" name="loadingListId" required lay-verify="required" placeholder="请输入汽运编号" autocomplete="off" class="layui-input">
+						<input type="text" name="loadingListId" required lay-verify="required" placeholder="请输入车辆代号" autocomplete="off"
+						 class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">目的地</label>
+					<label class="layui-form-label">车牌号</label>
 					<div class="layui-input-block">
-						<input type="text" name="loadingListDestination" required lay-verify="required" placeholder="请输入目的地" autocomplete="off" class="layui-input">
+						<input type="text" name="loadingListDestination" required lay-verify="required" placeholder="请输入车牌号" autocomplete="off"
+						 class="layui-input">
 					</div>
 				</div>
-<!--				<div class="layui-form-item">-->
-<!--					<label class="layui-form-label">监装员</label>-->
-<!--					<div class="layui-input-block">-->
-<!--						<input type="text" name="jianyun" required lay-verify="required" placeholder="请输入监装员姓名" autocomplete="off" class="layui-input">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="layui-form-item">-->
-<!--					<label class="layui-form-label">押运员111</label>-->
-<!--					<div class="layui-input-block">-->
-<!--						<input type="text" name="yayun" required lay-verify="required" placeholder="请输入押运员姓名" autocomplete="off" class="layui-input">-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="layui-form-item" style="padding:10px;">-->
-<!--					<label class="layui-form-label">条形码</label>-->
-<!--					<div class="layui-input-block">-->
-<!--						<input type="text" name="title" required lay-verify="required" placeholder="1234567889"  class="layui-input">-->
-<!--					</div>-->
-<!--				</div>-->
-			<div class="layui-form-item">
-				<div class="layui-input-block" align="center">
-			<button id="zhuangche" class="layui-btn" lay-submit lay-filter="formDemo" >确认添加</button>
-			<button type="reset" class="layui-btn layui-btn-primary">重置</button></div>
-			</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">服役时间/年</label>
+					<div class="layui-input-block">
+						<input type="text" name="jianyun" required lay-verify="required" placeholder="请输入服役时间" autocomplete="off" class="layui-input">
+					</div>
+					<!--				</div>-->
+					<!--				<div class="layui-form-item">-->
+					<!--					<label class="layui-form-label">押运员111</label>-->
+					<!--					<div class="layui-input-block">-->
+					<!--						<input type="text" name="yayun" required lay-verify="required" placeholder="请输入押运员姓名" autocomplete="off" class="layui-input">-->
+					<!--					</div>-->
+					<!--				</div>-->
+					<!--				<div class="layui-form-item" style="padding:10px;">-->
+					<!--					<label class="layui-form-label">条形码</label>-->
+					<!--					<div class="layui-input-block">-->
+					<!--						<input type="text" name="title" required lay-verify="required" placeholder="1234567889"  class="layui-input">-->
+					<!--					</div>-->
+					<!--				</div> -->
+					<div class="layui-form-item">
+						<div class="layui-input-block" align="center">
+							<button id="zhuangche" class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button></div>
+					</div>
 
-            </div>
-        </form>
+				</div>
+		</form>
 		<script>
 			//Demo
 			layui.use('form', function() {
@@ -62,35 +64,39 @@
 				//监听提交
 				form.on('submit(formDemo)', function(data1) {
 					layer.msg(JSON.stringify(data1.field));
-                    $.ajax({
-                        type: "POST",
-                        url: "http://127.0.0.1:8080/tran/addLoadingList",
-                        data: JSON.stringify(data1.field),
-                        contentType: "application/json",
-                        dataType: 'json',
-                        success: function (data) {
-                            alert("success!");
-                        },
-                        error: function (ERR) {
-                            console.log(ERR);
-                            alert("error！！！！");
-                        }
-                    })
+					$.ajax({
+						type: "POST",
+						url: "http://127.0.0.1:8080/tran/addLoadingList",
+						data: JSON.stringify(data1.field),
+						contentType: "application/json",
+						dataType: 'json',
+						success: function(data) {
+							alert("success!");
+						},
+						error: function(ERR) {
+							console.log(ERR);
+							alert("error！！！！");
+						}
+					})
 					return false;
 				});
 			});
-			layui.use('laydate', function(){
-			  var laydate = layui.laydate;})
+			layui.use('laydate', function() {
+				var laydate = layui.laydate;
+			})
 		</script>
 
-        <script>
-            $(document).ready(function () {
-                $("#zhuangche").click(function () {
-                    alert("asdasdas");
-                    var data1 = {loadingListId: $("#id").val(), loadingListDestination: $("#destination").val()}
+		<script>
+			$(document).ready(function() {
+				$("#zhuangche").click(function() {
+					alert("asdasdas");
+					var data1 = {
+						loadingListId: $("#id").val(),
+						loadingListDestination: $("#destination").val()
+					}
 
-                })
-            })
-        </script>
+				})
+			})
+		</script>
 	</body>
 </html>

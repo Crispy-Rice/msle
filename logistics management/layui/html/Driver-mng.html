@@ -18,7 +18,7 @@
     <button class="layui-btn" data-type="reload">搜索</button>
     </div>
     <button data-method="offset" data-type="auto" id="test2" class="layui-btn layui-btn-normal">
-        <i class="layui-icon layui-icon-add-circle-fine"></i>添加接收单
+        <i class="layui-icon layui-icon-add-circle-fine"></i>添加司机
     </button>
     </div>
 </script>
@@ -45,7 +45,7 @@
 						}, {
 							field: 'driverId',
 							align: 'center',
-							title: '司机ID',
+							title: '司机编号',
 							fixed: 'left',
 							unresize: true,
 							sort: true
@@ -109,7 +109,7 @@
 				$.post('url', {}, function(str) {
 					layer.open({
 						type: 1,
-						content: str //注意，如果str是object，那么需要字符拼接。
+						content: str 
 					});
 				});
 
