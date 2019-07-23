@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @ClassName MsleCarPO
+ * @ClassName MslecarPo
  * @Description //汽车类po
  * @Author  yukun
  * @Date  2019/7/23
@@ -12,7 +12,7 @@ import lombok.ToString;
  **/
 @Data
 @ToString
-public class MsleCarPO {
+public class MsleCarPo {
     /**
      * 车辆id
      */

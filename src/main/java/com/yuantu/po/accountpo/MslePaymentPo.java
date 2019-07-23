@@ -1,11 +1,11 @@
-package com.yuantu.po.accountPo;
+package com.yuantu.po.accountpo;
 
 import lombok.Data;
 import lombok.ToString;
 
 
 /**
- * @ClassName MslepaymentPo
+ * @ClassName MslePaymentPo
  * @Description //付款单po类
  * @Author  yukun
  * @Date 19:02 2019/7/22
@@ -13,7 +13,7 @@ import lombok.ToString;
  **/
 @Data
 @ToString
-public class MslepaymentPo {
+public class MslePaymentPo {
     /**付款单ID
      *
      */

@@ -1,18 +1,24 @@
 package com.yuantu.serviceinterface.constantinterface;
 
-import com.yuantu.po.Msle_ConstantPo;
-import com.yuantu.po.Msle_LogisticsPo;
-
+import com.yuantu.po.MsleConstantPo;
+import com.yuantu.po.MsleLogisticsPo;
 import java.util.List;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *常量管理接口
+ *
+ */
 public interface IConstantService {
-    public Boolean updateConstant(Msle_ConstantPo msle_constantPo);
+    Integer updateConstant(MsleConstantPo msleConstantPo);
 
-    public Boolean insertConstant(Msle_ConstantPo msle_constantPo);
+    Integer insertConstant(MsleConstantPo msleConstantPo);
 
-    public Msle_ConstantPo getConstant(Msle_ConstantPo msle_constantPo);
+    MsleConstantPo getConstant(MsleConstantPo msleConstantPo);
 
-//    public List<Msle_LogisticsPo> getLogisticsInformation(Msle_ConstantPo msle_constantPo);
+    List<MsleLogisticsPo> getLogisticsByCity(MsleConstantPo msleConstantPo);
 
-    List<Msle_LogisticsPo> getLogisticsByCity(Msle_ConstantPo msle_constantPo);
+    List<MsleConstantPo> getAllConstants();
 }

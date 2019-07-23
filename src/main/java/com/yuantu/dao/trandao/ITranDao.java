@@ -12,13 +12,13 @@ public interface ITranDao {
             "#{loadingListLoadDate},#{loadingListHallNo},#{loadingListTranNo},#{loadingListDestination}," +
             "#{loadingListCarno},#{loadingListSupervisor},#{loadingListSupercargo}," +
             "#{loadingListOrderId},#{loadingListFee},#{loadingListStatus})")
-    boolean addLoadingList(MsleLoadingListPo loadingListPO);
+    boolean addLoadingList(MsleLoadingListPo loadingListPo);
 
     @Select("select * from msle_loadinglist where loadingList_id='${loadingListId}'")
     MsleLoadingListPo getLoadingListById(@Param("loadingListId") String loadingListId);
 
 //    @Select("select * from msle_loadinglist where loadinglistStatus='${status}'")
-//    List<MsleLoadingListPo> getLoadingListByStatus(@Param("status") String status);
+//    List<MsleloadingListPo> getLoadingListByStatus(@Param("status") String status);
 
     @Select("select * from msle_loadinglist where loadingList_hallno='${loadlingListHallNo}'")
     List<MsleLoadingListPo> getLoadingListByHallId(@Param("loadlingListHallNo") String loadlingListHallNo);
@@ -37,7 +37,7 @@ public interface ITranDao {
     @Insert("insert into msle_receive values(#{receiveId},#{receiveCenterId}," +
             "#{receiveArriveDate},#{receiveTransferId},#{receiveDepature}," +
             "#{receiveArrivateState},#{receiveState})")
-    boolean addReceive(MsleReceivePo receivePO);
+    boolean addReceive(MsleReceivePo receivePo);
 
     @Select("select * from msle_receive where receive_id='${id}'")
     MsleReceivePo getReceiveById(@Param("id") String id);
@@ -47,7 +47,7 @@ public interface ITranDao {
 
 
 //    @Select("select * from msle_receive where receive_status='${status}'")
-//    List<MsleReceivePo> getReceiveByStatus(@Param("status") String status);
+//    List<MslereceivePo> getReceiveByStatus(@Param("status") String status);
 //
 //    @Update("update msle_receive set receive_status='${status}'" +
 //            "where receive_id='${id}'")
@@ -61,7 +61,7 @@ public interface ITranDao {
     @Insert("insert into msle_dispatch values(#{dispatchId},#{dispatchHallId}," +
             "#{dispatchDispatchId},#{dispatchArriveDate},#{dispatchOrderNo}," +
             "#{dispatchPostman},#{dispatchStatus})")
-    boolean addDisptach(MsleDispatchPo dispatchPO);
+    boolean addDisptach(MsleDispatchPo dispatchPo);
 
     @Select("select * from msle_dispatch where dispatch_id='${id}'")
     MsleDispatchPo getDisptachById(@Param("id") String id);
@@ -72,7 +72,7 @@ public interface ITranDao {
     @Select("select * from msle_dispatch where dispatch_hallid='${dispatchHallId}'")
     List<MsleDispatchPo> getDisptachByHallId(@Param("dispatchHallId") String dispatchHallId);
 //    @Select("select * from msle_dispatch where receive_dispatch='${status}'")
-//    List<MsleDispatchPo> getDisptachByStatus(@Param("status") String status);
+//    List<MsledispatchPo> getDisptachByStatus(@Param("status") String status);
 
 //    @Update("update msle_dispatch set dispatch_status='${status}'" +
 //            "where dispatch_id='${id}'")
@@ -84,7 +84,7 @@ public interface ITranDao {
     @Insert("insert into msle_car values(#{carId},#{carCarNo}," +
             "#{carNo},#{carBuyTime},#{carEngineNo}," +
             "#{carBaseplateNo},#{carAge},#{carImage},#{carHallId},#{carState})")
-    boolean addCar(MsleCarPO carPO);
+    boolean addCar(MsleCarPo carPo);
 
     @Delete("delete from msle_car where car_id='${id}'")
     boolean deleteCar(@Param("id") String id);
@@ -94,13 +94,13 @@ public interface ITranDao {
             "car_baseplateNo=#{carBaseplateNo},car_age=#{carAge}," +
             "car_image=#{carImage},car_hallId=#{carHallId},car_statUS=#{carStatus}" +
             "where car_id=#{carId}")
-    boolean updateCar(MsleCarPO carPO);
+    boolean updateCar(MsleCarPo carPo);
 
     @Select("select * from msle_car where car_hallid='${carHallId}'")
-    List<MsleCarPO> queryAllCars(@Param("carHallId") String carHallId);
+    List<MsleCarPo> queryAllCars(@Param("carHallId") String carHallId);
 
     @Select("select * from msle_car where car_id='${id}'")
-    MsleCarPO queryCarById(@Param("id") String id);
+    MsleCarPo queryCarById(@Param("id") String id);
 
 
 
@@ -108,7 +108,7 @@ public interface ITranDao {
     @Insert("insert into msle_arrival values(#{arrivalId},#{arrivalArriveDate}," +
             "#{arrivalTransferId},#{arrivalDeparture},#{arrivalState}," +
             "#{arrivalStatus},#{arrivalHallId})")
-    boolean addArrival (MsleArrivalPo arrivalPO);
+    boolean addArrival (MsleArrivalPo arrivalPo);
 
     @Select("select * from msle_arrival where arrival_id='${id}'")
     MsleArrivalPo getArrivalById(@Param("id") String id);
@@ -117,7 +117,7 @@ public interface ITranDao {
     List<MsleArrivalPo> getArrivalByHallId(@Param("id") String id);
 
 //    @Select("select * from msle_arrival where arrivalStatus='${status}'")
-//    List<MsleArrivalPo> getArrivalByStatus(@Param("status") String status);
+//    List<MslearrivalPo> getArrivalByStatus(@Param("status") String status);
 
 //    @Update("update msle_arrival set arrival_status='${status}'" +
 //            "where arrival_id='${id}'")
@@ -129,7 +129,7 @@ public interface ITranDao {
             "#{centerLoadLoadId},#{centerLoadDate},#{centerLoadTranno}," +
             "#{centerLoadDsetination},#{centerLoadCarNo},#{centerLoadSupervisor}," +
             "#{centerLoadSupercargo},#{centerLoadOrder},#{centerLoadFee},#{centerLoadStatus})")
-    boolean addCenterLoad(MsleCenterLoadPo centerLoadPO);
+    boolean addCenterLoad(MsleCenterLoadPo centerLoadPo);
 
 
 
@@ -140,7 +140,7 @@ public interface ITranDao {
     List<MsleCenterLoadPo> getCenterLoadByCenterId(@Param("id") String id);
 
 //    @Select("select * from msle_centerload where centerload_status='${status}'")
-//    List<MsleCenterLoadPo> getCenterLoadByStatus(@Param("status") String status);
+//    List<MslecenterLoadPo> getCenterLoadByStatus(@Param("status") String status);
 
 //    @Update("update msle_centerload set centerload_status='${status}'" +
 //            "where centerload_id='${id}'")
@@ -154,7 +154,7 @@ public interface ITranDao {
             "#{transferShipmentNo},#{transferDeparture},#{transferDestination}," +
             "#{transferContainerNo},#{transferSupervisor},#{transferOrderId}," +
             "#{transferFee},#{transferStatus})")
-    boolean addTransfer(MsleTransferPo transferPO);
+    boolean addTransfer(MsleTransferPo transferPo);
 
     @Select("select * from msle_transfer where transfer_id='${id}'")
     MsleTransferPo getTransferById(@Param("id") String id);
@@ -166,7 +166,7 @@ public interface ITranDao {
     List<MsleTransferPo> getTransferByCenterId(@Param("id") String id);
 
 //    @Select("select * from msle_transfer where transfer_status='${status}'")
-//    List<MsleTransferPo> getTransferByStatus(@Param("status") String status);
+//    List<MsletransferPo> getTransferByStatus(@Param("status") String status);
 //
 //    @Update("update msle_transfer set transfer_status='${status}'" +
 //            "where transfer_id='${id}'")
@@ -174,21 +174,21 @@ public interface ITranDao {
 
 
     @Insert("insert into msle_driver values(#{driverId},#{driverNo}," +
-            "#{driverName},#{driverBirthdate},#{driverIDNum}," +
+            "#{driverName},#{driverBirthdate},#{driverIdNum}," +
             "#{driverPhone},#{driverCarUnit},#{driverSex},#{driverDue},#{driverHallId}," +
             "#{driverStatus})")
-    boolean addDriver(MsleDriverPo driverPO);
+    boolean addDriver(MsleDriverPo driverPo);
 
     @Delete("delete from msle_driver where driver_id='${driverId}'")
     boolean deleteDriver(@Param("driverId") String driverId);
 
     @Update("update msle_driver set driver_no=#{driverNo},driver_name=#{driverName}," +
-            "driver_birthdate=#{driverBirthdate},driver_idnum=#{driverIDNum}," +
+            "driver_birthdate=#{driverBirthdate},driver_idnum=#{driverIdNum}," +
             "driver_phone=#{driverPhone}," +
             "driver_carUnit=#{driverCarUnit},driver_sex=#{driverSex}," +
             "driver_due=#{driverDue},driver_hallId=#{driverHallId},driver_status=#{driverStatus}" +
             "where driver_id=#{driverId}")
-    boolean updateDriver(MsleDriverPo driverPO);
+    boolean updateDriver(MsleDriverPo driverPo);
 
     @Select("select * from msle_driver where driver_hallId='${driverHallId}'  ")
     List<MsleDriverPo> queryAllDrivers(@Param("driverHallId") String driverHallId);

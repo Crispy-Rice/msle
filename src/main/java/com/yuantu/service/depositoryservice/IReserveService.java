@@ -8,9 +8,9 @@ import com.yuantu.po.depositorypo.MsleReservePo;
 import java.util.List;
 
 public interface IReserveService {
-    int  addGodownentry(MsleGoDownEntryPo goDownEntryPO);
+    int  addGodownentry(MsleGoDownEntryPo goDownEntryPo);
 
-    int  addOutbound(MsleOutBoundPo outBoundPO);
+    int  addOutbound(MsleOutBoundPo outBoundPo);
 
     String getClosure();
 
@@ -29,7 +29,7 @@ public interface IReserveService {
     List<MsleOutBoundPo> getOutBoundByListId(String outboundOutboundId);
 
 
-//    List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status);
+//    List<MslegoDownEntryPo> getGoDownEntryByStatus(String status);
 //
 //    List<MsleOutBoundPo> getOutBoundByStatus( String status);
 //    boolean updateGoDownEntryStatus(Integer id,String status);

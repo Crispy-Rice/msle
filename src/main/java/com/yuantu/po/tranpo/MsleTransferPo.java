@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @ClassName MsleTransferPo
+ * @ClassName MsletransferPo
  * @Description //中转单PO类
  * @Author  yukun
  * @Date  2019/7/23

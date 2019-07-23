@@ -1,8 +1,9 @@
 package com.yuantu.dao.accountdao;
 
-import com.yuantu.po.accountPo.MsleaccountPo;
-import com.yuantu.po.accountPo.MslepaymentPo;
-import com.yuantu.po.accountPo.MsleReceiptPo;
+
+import com.yuantu.po.accountpo.MslePaymentPo;
+import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountpo.MsleAccountPo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -21,20 +22,20 @@ public interface IAccountDao {
             , @Param("receiptId") String receiptId);
 
     @Update("update msle_receipt set receipt_status='${receiptStatus}' where receipt_id='${receiptId}'")
-    boolean updateReceiptStatuS(@Param("receiptStatus") String receiptStatus
+    boolean updateReceiptStatus(@Param("receiptStatus") String receiptStatus
             , @Param("receiptId") String receiptId);
 
     @Select("select * from msle_receipt where receipt_id='${id}'")
-    MsleReceiptPo getReceiptById(@Param("id") String ID);
+    MsleReceiptPo getReceiptById(@Param("id") String id);
 
     @Select("select * from msle_receipt")
     List<MsleReceiptPo> getReceipt();
 
     @Select("select * from msle_receipt where receipt_hall='${hallname}'")
-    List<MsleReceiptPo> getReceiptByHallName(@Param("hallname") String hallname);
+    List<MsleReceiptPo> getReceiptByHallName(@Param("hallname") String hallName);
 
     @Select("select sum(receipt_collections) from msle_receipt where receipt_hall='${hallname}'")
-    Double getTotalReceiptByHallName(@Param("hallname") String hallname);
+    Double getTotalReceiptByHallName(@Param("hallname") String hallName);
 
     @Select("select * from msle_receipt where  TO_SECONDS(receipt_date) BETWEEN " +
             "TO_SECONDS('${beginDay}') AND TO_SECONDS('${endDay}')")
@@ -48,7 +49,7 @@ public interface IAccountDao {
 
     @Insert("insert into msle_account values(#{accountId},#{accountName}," +
             "#{accountSurplus})")
-    boolean addAccount(MsleaccountPo accountPo);
+    boolean addAccount(MsleAccountPo accountPo);
 
     @Update("update msle_account set account_surplus='${accountSurplus}' " +
             "where account_name='${accountName}'")
@@ -59,12 +60,12 @@ public interface IAccountDao {
     boolean deleteAccountById(@Param("id") String id);
 
     @Select("select * from msle_account where account_name='${accountName}'")
-    MsleaccountPo getAccountByName(@Param("accountName") String accountName);
+    MsleAccountPo getAccountByName(@Param("accountName") String accountName);
 
     @Insert("insert into msle_payment values(#{paymentId},#{paymentDate}," +
             "#{paymentAmount},#{paymentPayer},#{paymentAccount}," +
             "#{paymentType},#{paymentRemark},#{paymentStatus},#{paymentDeleteState})")
-    boolean addPayment(MslepaymentPo paymentPo);
+    boolean addPayment(MslePaymentPo paymentPo);
 
     @Delete("delete from msle_payment where payment_id='${id}'")
     boolean deletePaymentById(@Param("id") String id);
@@ -74,7 +75,7 @@ public interface IAccountDao {
             "payment_account=#{paymentAccount},payment_type=#{paymentType}," +
             "payment_remark=#{paymentRemark},payment_status=#{paymentStatus} " +
             "where payment_id=#{paymentId}")
-    boolean updatePayment(MslepaymentPo paymentPo);
+    boolean updatePayment(MslePaymentPo paymentPo);
 
     @Update("update msle_payment set payment_deleteState='${paymentDeleteState}' where payment_id='${paymentId}'")
     boolean updatePaymentDeleteState(@Param("paymentDeleteState") String paymentDeleteState,
@@ -85,26 +86,26 @@ public interface IAccountDao {
                                      @Param("paymentId") String paymentId);
 
     @Select("select * from msle_payment where payment_id='${id}'")
-    MslepaymentPo getPaymentById(@Param("id") String id);
+    MslePaymentPo getPaymentById(@Param("id") String id);
 
 
     @Select("select * from msle_payment where  TO_SECONDS(payment_date) BETWEEN " +
             "TO_SECONDS('${beginDay}') AND TO_SECONDS('${endDay}')")
-    List<MslepaymentPo> getPaymentByBeginAndEndDay(@Param("beginDay") String beginDay,
+    List<MslePaymentPo> getPaymentByBeginAndEndDay(@Param("beginDay") String beginDay,
                                                    @Param("endDay") String endDay);
 
     @Select("select * from msle_payment where payment_type='${type}'")
-    List<MslepaymentPo> selectPaymentByType(@Param("type") String type);
+    List<MslePaymentPo> selectPaymentByType(@Param("type") String type);
 
     @Select("select * from msle_payment")
-    List<MslepaymentPo> selectPayments();
+    List<MslePaymentPo> selectPayments();
 
 
     @Select("select * from msle_account where account_id='${id}'")
-    MsleaccountPo getAccountById(@Param("id") String ID);
+    MsleAccountPo getAccountById(@Param("id") String id);
 
     @Select("select * from msle_account")
-    List<MsleaccountPo> getAccount();
+    List<MsleAccountPo> getAccount();
 
 
 }

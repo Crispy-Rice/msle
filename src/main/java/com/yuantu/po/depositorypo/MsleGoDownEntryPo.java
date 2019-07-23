@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @ClassName MsleGoDownEntryPo
+ * @ClassName MslegoDownEntryPo
  * @Description //入库单PO类
  * @Author  yukun
  * @Date 19:16 2019/7/22
@@ -61,7 +61,7 @@ public class MsleGoDownEntryPo {
     /**
      * 位号
      */
-    private Integer godownentryPositionNo;
+    private Integer goDownEntryPositionNo;
 
     /**
      * 审核状态

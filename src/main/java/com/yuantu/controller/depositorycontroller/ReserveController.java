@@ -22,14 +22,14 @@ public class ReserveController {
 private IReserveService reserveService;
     @RequestMapping(value="/addgodownentry",method = RequestMethod.POST)
     @ResponseBody
-    public int addGodownentry(@RequestBody MsleGoDownEntryPo goDownEntryPO){
-        return reserveService.addGodownentry(goDownEntryPO);
+    public int addGodownentry(@RequestBody MsleGoDownEntryPo goDownEntryPo){
+        return reserveService.addGodownentry(goDownEntryPo);
     }
 
     @RequestMapping(value="/addoutbound",method = RequestMethod.POST)
     @ResponseBody
-    public int addOutbound(@RequestBody MsleOutBoundPo outBoundPO){
-        return reserveService.addOutbound(outBoundPO);
+    public int addOutbound(@RequestBody MsleOutBoundPo outBoundPo){
+        return reserveService.addOutbound(outBoundPo);
     }
 
     @RequestMapping(value="/getClosurePoint",method = RequestMethod.GET)
@@ -58,7 +58,7 @@ private IReserveService reserveService;
 
 //    @RequestMapping(value="/getGoDownEntryByStatus",method = RequestMethod.GET)
 //    @ResponseBody
-//    public List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status){
+//    public List<MslegoDownEntryPo> getGoDownEntryByStatus(String status){
 //        return  reserveService.getGoDownEntryByStatus(status);
 //    }
 //

@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @ClassName MsleDispatchPo
+ * @ClassName MsledispatchPo
  * @Description //TODO
  * @Author  yukun
  * @Date  2019/7/23

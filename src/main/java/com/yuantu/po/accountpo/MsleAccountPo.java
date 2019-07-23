@@ -1,4 +1,4 @@
-package com.yuantu.po.accountPo;
+package com.yuantu.po.accountpo;
 
 import lombok.Data;
 import lombok.ToString;
@@ -12,13 +12,13 @@ import javax.validation.constraints.Size;
 @Data
 @ToString
 /**
- * @ClassName MsleaccountPo
+ * @ClassName MsleAccountPo
  * @Description //账户po类
  * @Author  yukun
  * @Date 19:00 2019/7/22
  * @Version  1.0
  **/
-public class MsleaccountPo {
+public class MsleAccountPo {
     @Size(min=12,max=12,message = "id长度错误")
     /**账户id
      *

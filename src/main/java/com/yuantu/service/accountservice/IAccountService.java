@@ -1,8 +1,9 @@
 package com.yuantu.service.accountservice;
 
-import com.yuantu.po.accountPo.MsleaccountPo;
-import com.yuantu.po.accountPo.MslepaymentPo;
-import com.yuantu.po.accountPo.MsleReceiptPo;
+
+import com.yuantu.po.accountpo.MslePaymentPo;
+import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountpo.MsleAccountPo;
 
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface IAccountService {
     boolean updateReceiptDeleteState(String receiptDeleteState
             , String receiptId);
 
-    boolean updateReceiptStatuS(String receiptStatus
+    boolean updateReceiptStatus(String receiptStatus
             , String receiptId);
 
 
@@ -37,7 +38,7 @@ public interface IAccountService {
 
     Double getTotalReceiptByBeginAndEndDay( String beginDay, String endDay);
 
-    boolean addAccount(MsleaccountPo accountPo);
+    boolean addAccount(MsleAccountPo accountPo);
 
 
     boolean updateAccount(String accountName,Double accountSurplus);
@@ -45,11 +46,11 @@ public interface IAccountService {
 
     boolean deleteAccountById(String id);
 
-    MsleaccountPo getAccountByName(String accountName);
+    MsleAccountPo getAccountByName(String accountName);
 
 
 
-    boolean addPayment(MslepaymentPo paymentPo);
+    boolean addPayment(MslePaymentPo paymentPo);
 
 
     boolean updatePaymentDeleteState(String paymentDeleteState,
@@ -63,26 +64,26 @@ public interface IAccountService {
     boolean deletePaymentById( String id);
 
 
-    boolean updatePayment(MslepaymentPo paymentPo);
+    boolean updatePayment(MslePaymentPo paymentPo);
 
 
-    MslepaymentPo getPaymentById(String id);
-
-
-
-    List<MslepaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay);
-
-
-    List<MslepaymentPo> selectPaymentByType(String type);
-
-
-    List<MslepaymentPo> selectPayments();
+    MslePaymentPo getPaymentById(String id);
 
 
 
-    MsleaccountPo getAccountById(String Id);
+    List<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay);
 
 
-    List<MsleaccountPo> getAccount();
+    List<MslePaymentPo> selectPaymentByType(String type);
+
+
+    List<MslePaymentPo> selectPayments();
+
+
+
+    MsleAccountPo getAccountById(String id);
+
+
+    List<MsleAccountPo> getAccount();
 
 }

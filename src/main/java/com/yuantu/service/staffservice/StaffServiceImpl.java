@@ -1,73 +1,69 @@
 package com.yuantu.service.staffservice;
 
 import com.yuantu.dao.IStaffDao;
-import com.yuantu.po.Msle_StaffPo;
+import com.yuantu.po.MsleStaffPo;
 import com.yuantu.serviceinterface.staffinterface.IStaffService;
 import com.yuantu.util.UUID;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *员工管理接口是实现类
+ *
+ */
 @Service
 public class StaffServiceImpl implements IStaffService {
     @Resource
     private IStaffDao iStaffDao;
+
     @Override
-    public Msle_StaffPo getPersonnelInformation(String staffId) {
+    public MsleStaffPo getPersonnelInformation(String staffId) {
         return iStaffDao.getPersonnelInformation(staffId);
     }
 
     @Override
-    public List<Msle_StaffPo> getAllStaffs() {
+    public List<MsleStaffPo> getAllStaffs() {
         return iStaffDao.getAllStaffs();
     }
 
     @Override
-    public List<Msle_StaffPo> getAllStaffsOnjob() {
+    public List<MsleStaffPo> getAllStaffsOnjob() {
         return iStaffDao.getAllStaffsOnjob();
     }
 
     @Override
-    public Boolean updateStaffSalary(Msle_StaffPo msle_staffPo) {
-        iStaffDao.updateStaffSalary(msle_staffPo);
-        return true;
+    public Integer updateStaffSalary(MsleStaffPo msleStaffPo) {
+        return iStaffDao.updateStaffSalary(msleStaffPo);
     }
 
     @Override
-    public Msle_StaffPo getStaffSalary(String staffId) {
+    public MsleStaffPo getStaffSalary(String staffId) {
         return iStaffDao.getStaffSalary(staffId);
     }
 
     @Override
-    public Boolean updateStaffStatus(String staffId) {
-        iStaffDao.updateStaffStatus(staffId);
-        return true;
+    public Integer updateStaffStatus(String staffId) {
+        return iStaffDao.updateStaffStatus(staffId);
     }
 
     @Override
-    public List<Msle_StaffPo> getAllDriver() {
-        return iStaffDao.getAllDriver();
+    public Integer addStaff(MsleStaffPo msleStaffPo) {
+        String id= UUID.creatId();
+        msleStaffPo.setStaffId(id);
+        return iStaffDao.addStaff(msleStaffPo);
     }
 
     @Override
-    public Boolean addStaff(Msle_StaffPo msle_staffPo) {
-    String id="wrong";
-    id= UUID.createID();
-    msle_staffPo.setStaffId(id);
-        iStaffDao.addStaff(msle_staffPo);
-        return true;
+    public Integer updatePersonalInformation(MsleStaffPo msleStaffPo) {
+        return iStaffDao.updatePersonalInformation(msleStaffPo);
     }
 
     @Override
-    public Boolean updatePersonalInformation(Msle_StaffPo msle_staffPo) {
-        iStaffDao.updatePersonalInformation(msle_staffPo);
-        return true;
-    }
-
-    @Override
-    public Boolean updateSalaryByPosition(Msle_StaffPo msle_staffPo) {
-        iStaffDao.updateSalaryByPosition(msle_staffPo);
-        return true;
+    public Integer updateSalaryByPosition(MsleStaffPo msleStaffPo) {
+        return iStaffDao.updateSalaryByPosition(msleStaffPo);
     }
 }

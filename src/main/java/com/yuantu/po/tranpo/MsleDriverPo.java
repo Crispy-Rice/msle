@@ -33,7 +33,7 @@ public class MsleDriverPo {
     /**
      * 身份证号
      */
-   private String  driverIDNum;
+   private String  driverIdNum;
     /**
      * 手机号
      */

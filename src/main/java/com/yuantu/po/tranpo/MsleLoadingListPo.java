@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @ClassName MsleLoadingListPo
+ * @ClassName MsleloadingListPo
  * @Description //营业厅装车单po类
  * @Author  yukun
  * @Date  2019/7/23

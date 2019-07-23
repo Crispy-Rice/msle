@@ -1,12 +1,16 @@
 package com.yuantu.util;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 1.对service层传入controller层的返回值进行包装处理
+ * 2.对校验发现错误的信息进行包装处理
+ * @author kun
+ */
 public  class PageUtil<T> {
     private int code=0;
-    private String msg;
+    private List<String> msg=new ArrayList<String>();
     private Long count;
     private List<T> data;
 
@@ -18,11 +22,11 @@ public  class PageUtil<T> {
         this.code = code;
     }
 
-    public String getMsg() {
+    public List<String> getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public void setMsg(List<String> msg) {
         this.msg = msg;
     }
 
@@ -43,6 +47,11 @@ public  class PageUtil<T> {
     }
 
     public PageUtil(List<T> data) {
-    this.data = data;
+        this.data = data;
+    }
+
+//    public PageUtil(List<String> msg) {
+//        this.msg = msg;
+//    }
 }
-}
+
