@@ -1,3 +1,5 @@
+package com.yuantu.controller.strategycontroller;
+
 import com.yuantu.po.MsleStaffPo;
 import com.yuantu.serviceinterface.strategyinterface.IStrategyService;
 import com.yuantu.util.PageUtil;
