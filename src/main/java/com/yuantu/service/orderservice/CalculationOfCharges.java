@@ -1,5 +1,15 @@
 package com.yuantu.service.orderservice;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ *@author tai
+ *@Time
+ *快递费用计算工具类
+ *
+ */
 public class CalculationOfCharges {
     //计算包装费
     public Double calculatePackingCharge(Integer orderPackagingPaperquantity
@@ -12,7 +22,8 @@ public class CalculationOfCharges {
 
     //计算理论重量
     public Double calculateTheWeighingMode(Double orderCargoWeight, Double orderCargoBulk) {
-        if ((orderCargoBulk / 5000) > orderCargoWeight) {
+        Integer  proportion=5000;
+        if ((orderCargoBulk / proportion) > orderCargoWeight) {
             return orderCargoBulk / 5000;
         } else {
             return orderCargoWeight;
@@ -21,9 +32,13 @@ public class CalculationOfCharges {
 
     //判别快递模式
     public Double judgeExpressWay(String orderExpresstype) {
-        if ("substantial".equals(orderExpresstype)) {
+        List<String>  expresstype=new ArrayList<String>();
+        expresstype.set(1,"substantial");
+        expresstype.set(2,"standard");
+        expresstype.set(3,"posthaste");
+        if (expresstype.get(1).equals(orderExpresstype)) {
             return 1D;
-        } else if ("standard".equals(orderExpresstype)) {
+        } else if (expresstype.get(2).equals(orderExpresstype)) {
             return (double) (23 / 18);
         } else {
             return (double) (25 / 18);
@@ -51,8 +66,6 @@ public class CalculationOfCharges {
                 + calculatePackingCharge(orderPackagingPaperquantity
                 , orderPackagingWoodenquantity, orderPackagingBagquantity);
         return totalPrice;
-
-
     }
 
 }

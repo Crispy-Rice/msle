@@ -15,19 +15,19 @@ public class TranserviceImpl implements ITranService {
     ITranDao tranDao;
 
     @Override
-    public boolean addLoadingList(MsleLoadingListPO loadingListPO) {
+    public boolean addLoadingList(MsleLoadingListPo loadingListPo) {
 
-        loadingListPO.setLoadingListId(UUID.createID());
-        return tranDao.addLoadingList(loadingListPO);
+        loadingListPo.setLoadingListId(UUID.creatId());
+        return tranDao.addLoadingList(loadingListPo);
     }
 
     @Override
-    public MsleLoadingListPO getLoadingListById(String id) {
+    public MsleLoadingListPo getLoadingListById(String id) {
         return tranDao.getLoadingListById(id);
     }
 
     @Override
-    public List<MsleLoadingListPO> getLoadingListByHallId(String loadlingListHallNo) {
+    public List<MsleLoadingListPo> getLoadingListByHallId(String loadlingListHallNo) {
         return tranDao.getLoadingListByHallId(loadlingListHallNo);
     }
 
@@ -37,7 +37,7 @@ public class TranserviceImpl implements ITranService {
     }
 
 //    @Override
-//    public List<MsleLoadingListPO> getLoadingListByStatus(String status) {
+//    public List<MsleloadingListPo> getLoadingListByStatus(String status) {
 //        return tranDao.getLoadingListByStatus(status);
 //    }
 
@@ -48,67 +48,67 @@ public class TranserviceImpl implements ITranService {
 
 
     @Override
-    public boolean addReceive(MsleReceivePO receivePO) {
-        receivePO.setReceiveId(UUID.createID());
-        return tranDao.addReceive(receivePO);
+    public boolean addReceive(MsleReceivePo receivePo) {
+        receivePo.setReceiveId(UUID.creatId());
+        return tranDao.addReceive(receivePo);
     }
 
     @Override
-    public MsleReceivePO getReceiveById(String id) {
+    public MsleReceivePo getReceiveById(String id) {
         return tranDao.getReceiveById(id);
     }
 
     @Override
-    public List<MsleReceivePO> getReceiveByCenterId(String receiveCenterId) {
+    public List<MsleReceivePo> getReceiveByCenterId(String receiveCenterId) {
         return tranDao.getReceiveByCenterId(receiveCenterId);
     }
 
 
     @Override
-    public boolean addDisptach(MsleDispatchPO dispatchPO) {
+    public boolean addDisptach(MsleDispatchPo dispatchPo) {
 
-        dispatchPO.setDispatchId(UUID.createID());
-        return tranDao.addDisptach(dispatchPO);
+        dispatchPo.setDispatchId(UUID.creatId());
+        return tranDao.addDisptach(dispatchPo);
     }
 
     @Override
-    public MsleDispatchPO getDisptachById(String disptachId) {
+    public MsleDispatchPo getDisptachById(String disptachId) {
         return tranDao.getDisptachById(disptachId);
     }
 
     @Override
-    public List<MsleDispatchPO> getDisptachByPostman(String dispatchPostman) {
+    public List<MsleDispatchPo> getDisptachByPostman(String dispatchPostman) {
         return tranDao.getDisptachByPostman(dispatchPostman);
     }
 
     @Override
-    public List<MsleDispatchPO> getDisptachByHallId(String dispatchHallId) {
+    public List<MsleDispatchPo> getDisptachByHallId(String dispatchHallId) {
         return tranDao.getDisptachByHallId(dispatchHallId);
     }
 
 
     @Override
-    public boolean addArrival(MsleArrivalPO arrivalPO) {
-        arrivalPO.setArrivalId(UUID.createID());
-        return tranDao.addArrival(arrivalPO);
+    public boolean addArrival(MsleArrivalPo arrivalPo) {
+        arrivalPo.setArrivalId(UUID.creatId());
+        return tranDao.addArrival(arrivalPo);
     }
 
     @Override
-    public MsleArrivalPO getArrivalById(String id) {
+    public MsleArrivalPo getArrivalById(String id) {
         return tranDao.getArrivalById(id);
     }
 
     @Override
-    public List<MsleArrivalPO> getArrivalByHallId(String id) {
+    public List<MsleArrivalPo> getArrivalByHallId(String id) {
 
         return tranDao.getArrivalByHallId(id);
     }
 
 
     @Override
-    public boolean addCar(MsleCarPO carPO) {
-        carPO.setCarId(UUID.createID());
-        return tranDao.addCar(carPO);
+    public boolean addCar(MsleCarPo carPo) {
+        carPo.setCarId(UUID.creatId());
+        return tranDao.addCar(carPo);
     }
 
     @Override
@@ -117,64 +117,64 @@ public class TranserviceImpl implements ITranService {
     }
 
     @Override
-    public boolean updateCar(MsleCarPO carPO) {
-        return tranDao.updateCar(carPO);
+    public boolean updateCar(MsleCarPo carPo) {
+        return tranDao.updateCar(carPo);
     }
 
     @Override
-    public List<MsleCarPO> queryAllCars(String carHallId) {
+    public List<MsleCarPo> queryAllCars(String carHallId) {
         return tranDao.queryAllCars(carHallId);
     }
 
     @Override
-    public MsleCarPO queryCarById(String id) {
+    public MsleCarPo queryCarById(String id) {
         return tranDao.queryCarById(id);
     }
 
 
     @Override
-    public boolean addCenterLoad(MsleCenterLoadPO centerLoadPO) {
-        centerLoadPO.setCenterLoadId(UUID.createID());
-        return tranDao.addCenterLoad(centerLoadPO);
+    public boolean addCenterLoad(MsleCenterLoadPo centerLoadPo) {
+        centerLoadPo.setCenterLoadId(UUID.creatId());
+        return tranDao.addCenterLoad(centerLoadPo);
     }
 
     @Override
-    public List<MsleCenterLoadPO> getCenterLoadById(String id) {
+    public List<MsleCenterLoadPo> getCenterLoadById(String id) {
         return tranDao.getCenterLoadById(id);
     }
 
     @Override
-    public List<MsleCenterLoadPO> getCenterLoadByCenterId(String id) {
+    public List<MsleCenterLoadPo> getCenterLoadByCenterId(String id) {
         return tranDao.getCenterLoadByCenterId(id);
     }
 
 
     @Override
-    public boolean addTransfer(MsleTransferPO transferPO) {
-        transferPO.setTransferId(UUID.createID());
-        return tranDao.addTransfer(transferPO);
+    public boolean addTransfer(MsleTransferPo transferPo) {
+        transferPo.setTransferId(UUID.creatId());
+        return tranDao.addTransfer(transferPo);
     }
 
     @Override
-    public MsleTransferPO getTransferById(String id) {
+    public MsleTransferPo getTransferById(String id) {
         return tranDao.getTransferById(id);
     }
 
     @Override
-    public List<MsleTransferPO> getTransferByListId(String id) {
+    public List<MsleTransferPo> getTransferByListId(String id) {
         return tranDao.getTransferByListId(id);
     }
 
     @Override
-    public List<MsleTransferPO> getTransferByCenterId(String id) {
+    public List<MsleTransferPo> getTransferByCenterId(String id) {
         return tranDao.getTransferByCenterId(id);
     }
 
     @Override
-    public boolean addDriver(MsleDriverPO driverPO) {
+    public boolean addDriver(MsleDriverPo driverPo) {
 
-        driverPO.setDriverId(UUID.createID());
-        return tranDao.addDriver(driverPO);
+        driverPo.setDriverId(UUID.creatId());
+        return tranDao.addDriver(driverPo);
     }
 
     @Override
@@ -183,17 +183,17 @@ public class TranserviceImpl implements ITranService {
     }
 
     @Override
-    public boolean updateDriver(MsleDriverPO driverPO) {
-        return tranDao.updateDriver(driverPO);
+    public boolean updateDriver(MsleDriverPo driverPo) {
+        return tranDao.updateDriver(driverPo);
     }
 
     @Override
-    public List<MsleDriverPO> queryAllDrivers(String driverHallId) {
+    public List<MsleDriverPo> queryAllDrivers(String driverHallId) {
         return tranDao.queryAllDrivers(driverHallId);
     }
 
     @Override
-    public MsleDriverPO queryDriverById(String driverId) {
+    public MsleDriverPo queryDriverById(String driverId) {
         return tranDao.queryDriverById(driverId);
     }
 

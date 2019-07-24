@@ -1,18 +1,25 @@
 package com.yuantu.util;
 
 
-
+/**
+ *
+ *@author tai
+ *@Time
+ *获取UUID生成的主键
+ *
+ */
+@SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
 public class UUID {
-    public static String createID(){
+    public static String creatId(){
         String uuid = java.util.UUID.randomUUID().toString();
         String id=uuid;
         id=id.replace("-", "");
-        return id.substring(1,13);
+        id=id.substring(1,13);
+        return id;
     }
-    public static String createFigureID(){
+    public static String createFigureid(){
         String uuid = java.util.UUID.randomUUID().toString();
         String id=uuid;
-        //id=id.substring(1,12);
         id= id.replace("-", "");
         String str = id;
         str=str.trim();
@@ -31,6 +38,3 @@ public class UUID {
     }
 
 }
-
-
-

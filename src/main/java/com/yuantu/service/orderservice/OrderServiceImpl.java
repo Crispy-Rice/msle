@@ -12,11 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import static com.yuantu.util.BarcodeUtil.generateFile;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *订单管理接口是实现类
+ *
+ */
 @Service
 public class OrderServiceImpl implements IOrderService
 {
@@ -32,90 +40,103 @@ public class OrderServiceImpl implements IOrderService
     private IStaffDao iStaffDao;
 
     @Override
-    public Msle_OrderPo addBookingOrder(Msle_OrderPo msle_orderPo) {
-        String id="wrong";
-        id= UUID.createFigureID();
-        msle_orderPo.setOrderId(id);
-         iOrderDao.addBookingOrder(msle_orderPo);
-        return msle_orderPo;
+    public MsleOrderPo addBookingOrder(MsleOrderPo msleOrderPo) {
+        String id=UUID.createFigureid();
+        msleOrderPo.setOrderId(id);
+        iOrderDao.addBookingOrder(msleOrderPo);
+        return msleOrderPo;
     }
 
+    /**
+     * id不适用自增，通过uuid生成
+     * 预估时间是用订单中的起始终点城市和快递方式在常量表中进行查询
+     * @param msleOrderPo
+     * @return
+     */
     @Override
-    public Msle_OrderPo addOrder(Msle_OrderPo msle_orderPo, Msle_ConstantPo msle_constantPo) {
+    public MsleOrderPo addOrder(MsleOrderPo msleOrderPo) {
         String id="wrong";
-        id= UUID.createFigureID();
+        id= UUID.createFigureid();
         String msg = id;
         String path = "C:/Users/Administrator/Desktop/条形码/"+msg+".png";
         generateFile(msg, path);
-        msle_orderPo.setOrderId(id);
-        Msle_ConstantPo msle_constantPoResult = null;
-        msle_constantPoResult=iConstantService.getConstant(msle_constantPo);
-        Long constantDistance=msle_constantPo.getConstantDistance();
+        msleOrderPo.setOrderId(id);
+
+        MsleConstantPo msleConstantPoResult = new MsleConstantPo();
+        MsleConstantPo msleConstantPo=new MsleConstantPo();
+        msleConstantPo.setConstantCityStart(msleOrderPo.getOrderCityStart());
+        msleConstantPo.setConstantCityEnd(msleOrderPo.getOrderCityEnd());
+        msleConstantPoResult=iConstantService.getConstant(msleConstantPo);
+        Long constantDistance=msleConstantPoResult.getConstantDistance();
+
         Integer orderEstimatedtime;
-        if ("substantial".equals(msle_orderPo.getOrderExpresstype())){
-            orderEstimatedtime=msle_constantPo.getConstantTimeSubstantial();
-        }else if ("standard".equals(msle_orderPo.getOrderExpresstype())){
-            orderEstimatedtime=msle_constantPo.getConstantTimeStandard();
+        List<String>  expresstype=new ArrayList<String>();
+        expresstype.set(1,"substantial");
+        expresstype.set(2,"standard");
+        expresstype.set(3,"posthaste");
+        if (expresstype.get(1).equals(msleOrderPo.getOrderExpresstype())){
+            orderEstimatedtime=msleConstantPoResult.getConstantTimeSubstantial();
+        }else if (expresstype.get(2).equals(msleOrderPo.getOrderExpresstype())){
+            orderEstimatedtime=msleConstantPoResult.getConstantTimeStandard();
         }else{
-            orderEstimatedtime=msle_constantPo.getConstantTimePosthaste();
+            orderEstimatedtime=msleConstantPoResult.getConstantTimePosthaste();
         }
         CalculationOfCharges entity=new CalculationOfCharges();
         Double orderTotalprice=0D;
-        if(msle_orderPo.getOrderCityStart().equals(msle_orderPo.getOrderCityEnd())){
+        if(msleOrderPo.getOrderCityStart().equals(msleOrderPo.getOrderCityEnd())){
             orderTotalprice=10D;
         }else{
-        orderTotalprice=entity.getTotalPrice( msle_orderPo.getOrderPackagingPaperquantity()
-         , msle_orderPo.getOrderPackagingWoodenquantity(),  msle_orderPo.getOrderPackagingBagquantity()
-         , msle_orderPo.getOrderCargoWeight(),  constantDistance, msle_orderPo.getOrderCargoBulk()
-         ,  msle_orderPo.getOrderExpresstype());
+            orderTotalprice=entity.getTotalPrice( msleOrderPo.getOrderPackagingPaperquantity()
+                    , msleOrderPo.getOrderPackagingWoodenquantity(),  msleOrderPo.getOrderPackagingBagquantity()
+                    , msleOrderPo.getOrderCargoWeight(),  constantDistance, msleOrderPo.getOrderCargoBulk()
+                    ,  msleOrderPo.getOrderExpresstype());
         }
-        msle_orderPo.setOrderTotalprice(orderTotalprice);
-        iOrderDao.addOrder(msle_orderPo);
-        return msle_orderPo;
+        msleOrderPo.setOrderTotalprice(orderTotalprice);
+        iOrderDao.addOrder(msleOrderPo);
+        return msleOrderPo;
     }
 
     @Override
-    public Msle_LogisticsPo getLogisticsInformation(String logisticsOrderId) {
-
+    public MsleLogisticsPo getLogisticsInformation(String logisticsOrderId) {
         return iLogisticsDao.getLogistics(logisticsOrderId);
     }
 
     @Override
-    public Boolean writeConsigneeInformation(Msle_LogisticsPo msle_logisticsPo) {
-         iLogisticsDao.updateConsigneeInformation(msle_logisticsPo);
-        return true;
+    public Integer writeConsigneeInformation(MsleLogisticsPo msleLogisticsPo) {
+        return iLogisticsDao.updateConsigneeInformation(msleLogisticsPo);
     }
 
     @Override
-    public List<Msle_OrganizationPo> getServicehallByCity(String organizationCity) {
+    public List<MsleOrganizationPo> getServicehallByCity(String organizationCity) {
         return iOrganizationDao.getServicehallByCity(organizationCity);
     }
 
-
+    /**
+     * 在获取营业厅下员工时要排除营业厅下无人情况
+     * @param organizationId
+     * @return
+     */
     @Override
-    public Msle_StaffPo getCourierByServicehall(String organizationId){
-        List<Msle_StaffPo> list=iStaffDao.getStaffByServicehall(organizationId);
+    public MsleStaffPo getCourierByServicehall(String organizationId){
+        List<MsleStaffPo> list=iStaffDao.getStaffByServicehall(organizationId);
         Integer listSize=list.size();
         if(listSize==0){
-            Msle_StaffPo msle_staffPo=new Msle_StaffPo();
-            msle_staffPo.setStaffId("no body");
-            return msle_staffPo;
+            MsleStaffPo msleStaffPo=new MsleStaffPo();
+            msleStaffPo.setStaffId("no body");
+            return msleStaffPo;
         }else{
             Random ra =new Random();
             return list.get(ra.nextInt(listSize));
         }
     }
+
     @Override
-    public List<Msle_OrderPo> getThePickup(String staffId){
+    public List<MsleOrderPo> getThePickup(String staffId){
         return iOrderDao.getThePickup( staffId);
     }
 
     @Override
-    public  List<Msle_OrderPo> getTheDelivery(String staffId){
+    public  List<MsleLogisticsPo> getTheDelivery(String staffId){
         return iLogisticsDao.getTheDelivery( staffId);
     }
-
-//    public Boolean updateOrderStatus() {
-//        return null;
-//    }
 }

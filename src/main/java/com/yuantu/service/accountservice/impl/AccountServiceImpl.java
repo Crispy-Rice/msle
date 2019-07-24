@@ -18,7 +18,7 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public boolean addReceipt(MsleReceiptPo receiptPo) {
 
-        receiptPo.setReceiptId(UUID.createID());
+        receiptPo.setReceiptId(UUID.creatId());
         return accountDao.addReceipt(receiptPo);
     }
 
@@ -33,19 +33,19 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean updateReceiptStatuS(String receiptStatus, String receiptId) {
-        accountDao.updateReceiptStatuS(receiptStatus, receiptId);
+    public boolean updateReceiptStatus(String receiptStatus, String receiptId) {
+        accountDao.updateReceiptStatus(receiptStatus, receiptId);
         if(receiptStatus.equals(ListStatus.SUCCESS)){
-            MsleReceiptPo myReceipPO=accountDao.getReceiptById(receiptId);
-            double receiptMoney=myReceipPO.getReceiptCollections();
-            String accountName=myReceipPO.getReceiptAccountName();
+            MsleReceiptPo myReceipPo=accountDao.getReceiptById(receiptId);
+            double receiptMoney=myReceipPo.getReceiptCollections();
+            String accountName=myReceipPo.getReceiptAccountName();
             double accountSurplus=accountDao.getAccountByName(accountName).getAccountSurplus();
             double newaccountSurplus=accountSurplus+receiptMoney;
             return accountDao.updateAccount(accountName,newaccountSurplus);
 
         }
        else {
-            return  accountDao.updateReceiptStatuS(receiptStatus, receiptId);
+            return  accountDao.updateReceiptStatus(receiptStatus, receiptId);
         }
     }
 
@@ -80,10 +80,10 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean addAccount(MsleAccountPo accountPO) {
+    public boolean addAccount(MsleAccountPo accountPo) {
 
-        accountPO.setAccountId(UUID.createID());
-        return accountDao.addAccount(accountPO);
+        accountPo.setAccountId(UUID.creatId());
+        return accountDao.addAccount(accountPo);
     }
 
     @Override
@@ -102,9 +102,9 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean addPayment(MslePaymentPo paymentPO)
-    {   paymentPO.setPaymentId(UUID.createID());
-        return accountDao.addPayment(paymentPO);
+    public boolean addPayment(MslePaymentPo paymentPo)
+    {   paymentPo.setPaymentId(UUID.creatId());
+        return accountDao.addPayment(paymentPo);
     }
 
     @Override
@@ -116,9 +116,9 @@ public class AccountServiceImpl implements IAccountService {
     public boolean updatePaymentStatus(String paymentStatus, String paymentId) {
         accountDao.updatePaymentStatus(paymentStatus, paymentId);
         if(paymentStatus.equals(ListStatus.SUCCESS)){
-            MslePaymentPo myPaymentPO=accountDao.getPaymentById(paymentId);
-            double payMoney=myPaymentPO.getPaymentAmount();
-            String accountName=myPaymentPO.getPaymentAccount();
+            MslePaymentPo mypaymentPo=accountDao.getPaymentById(paymentId);
+            double payMoney=mypaymentPo.getPaymentAmount();
+            String accountName=mypaymentPo.getPaymentAccount();
             double accountSurplus=accountDao.getAccountByName(accountName).getAccountSurplus();
             double newAccountSurplus=accountSurplus-payMoney;
             return accountDao.updateAccount(accountName,newAccountSurplus);
@@ -135,8 +135,8 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean updatePayment(MslePaymentPo paymentPO) {
-        return accountDao.updatePayment(paymentPO);
+    public boolean updatePayment(MslePaymentPo paymentPo) {
+        return accountDao.updatePayment(paymentPo);
     }
 
     @Override

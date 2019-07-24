@@ -1,27 +1,32 @@
 package com.yuantu.serviceinterface.orderinterface;
 
 import com.yuantu.po.*;
-
 import java.util.List;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *订单管理接口
+ *
+ */
 public interface IOrderService {
-    Msle_OrderPo addBookingOrder(Msle_OrderPo msle_orderPo);
+    MsleOrderPo addBookingOrder(MsleOrderPo msleOrderPo);
 
 
-    Msle_OrderPo addOrder(Msle_OrderPo msle_orderPo, Msle_ConstantPo msle_constantPo);
+    MsleOrderPo addOrder(MsleOrderPo msleOrderPo);
 
 
-    Msle_LogisticsPo getLogisticsInformation(String logisticsOrderId);
+    MsleLogisticsPo getLogisticsInformation (String logisticsOrderId);
 
 
-    Boolean writeConsigneeInformation(Msle_LogisticsPo msle_logisticsPo);
-    //Boolean updateOrderStatus();
+    Integer writeConsigneeInformation(MsleLogisticsPo msleLogisticsPo);
 
-    List<Msle_OrganizationPo> getServicehallByCity(String organizationCity);
+    List<MsleOrganizationPo> getServicehallByCity(String organizationCity);
 
-    Msle_StaffPo getCourierByServicehall(String organizationId);
+    MsleStaffPo getCourierByServicehall(String organizationId);
 
-    List<Msle_OrderPo> getThePickup(String staffId);
+    List<MsleOrderPo> getThePickup(String staffId);
 
-    List<Msle_OrderPo> getTheDelivery(String staffId);
+    List<MsleLogisticsPo> getTheDelivery(String staffId);
 }

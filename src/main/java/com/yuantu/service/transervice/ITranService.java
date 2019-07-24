@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface ITranService {
 
-    boolean addLoadingList(MsleLoadingListPO loadingListPO);//添加装车单
+    boolean addLoadingList(MsleLoadingListPo loadingListPo);//添加装车单
 
-    MsleLoadingListPO getLoadingListById(String id);//根据id查询装车单
+    MsleLoadingListPo getLoadingListById(String id);//根据id查询装车单
 
-    //List<MsleLoadingListPO> getLoadingListByStatus(String status);
+    //List<MsleloadingListPo> getLoadingListByStatus(String status);
 
-    List<MsleLoadingListPO> getLoadingListByHallId(String loadlingListHallNo);//根据营业厅编号查询装车单
+    List<MsleLoadingListPo> getLoadingListByHallId(String loadlingListHallNo);//根据营业厅编号查询装车单
 
     List<String> getOrderByLoadingListId(String loadId);
 
@@ -23,74 +23,74 @@ public interface ITranService {
 //    boolean updateLoadingListStatus(Integer id, String status);
 
 
-    boolean addReceive(MsleReceivePO receivePO);
+    boolean addReceive(MsleReceivePo receivePo);
 
-    MsleReceivePO getReceiveById(String id);
+    MsleReceivePo getReceiveById(String id);
 
-    List<MsleReceivePO> getReceiveByCenterId(String receiveCenterId);
+    List<MsleReceivePo> getReceiveByCenterId(String receiveCenterId);
 
-//    List<MsleReceivePO> getReceiveByStatus(String status);
+//    List<MslereceivePo> getReceiveByStatus(String status);
 //
 //    boolean updateReceiveStatus(Integer id, String status);
 
 
-    boolean addDisptach(MsleDispatchPO dispatchPO);
+    boolean addDisptach(MsleDispatchPo dispatchPo);
 
-    MsleDispatchPO getDisptachById (String disptachId);
+    MsleDispatchPo getDisptachById (String disptachId);
 
-    List<MsleDispatchPO> getDisptachByPostman(String dispatchPostman);
+    List<MsleDispatchPo> getDisptachByPostman(String dispatchPostman);
 
-    List<MsleDispatchPO> getDisptachByHallId(String dispatchHallId);
+    List<MsleDispatchPo> getDisptachByHallId(String dispatchHallId);
 
-//    List<MsleDispatchPO> getDisptachByStatus(String status);
+//    List<MsledispatchPo> getDisptachByStatus(String status);
 
 //    boolean updateDisptachStatus(Integer id, String status);
 
 
-    boolean addArrival(MsleArrivalPO arrivalPO);
+    boolean addArrival(MsleArrivalPo arrivalPo);
 
-    MsleArrivalPO getArrivalById(String id);
+    MsleArrivalPo getArrivalById(String id);
 
-//    List<MsleArrivalPO> getArrivalByStatus(String status);
+//    List<MslearrivalPo> getArrivalByStatus(String status);
 //
 //    boolean updateArrivalStatus(Integer id, String status);
 
-    List<MsleArrivalPO> getArrivalByHallId(String id);//根据id查找到达单
+    List<MsleArrivalPo> getArrivalByHallId(String id);//根据id查找到达单
 
 
-    boolean addCar(MsleCarPO carPO);
+    boolean addCar(MsleCarPo carPo);
 
     boolean deleteCar(String id);
 
-    boolean updateCar(MsleCarPO carPO);
+    boolean updateCar(MsleCarPo carPo);
 
-    List<MsleCarPO> queryAllCars(String carHallId);
+    List<MsleCarPo> queryAllCars(String carHallId);
 
-    MsleCarPO queryCarById(String id);
-
-
-    boolean addCenterLoad(MsleCenterLoadPO centerLoadPO);
+    MsleCarPo queryCarById(String id);
 
 
-    List<MsleCenterLoadPO> getCenterLoadById(String id);
+    boolean addCenterLoad(MsleCenterLoadPo centerLoadPo);
 
-    List<MsleCenterLoadPO> getCenterLoadByCenterId(String id);
 
-//    List<MsleCenterLoadPO> getCenterLoadByStatus(String status);
+    List<MsleCenterLoadPo> getCenterLoadById(String id);
+
+    List<MsleCenterLoadPo> getCenterLoadByCenterId(String id);
+
+//    List<MslecenterLoadPo> getCenterLoadByStatus(String status);
 //
 //    boolean updateCenterLoadStatus(Integer id, String status);
 
 
-    boolean addTransfer(MsleTransferPO transferPO);
+    boolean addTransfer(MsleTransferPo transferPo);
 
 
-    MsleTransferPO getTransferById(String id);
+    MsleTransferPo getTransferById(String id);
 
-    List<MsleTransferPO> getTransferByListId(String id);
+    List<MsleTransferPo> getTransferByListId(String id);
 
-    List<MsleTransferPO> getTransferByCenterId(String id);
+    List<MsleTransferPo> getTransferByCenterId(String id);
 
-//    List<MsleTransferPO> getTransferByStatus(String status);
+//    List<MsletransferPo> getTransferByStatus(String status);
 //
 //    boolean updateTransferStatus(Integer id, String status);
 
@@ -99,14 +99,14 @@ public interface ITranService {
 
 
 
-    boolean addDriver(MsleDriverPO driverPO);
+    boolean addDriver(MsleDriverPo driverPo);
 
     boolean deleteDriver(String driverId);
 
-    boolean updateDriver(MsleDriverPO driverPO);
+    boolean updateDriver(MsleDriverPo driverPo);
 
-    List<MsleDriverPO> queryAllDrivers(String driverHallId);
+    List<MsleDriverPo> queryAllDrivers(String driverHallId);
 
-    MsleDriverPO queryDriverById(String driverId);
+    MsleDriverPo queryDriverById(String driverId);
 }
 

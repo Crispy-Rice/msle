@@ -1,7 +1,17 @@
 package com.yuantu.serviceinterface.loginterface;
 
-import com.yuantu.po.Msle_LogPo;
+import com.yuantu.po.MsleLogPo;
 
+import java.util.List;
+
+/**
+ *
+ *@author tai
+ *@Time
+ *日志管理接口
+ *
+ */
 public interface ILogService {
-    void insertLog(Msle_LogPo msle_LogPo);
+    Integer insertLog(MsleLogPo msleLogPo);
+    List<MsleLogPo> getLog (String date);
 }

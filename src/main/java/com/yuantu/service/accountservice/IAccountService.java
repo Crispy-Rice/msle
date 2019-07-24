@@ -1,8 +1,9 @@
 package com.yuantu.service.accountservice;
 
-import com.yuantu.po.accountpo.MsleAccountPo;
+
 import com.yuantu.po.accountpo.MslePaymentPo;
 import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountpo.MsleAccountPo;
 
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface IAccountService {
     boolean updateReceiptDeleteState(String receiptDeleteState
             , String receiptId);
 
-    boolean updateReceiptStatuS(String receiptStatus
+    boolean updateReceiptStatus(String receiptStatus
             , String receiptId);
 
 
@@ -37,7 +38,7 @@ public interface IAccountService {
 
     Double getTotalReceiptByBeginAndEndDay( String beginDay, String endDay);
 
-    boolean addAccount(MsleAccountPo accountPO);
+    boolean addAccount(MsleAccountPo accountPo);
 
 
     boolean updateAccount(String accountName,Double accountSurplus);
@@ -49,7 +50,7 @@ public interface IAccountService {
 
 
 
-    boolean addPayment(MslePaymentPo paymentPO);
+    boolean addPayment(MslePaymentPo paymentPo);
 
 
     boolean updatePaymentDeleteState(String paymentDeleteState,
@@ -63,7 +64,7 @@ public interface IAccountService {
     boolean deletePaymentById( String id);
 
 
-    boolean updatePayment(MslePaymentPo paymentPO);
+    boolean updatePayment(MslePaymentPo paymentPo);
 
 
     MslePaymentPo getPaymentById(String id);
@@ -80,7 +81,7 @@ public interface IAccountService {
 
 
 
-    MsleAccountPo getAccountById(String Id);
+    MsleAccountPo getAccountById(String id);
 
 
     List<MsleAccountPo> getAccount();

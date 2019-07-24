@@ -52,7 +52,7 @@ public class MsleOutBoundPo {
     /**
      * 位号
      */
-    private  Integer outboundPositionNo;
+    private  Integer outBoundPositionNo;
     /**
      * 审核状态
      */

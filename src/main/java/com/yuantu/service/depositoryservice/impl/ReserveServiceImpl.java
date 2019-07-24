@@ -5,7 +5,8 @@ import com.yuantu.dao.depositorydao.IReserveDao;
 import com.yuantu.po.depositorypo.MsleGoDownEntryPo;
 import com.yuantu.po.depositorypo.MsleOutBoundPo;
 import com.yuantu.po.depositorypo.MsleReservePo;
-import com.yuantu.po.depositorypo.MsleStorehousePO;
+
+import com.yuantu.po.depositorypo.MsleStorehousePo;
 import com.yuantu.service.depositoryservice.IReserveService;
 import com.yuantu.util.DateUtil;
 import com.yuantu.util.UUID;
@@ -24,16 +25,16 @@ public class ReserveServiceImpl implements IReserveService {
     IDepositoryDao depositoryDao;
     /**
      *
-     * @param goDownEntryPO
+     * @param goDownEntryPo
      * @return 0 入库单添加失败 1库存信息更新失败 2 入库单以及库存信息更新成功
      */
     @Override
-    public int addGodownentry(MsleGoDownEntryPo goDownEntryPO) {
-        goDownEntryPO.setGodownentryId(UUID.createID());
-       if(!reserveDao.addGodownentry(goDownEntryPO)){
+    public int addGodownentry(MsleGoDownEntryPo goDownEntryPo) {
+        goDownEntryPo.setGodownentryId(UUID.creatId());
+       if(!reserveDao.addGodownentry(goDownEntryPo)){
            return 0;
        }
-       else{ if(!addReserve(goDownEntryPO)){
+       else{ if(!addReserve(goDownEntryPo)){
            return 1;
         }
        else{
@@ -45,16 +46,16 @@ public class ReserveServiceImpl implements IReserveService {
 
     /**
      *
-     * @param outBoundPO 出库单PO类
+     * @param outBoundPo 出库单PO类
      * @return 0 出库单添加失败 1库存信息更新失败 2 出库单以及库存信息更新成功
      */
     @Override
-    public int addOutbound(MsleOutBoundPo outBoundPO) {
-        outBoundPO.setOutboundId(UUID.createID());
-        if(!reserveDao.addOutBound(outBoundPO)){
+    public int addOutbound(MsleOutBoundPo outBoundPo) {
+        outBoundPo.setOutboundId(UUID.creatId());
+        if(!reserveDao.addOutBound(outBoundPo)){
             return 0;
         }
-        else{ if(!deleteReserve(outBoundPO)){
+        else{ if(!deleteReserve(outBoundPo)){
             return 1;
         }
         else{
@@ -63,14 +64,14 @@ public class ReserveServiceImpl implements IReserveService {
         }
     }
 
-    public boolean addReserve(MsleGoDownEntryPo goDownEntryPO){
-        String id=UUID.createID();
-        return  reserveDao.addReserve(goDownEntryPO,id);
+    public boolean addReserve(MsleGoDownEntryPo goDownEntryPo){
+        String id=UUID.creatId();
+        return  reserveDao.addReserve(goDownEntryPo,id);
     }
 
-    public boolean deleteReserve(MsleOutBoundPo outBoundPO){
-        String outbound_ExpressNo=outBoundPO.getOutboundExpressNo();
-        return  reserveDao.deleteReserve(outbound_ExpressNo);
+    public boolean deleteReserve(MsleOutBoundPo outBoundPo){
+        String outboundExpressNo=outBoundPo.getOutboundExpressNo();
+        return  reserveDao.deleteReserve(outboundExpressNo);
     }
 
     /**
@@ -111,10 +112,10 @@ public class ReserveServiceImpl implements IReserveService {
 
     @Override
     public String checkAlertline(String storehouseid,Integer areaid) {
-        MsleStorehousePO storehousePO=depositoryDao.getAlertLineById(storehouseid, areaid);
-        System.out.println(storehousePO.getStorehouseAlertLine());
-        Double alertline=storehousePO.getStorehouseAlertLine();
-        Integer    store=storehousePO.getStorehouseStore();
+        MsleStorehousePo storehousePo=depositoryDao.getAlertLineById(storehouseid, areaid);
+        System.out.println(storehousePo.getStorehouseAlertLine());
+        Double alertline=storehousePo.getStorehouseAlertLine();
+        Integer    store=storehousePo.getStorehouseStore();
         Double     dstore=store.doubleValue();
         Integer    present=reserveDao.getReserveNumByStorehouseIdAndAreaId(storehouseid, areaid);
         Double     dpresent=present.doubleValue();
@@ -148,7 +149,7 @@ public class ReserveServiceImpl implements IReserveService {
     }
 
 //    @Override
-//    public List<MsleGoDownEntryPo> getGoDownEntryByStatus(String status) {
+//    public List<MslegoDownEntryPo> getGoDownEntryByStatus(String status) {
 //        return reserveDao.getGoDownEntryByStatus(status);
 //    }
 //

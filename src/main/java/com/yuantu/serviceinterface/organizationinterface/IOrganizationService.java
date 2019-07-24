@@ -1,23 +1,29 @@
 package com.yuantu.serviceinterface.organizationinterface;
 
-import com.yuantu.po.Msle_OrganizationPo;
-import com.yuantu.po.Msle_StaffPo;
+import com.yuantu.po.MsleOrganizationPo;
+import com.yuantu.po.MsleStaffPo;
 
 import java.util.List;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *人员机构管理接口
+ *
+ */
 public interface IOrganizationService {
-    public List<Msle_StaffPo> getAllUsers();
+    List<MsleStaffPo> getAllUsers ();
 
-    Msle_StaffPo getPersonnelInformation(String staffId);
+    MsleStaffPo getPersonnelInformation (String staffId);
 
-    public Boolean updateBelongsOrganization (Msle_StaffPo msle_staffPo);
+    Integer updateBelongsOrganization (MsleStaffPo msleStaffPo);
 
-    public List<Msle_OrganizationPo> getAllOrganization();
+    List<MsleOrganizationPo> getAllOrganization ();
 
-    public String insertOrganization (Msle_OrganizationPo msle_organizationPo);
+    String insertOrganization (MsleOrganizationPo msleOrganizationPo);
 
-    public String deleteOrganization(String organizationId);
+    String deleteOrganization (String organizationId);
 
-
-    public Boolean updateOrganization (Msle_OrganizationPo msle_organizationPo);
+    Integer updateOrganization (MsleOrganizationPo msleOrganizationPo);
 }

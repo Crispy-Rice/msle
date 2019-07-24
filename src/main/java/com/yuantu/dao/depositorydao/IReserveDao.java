@@ -10,39 +10,39 @@ import java.util.List;
 public interface IReserveDao {
     /**
      * 添加入库单
-     * @param goDownEntryPO
+     * @param goDownEntryPo
      * @return 是否成功
      */
     @Insert("insert into msle_godownentry values(#{godownentryId},#{godownentryExpressNo}," +
             "#{godownentryStorehouseId}," +
             "#{godownentryGodownentryId},#{godownenrtyDestination},#{godownenrtyEntryDate}," +
             "#{godownentryAreaNo},#{godownentryLineNo},#{godownentryShelfNo}," +
-            "#{godownentryPositionNo},#{godownentryStatus})")
-    boolean addGodownentry(MsleGoDownEntryPo goDownEntryPO);
+            "#{goDownEntryPositionNo},#{godownentryStatus})")
+    boolean addGodownentry(MsleGoDownEntryPo goDownEntryPo);
 
     /**
      * 添加库存信息
-     * @param goDownEntryPO
+     * @param goDownEntryPo
      * @return
      */
-    @Insert("insert into msle_reserve values('${id}','${goDownEntryPO.godownentryStorehouseId}'," +
-            "'${goDownEntryPO.godownentryExpressNo}','${goDownEntryPO.godownenrtyEntryDate}'," +
-            "'${goDownEntryPO.godownenrtyDestination}'," +
-            "'${goDownEntryPO.godownentryAreaNo}','${goDownEntryPO.godownentryLineNo}'," +
-            "'${goDownEntryPO.godownentryShelfNo}'," +
-            "'${goDownEntryPO.godownentryPositionNo}','待盘点','草稿')")
-    boolean addReserve(@Param("goDownEntryPO") MsleGoDownEntryPo goDownEntryPO , @Param("id") String id);
+    @Insert("insert into msle_reserve values('${id}','${goDownEntryPo.godownentryStorehouseId}'," +
+            "'${goDownEntryPo.godownentryExpressNo}','${goDownEntryPo.godownenrtyEntryDate}'," +
+            "'${goDownEntryPo.godownenrtyDestination}'," +
+            "'${goDownEntryPo.godownentryAreaNo}','${goDownEntryPo.godownentryLineNo}'," +
+            "'${goDownEntryPo.godownentryShelfNo}'," +
+            "'${goDownEntryPo.goDownEntryPositionNo}','待盘点','草稿')")
+    boolean addReserve(@Param("goDownEntryPo") MsleGoDownEntryPo goDownEntryPo , @Param("id") String id);
 
     /**
      * 添加出库单
-     * @param outBoundPO
+     * @param outBoundPo
      * @return
      */
     @Insert("insert into msle_outbound values(#{outboundId},#{outboundStorehouseId}," +
             "#{outboundOutboundId},#{outboundExressNo},#{outboundDestination}," +
             "#{outboundOutdate},#{outboundAreaNo},#{outboundLineNo}," +
-            "#{outboundShelfNo},#{outboundPositionNo},#{outboundStatus})")
-    boolean addOutBound(MsleOutBoundPo outBoundPO);
+            "#{outboundShelfNo},#{outBoundPositionNo},#{outboundStatus})")
+    boolean addOutBound(MsleOutBoundPo outBoundPo);
 
     /**
      * 删除库存信息
@@ -100,7 +100,7 @@ public interface IReserveDao {
     List<MsleOutBoundPo> getOutBoundByListId(@Param("outboundOutboundId") String outboundOutboundId);
 
 //    @Select("select * from msle_godownentry wheregodownentryStatus='${status}'")
-//    List<MsleGoDownEntryPo> getGoDownEntryByStatus(@Param("status") String status);
+//    List<MslegoDownEntryPo> getGoDownEntryByStatus(@Param("status") String status);
 
 
 //    @Select("select * from msle_outbound where outbound_status='${status}'")

@@ -1,49 +1,71 @@
 package com.yuantu.dao;
 
-import com.yuantu.po.Msle_ConstantPo;
+import com.yuantu.po.MsleConstantPo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ *
+ *@author  tai
+ *@Time
+ *常量表数据库操作
+ *
+ */
 @Mapper
 public interface IConstantDao {
 
-    //查询所有常量
+    /**
+     * 获取所有常量
+     * @return  常量实体类集合
+     */
     @Select("select * from msle_constant ")
-    List<Msle_ConstantPo> getAllConstants();
+    List<MsleConstantPo> getAllConstants();
 
-    //查询一条常量
+    /**
+     *
+     * 根据起始和终点城市获取对应常量
+     * @param msleConstantPo set了起始城市和终点城市的常量实体类
+     * @return MsleConstantPo 起始终点城市与参数相同的常量
+     *                        实体类
+     */
     @Select("select * from msle_constant where" +
-            "constant_City_Start ='${msle_constantPo.constantCityStart}'" +
-            "and constant_City_End ='${msle_constantPo.constantCityEnd}'")
-    Msle_ConstantPo getConstant(@Param("msle_constantPo") Msle_ConstantPo msle_constantPo);
+            " constant_City_Start ='${msleConstantPo.constantCityStart}'" +
+            "and constant_City_End ='${msleConstantPo.constantCityEnd}'")
+    MsleConstantPo getConstant(@Param("msleConstantPo") MsleConstantPo msleConstantPo);
 
 
-    //修改一条常量记录
+    /**
+     * 修改一条常量
+     * @param msleConstantPo set了所有属性的常量实体类(必须全部填写)
+     */
     @Update("update msle_constant  set " +
-            "constant_City_Start ='${msle_constantPo.constantCityStart}'" +
-            ",constant_City_End ='${msle_constantPo.constantCityEnd}'" +
-            ",constant_Distance ='${msle_constantPo.constantDistance}'" +
-            ",constant_Price ='${msle_constantPo.constantPrice}' " +
-            ",constant_Time_Substantial='${msle_constantPo.constantTimeSubstantial}'" +
-            ",constant_Time_Standard='${msle_constantPo.constantTimeStandard}'" +
-            ",constant_Time_Posthaste='${msle_constantPo.constantTimePosthaste}'" +
-            "where constant_Id = '${msle_constantPo.constantId}'")
-    void updateConstant(@Param("msle_constantPo") Msle_ConstantPo msle_constantPo);
+            "constant_City_Start ='${msleConstantPo.constantCityStart}'" +
+            ",constant_City_End ='${msleConstantPo.constantCityEnd}'" +
+            ",constant_Distance ='${msleConstantPo.constantDistance}'" +
+            ",constant_Price ='${msleConstantPo.constantPrice}' " +
+            ",constant_Time_Substantial='${msleConstantPo.constantTimeSubstantial}'" +
+            ",constant_Time_Standard='${msleConstantPo.constantTimeStandard}'" +
+            ",constant_Time_Posthaste='${msleConstantPo.constantTimePosthaste}'" +
+            "where constant_Id = '${msleConstantPo.constantId}'")
+    Integer updateConstant(@Param("msleConstantPo") MsleConstantPo msleConstantPo);
 
 
-    //添加一条常量记录
+    /**
+     * 增添一条常量
+     * @param msleConstantPo set了所有属性的常量实体类(必须全部填写)
+     */
     @Insert("insert into msle_constant " +
             "(constant_Id,constant_City_Start" +
             ",constant_City_End,constant_Distance,constant_Price" +
             ",constant_Time_Substantial,constant_Time_Standard,constant_Time_Posthaste) " +
             "values" +
-            "( '${msle_constantPo.constantId}','${msle_constantPo.constantCityStart}'" +
-            ",'${msle_constantPo.constantCityEnd}','${msle_constantPo.constantDistance}'" +
-            ",'${msle_constantPo.constantPrice}','${msle_constantPo.constantTimeSubstantial}'" +
-            ",'${msle_constantPo.constantTimePosthaste}'" +
-            ",'${msle_constantPo.constantTimePosthaste}')")
-    void insertConstant(@Param("msle_constantPo") Msle_ConstantPo msle_constantPo);
+            "( '${msleConstantPo.constantId}','${msleConstantPo.constantCityStart}'" +
+            ",'${msleConstantPo.constantCityEnd}','${msleConstantPo.constantDistance}'" +
+            ",'${msleConstantPo.constantPrice}','${msleConstantPo.constantTimeSubstantial}'" +
+            ",'${msleConstantPo.constantTimeStandard}'" +
+            ",'${msleConstantPo.constantTimePosthaste}')")
+    Integer insertConstant(@Param("msleConstantPo") MsleConstantPo msleConstantPo);
 
 
 

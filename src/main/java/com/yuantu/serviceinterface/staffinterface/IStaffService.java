@@ -1,27 +1,33 @@
 package com.yuantu.serviceinterface.staffinterface;
 
-import com.yuantu.po.Msle_StaffPo;
+import com.yuantu.po.MsleStaffPo;
 
 import java.util.List;
 
+/**
+ *
+ *@author tai
+ *@Time
+ *员工管理接口
+ *
+ */
 public interface IStaffService {
-    public Msle_StaffPo getPersonnelInformation(String staffId);
 
-    List<Msle_StaffPo> getAllStaffs();
+    MsleStaffPo getPersonnelInformation(String staffId);
 
-    List<Msle_StaffPo> getAllStaffsOnjob();
+    List<MsleStaffPo> getAllStaffs();
 
-    Boolean  updateStaffSalary(Msle_StaffPo msle_staffPo);
+    List<MsleStaffPo> getAllStaffsOnjob();
 
-    Msle_StaffPo getStaffSalary(String staffId);
+    Integer  updateStaffSalary(MsleStaffPo msleStaffPo);
 
-    Boolean updateStaffStatus(String staffId);
+    MsleStaffPo getStaffSalary(String staffId);
 
-    List<Msle_StaffPo> getAllDriver();
+    Integer updateStaffStatus( String staffId);
 
-    Boolean addStaff(Msle_StaffPo msle_staffPo);
+    Integer addStaff(MsleStaffPo msleStaffPo);
 
-    Boolean updatePersonalInformation(Msle_StaffPo msle_staffPo);
+    Integer updatePersonalInformation(MsleStaffPo msleStaffPo);
 
-    Boolean updateSalaryByPosition(Msle_StaffPo msle_staffPo);
+    Integer updateSalaryByPosition(MsleStaffPo msleStaffPo);
 }

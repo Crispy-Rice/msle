@@ -1,9 +1,10 @@
 package com.yuantu.controller.accountcontroller;
 
 
-import com.yuantu.po.accountpo.MsleAccountPo;
+
 import com.yuantu.po.accountpo.MslePaymentPo;
 import com.yuantu.po.accountpo.MsleReceiptPo;
+import com.yuantu.po.accountpo.MsleAccountPo;
 import com.yuantu.service.accountservice.IAccountService;
 import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,11 +55,11 @@ public class AccountController {
 
     }
 
-    @RequestMapping(value = "/updateReceiptStatUS", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateReceiptStatus", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updateReceiptStatUS(String receiptStatus
+    public boolean updateReceiptStatus(String receiptStatus
             , String receiptId) {//根据id查询收款单
-        return accountService.updateReceiptStatuS(receiptStatus, receiptId);
+        return accountService.updateReceiptStatus(receiptStatus, receiptId);
 
 
     }
@@ -138,8 +139,8 @@ public class AccountController {
 
     @RequestMapping(value = "/addAccount", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addAccount(@Valid  @RequestBody MsleAccountPo accountPO) {//增加账户
-        return accountService.addAccount(accountPO);
+    public boolean addAccount(@Valid  @RequestBody MsleAccountPo accountPo) {//增加账户
+        return accountService.addAccount(accountPo);
 
 
     }
@@ -170,8 +171,8 @@ public class AccountController {
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addPayment(@RequestBody MslePaymentPo paymentPO) {//新建付款单
-        return accountService.addPayment(paymentPO);
+    public boolean addPayment(@RequestBody MslePaymentPo paymentPo) {//新建付款单
+        return accountService.addPayment(paymentPo);
 
 
     }
@@ -186,8 +187,8 @@ public class AccountController {
 
     @RequestMapping(value = "/updatePayment", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updatePayment(@RequestBody MslePaymentPo paymentPO) {
-        return accountService.updatePayment(paymentPO);//更新付款单
+    public boolean updatePayment(@RequestBody MslePaymentPo paymentPo) {
+        return accountService.updatePayment(paymentPo);//更新付款单
 
 
     }

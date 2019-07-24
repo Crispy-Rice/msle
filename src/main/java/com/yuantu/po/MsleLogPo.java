@@ -2,7 +2,7 @@ package com.yuantu.po;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class MsleLogPo
 {
+    @Size(min=12,max=12,message="id长度错误")
     private String logId;
     /**
      * 日志生成时间
@@ -26,7 +27,7 @@ public class MsleLogPo
     /**
      * 操作人员
      */
+    @Size(min=12,max=12,message="id长度错误")
     private  String logPeople;
 
 }
-
