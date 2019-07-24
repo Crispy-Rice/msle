@@ -6,6 +6,7 @@ import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,7 +97,7 @@ public class StaffController {
   */
  @RequestMapping(value = "/addStaff",method = RequestMethod.GET)
  @ResponseBody
- PageUtil<Integer> addStaff(@RequestBody MsleStaffPo msleStaffPo){
+ PageUtil<Integer> addStaff(@Valid @RequestBody MsleStaffPo msleStaffPo){
   List<Integer> list=new ArrayList<Integer>();
   list.add(iStaffService.addStaff( msleStaffPo));
   PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);
@@ -108,7 +109,7 @@ public class StaffController {
   */
  @RequestMapping(value = "/updatePersonalInformation",method = RequestMethod.GET)
  @ResponseBody
- PageUtil<Integer> updatePersonalInformation(MsleStaffPo msleStaffPo){
+ PageUtil<Integer> updatePersonalInformation(@Valid @RequestBody MsleStaffPo msleStaffPo){
   List<Integer> list=new ArrayList<Integer>();
   list.add(iStaffService.updatePersonalInformation(msleStaffPo));
   PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);

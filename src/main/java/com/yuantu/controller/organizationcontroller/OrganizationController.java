@@ -7,6 +7,7 @@ import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class OrganizationController {
      修改员工所属机构
      */
     @RequestMapping(value = "/updateBelongsOrganization",method = RequestMethod.GET)
-    public PageUtil<Integer> updateBelongsOrganization (@RequestBody MsleStaffPo msleStaffPo){
+    public PageUtil<Integer> updateBelongsOrganization (@Valid @RequestBody MsleStaffPo msleStaffPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iOrganizationService.updateBelongsOrganization(msleStaffPo));
         PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);
@@ -71,7 +72,7 @@ public class OrganizationController {
      增添机构
      */
     @RequestMapping(value = "/insertOrganization",method = RequestMethod.GET)
-    public PageUtil<String> insertOrganization (@RequestBody MsleOrganizationPo msleOrganizationPo){
+    public PageUtil<String> insertOrganization (@Valid @RequestBody MsleOrganizationPo msleOrganizationPo){
         List<String> list=new ArrayList<String>();
         list.add(iOrganizationService.insertOrganization(msleOrganizationPo));
         PageUtil<String> pageUtil=new PageUtil<String>(list);
@@ -93,7 +94,7 @@ public class OrganizationController {
      修改机构信息
      */
     @RequestMapping(value = "/updateOrganization",method = RequestMethod.GET)
-    public PageUtil<Integer> updateOrganization (@RequestBody MsleOrganizationPo msleOrganizationPo){
+    public PageUtil<Integer> updateOrganization (@Valid @RequestBody MsleOrganizationPo msleOrganizationPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iOrganizationService.updateOrganization(msleOrganizationPo));
         PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);
