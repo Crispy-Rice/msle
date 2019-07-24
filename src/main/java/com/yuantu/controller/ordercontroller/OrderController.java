@@ -6,6 +6,7 @@ import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class OrderController {
      添加非预约订单
      */
     @RequestMapping(value = "/addOrder", method = RequestMethod.GET)
-    public PageUtil<MsleOrderPo> addOrder(@RequestBody MsleOrderPo msleOrderPo) {
+    public PageUtil<MsleOrderPo> addOrder(@Valid  @RequestBody MsleOrderPo msleOrderPo) {
         List<MsleOrderPo> list=new ArrayList<MsleOrderPo>();
         list.add(iOrderService.addOrder(msleOrderPo));
         PageUtil<MsleOrderPo> pageUtil=new PageUtil<MsleOrderPo>(list);
