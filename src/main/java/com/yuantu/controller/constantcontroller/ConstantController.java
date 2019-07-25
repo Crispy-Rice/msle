@@ -28,7 +28,7 @@ public class ConstantController {
     /**
      *修改一条记录
      */
-    @RequestMapping(value = "/updateConstant",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateConstant",method = RequestMethod.POST)
     public PageUtil<Integer> updateConstant(@RequestBody MsleConstantPo msleConstantPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iConstantService.updateConstant(msleConstantPo));
@@ -39,7 +39,7 @@ public class ConstantController {
     /**
      添加一条常量
      */
-    @RequestMapping(value = "/insertConstant",method = RequestMethod.GET)
+    @RequestMapping(value = "/insertConstant",method = RequestMethod.POST)
     public PageUtil<Integer> insertConstant(@RequestBody @Valid MsleConstantPo msleConstantPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iConstantService.insertConstant(msleConstantPo));
@@ -50,7 +50,7 @@ public class ConstantController {
     /**
      获得一条常量
      */
-    @RequestMapping(value = "/getConstant",method = RequestMethod.GET)
+    @RequestMapping(value = "/getConstant",method = RequestMethod.POST)
     public  PageUtil<MsleConstantPo> getConstant(@RequestBody MsleConstantPo msleConstantPo){
         MsleConstantPo constantServiceReturn=new MsleConstantPo();
         constantServiceReturn=iConstantService.getConstant(msleConstantPo);
@@ -73,7 +73,7 @@ public class ConstantController {
     /**
      根据起始和开始城市查看物流信息
      */
-    @RequestMapping(value = "/getLogisticsByCity",method = RequestMethod.GET)
+    @RequestMapping(value = "/getLogisticsByCity",method = RequestMethod.POST)
     public PageUtil<MsleLogisticsPo> getLogisticsByCity(@RequestBody MsleConstantPo msleConstantPo){
         List<MsleLogisticsPo> list=iConstantService.getLogisticsByCity(msleConstantPo);
         PageUtil<MsleLogisticsPo> pageUtil=new PageUtil<MsleLogisticsPo>(list);

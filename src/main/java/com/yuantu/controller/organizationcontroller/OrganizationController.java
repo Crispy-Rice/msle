@@ -49,7 +49,7 @@ public class OrganizationController {
     /**
      修改员工所属机构
      */
-    @RequestMapping(value = "/updateBelongsOrganization",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateBelongsOrganization",method = RequestMethod.POST)
     public PageUtil<Integer> updateBelongsOrganization (@Valid @RequestBody MsleStaffPo msleStaffPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iOrganizationService.updateBelongsOrganization(msleStaffPo));
@@ -71,7 +71,7 @@ public class OrganizationController {
     /**
      增添机构
      */
-    @RequestMapping(value = "/insertOrganization",method = RequestMethod.GET)
+    @RequestMapping(value = "/insertOrganization",method = RequestMethod.POST)
     public PageUtil<String> insertOrganization (@Valid @RequestBody MsleOrganizationPo msleOrganizationPo){
         List<String> list=new ArrayList<String>();
         list.add(iOrganizationService.insertOrganization(msleOrganizationPo));
@@ -93,7 +93,7 @@ public class OrganizationController {
     /**
      修改机构信息
      */
-    @RequestMapping(value = "/updateOrganization",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateOrganization",method = RequestMethod.POST)
     public PageUtil<Integer> updateOrganization (@Valid @RequestBody MsleOrganizationPo msleOrganizationPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iOrganizationService.updateOrganization(msleOrganizationPo));
