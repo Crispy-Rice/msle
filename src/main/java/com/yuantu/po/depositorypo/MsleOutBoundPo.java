@@ -3,6 +3,9 @@ package com.yuantu.po.depositorypo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 /**
  * @ClassName MsleOutBoundPo
  * @Description //出库单PO类
@@ -40,6 +43,8 @@ public class MsleOutBoundPo {
     /**
      * 区号
      */
+    @Max(value=4,message="区号不能大于4")
+    @Min(value = 0,message = "区号不能小于0")
     private  Integer outboundAreaNo;
     /**
      * 排号

@@ -19,14 +19,16 @@ import javax.validation.constraints.Size;
  * @Version  1.0
  **/
 public class MsleAccountPo {
-    @Size(min=12,max=12,message = "id长度错误")
+
     /**账户id
      *
      */
+
     private String  accountId;
     /**账户名称
      *
      */
+    @Size(min=1,max=50,message = "id长度错误")
     private String  accountName;
     @Max(value = 100000000 ,message="余额过多")
     @Min(value =0,message = "余额必须大于等于0")

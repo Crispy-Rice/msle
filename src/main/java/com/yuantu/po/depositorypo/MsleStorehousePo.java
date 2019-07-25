@@ -3,6 +3,10 @@ package com.yuantu.po.depositorypo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 /**
  * @ClassName MslestorehousePo
  * @Description //仓库信息实体类
@@ -48,6 +52,8 @@ public class MsleStorehousePo {
     /**
      * 区域预警线
      */
+    @Max(value = 1,  message="  警戒线不能大于4")
+    @Min(value = 0,message = "警戒线不能小于0")
     private Double  storehouseAlertLine;
     /**
      * 区域库存

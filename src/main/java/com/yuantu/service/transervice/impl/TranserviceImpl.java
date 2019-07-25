@@ -36,6 +36,11 @@ public class TranserviceImpl implements ITranService {
         return tranDao.getOrderByLoadingListId(loadId);
     }
 
+    @Override
+    public boolean deleteLoadingListById(String loadingListId) {
+        return tranDao.deleteLoadingListById(loadingListId);
+    }
+
 //    @Override
 //    public List<MsleloadingListPo> getLoadingListByStatus(String status) {
 //        return tranDao.getLoadingListByStatus(status);
@@ -63,6 +68,11 @@ public class TranserviceImpl implements ITranService {
         return tranDao.getReceiveByCenterId(receiveCenterId);
     }
 
+    @Override
+    public boolean deleteReceiveById(String receiveId) {
+        return tranDao.deleteReceiveById(receiveId);
+    }
+
 
     @Override
     public boolean addDisptach(MsleDispatchPo dispatchPo) {
@@ -86,6 +96,11 @@ public class TranserviceImpl implements ITranService {
         return tranDao.getDisptachByHallId(dispatchHallId);
     }
 
+    @Override
+    public boolean deleteDisptachById(String disptachId) {
+        return tranDao.deleteDisptachById(disptachId);
+    }
+
 
     @Override
     public boolean addArrival(MsleArrivalPo arrivalPo) {
@@ -102,6 +117,11 @@ public class TranserviceImpl implements ITranService {
     public List<MsleArrivalPo> getArrivalByHallId(String id) {
 
         return tranDao.getArrivalByHallId(id);
+    }
+
+    @Override
+    public boolean deleteArrivalById(String arrivalId) {
+        return tranDao.deleteArrivalById(arrivalId);
     }
 
 
@@ -148,6 +168,11 @@ public class TranserviceImpl implements ITranService {
         return tranDao.getCenterLoadByCenterId(id);
     }
 
+    @Override
+    public boolean deleteCenterLoadById(String centerloadId) {
+        return tranDao.deleteCenterLoadById(centerloadId);
+    }
+
 
     @Override
     public boolean addTransfer(MsleTransferPo transferPo) {
@@ -168,6 +193,11 @@ public class TranserviceImpl implements ITranService {
     @Override
     public List<MsleTransferPo> getTransferByCenterId(String id) {
         return tranDao.getTransferByCenterId(id);
+    }
+
+    @Override
+    public boolean deleteTransferById(String transferId) {
+        return tranDao.deleteTransferById(transferId);
     }
 
     @Override

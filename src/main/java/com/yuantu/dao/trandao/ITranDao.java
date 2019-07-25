@@ -23,6 +23,8 @@ public interface ITranDao {
     @Select("select * from msle_loadinglist where loadingList_hallno='${loadlingListHallNo}'")
     List<MsleLoadingListPo> getLoadingListByHallId(@Param("loadlingListHallNo") String loadlingListHallNo);
 
+    @Delete("delete from msle_loadinglist where loadinglist_id='${loadingListId}'")
+    boolean deleteLoadingListById(@Param("loadingListId") String loadingListId);
 
 //    @Update("update msle_loadinglist set loadinglistStatus='${status}'" +
 //            "where loadingListId='${id}'")
@@ -46,6 +48,8 @@ public interface ITranDao {
     List<MsleReceivePo> getReceiveByCenterId(@Param("receiveCenterId") String receiveCenterId);
 
 
+    @Delete("delete from msle_receive where receive_id='${receiveId}'")
+    boolean deleteReceiveById(@Param("receiveId") String receiveId);
 //    @Select("select * from msle_receive where receive_status='${status}'")
 //    List<MslereceivePo> getReceiveByStatus(@Param("status") String status);
 //
@@ -78,7 +82,8 @@ public interface ITranDao {
 //            "where dispatch_id='${id}'")
 //    boolean updateDisptachStatus(@Param("id") String id,@Param("status") String status);
 
-
+    @Delete("delete from msle_dispatch where dispatch_id='${disptachId}'")
+    boolean deleteDisptachById(@Param("disptachId") String disptachId);
 
 
     @Insert("insert into msle_car values(#{carId},#{carCarNo}," +
@@ -116,6 +121,9 @@ public interface ITranDao {
     @Select("select * from msle_arrival where arrival_hallid='${id}'")
     List<MsleArrivalPo> getArrivalByHallId(@Param("id") String id);
 
+    @Delete("delete from msle_arrival where arrival_id='${arrivalId}'")
+    boolean deleteArrivalById(@Param("arrivalId") String arrivalId);
+
 //    @Select("select * from msle_arrival where arrivalStatus='${status}'")
 //    List<MslearrivalPo> getArrivalByStatus(@Param("status") String status);
 
@@ -127,7 +135,7 @@ public interface ITranDao {
 
     @Insert("insert into msle_centerload values(#{centerLoadId},#{centerLoadCenterId}," +
             "#{centerLoadLoadId},#{centerLoadDate},#{centerLoadTranno}," +
-            "#{centerLoadDsetination},#{centerLoadCarNo},#{centerLoadSupervisor}," +
+            "#{centerLoadDestination},#{centerLoadCarNo},#{centerLoadSupervisor}," +
             "#{centerLoadSupercargo},#{centerLoadOrder},#{centerLoadFee},#{centerLoadStatus})")
     boolean addCenterLoad(MsleCenterLoadPo centerLoadPo);
 
@@ -138,6 +146,9 @@ public interface ITranDao {
 
     @Select("select * from msle_centerload where centerLoad_centerid='${id}'")
     List<MsleCenterLoadPo> getCenterLoadByCenterId(@Param("id") String id);
+
+    @Delete("delete from msle_centerload where centerload_id='${centerloadId}'")
+    boolean deleteCenterLoadById(@Param("centerloadId") String centerloadId);
 
 //    @Select("select * from msle_centerload where centerload_status='${status}'")
 //    List<MslecenterLoadPo> getCenterLoadByStatus(@Param("status") String status);
@@ -164,6 +175,9 @@ public interface ITranDao {
 
     @Select("select * from msle_transfer where transfer_no='${id}'")
     List<MsleTransferPo> getTransferByCenterId(@Param("id") String id);
+
+    @Delete("delete from msle_transfer where transfer_id='${transferId}'")
+    boolean deleteTransferById(@Param("transferId") String transferId);
 
 //    @Select("select * from msle_transfer where transfer_status='${status}'")
 //    List<MsletransferPo> getTransferByStatus(@Param("status") String status);

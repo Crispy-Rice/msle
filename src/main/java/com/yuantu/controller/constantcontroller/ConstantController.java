@@ -39,7 +39,7 @@ public class ConstantController {
     /**
      添加一条常量
      */
-    @RequestMapping(value = "/insertConstant",method = RequestMethod.GET)
+    @RequestMapping(value = "/insertConstant",method = RequestMethod.POST)
     public PageUtil<Integer> insertConstant(@RequestBody @Valid MsleConstantPo msleConstantPo){
         List<Integer> list=new ArrayList<Integer>();
         list.add(iConstantService.insertConstant(msleConstantPo));

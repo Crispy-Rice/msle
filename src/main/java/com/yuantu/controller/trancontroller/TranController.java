@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,11 @@ public class TranController {
         return new PageUtil<MsleLoadingListPo>(tranService.getLoadingListByHallId(id));
     }
 
-
+   @RequestMapping(value = "/deleteLoadingListById" ,method=RequestMethod.DELETE)
+   @ResponseBody
+   public PageUtil<Boolean> deleteLoadingListById(String loadingListId){
+        return new PageUtil<Boolean>(tranService.deleteLoadingListById(loadingListId));
+   }
 
 
 //    @RequestMapping(value = "/getLoadingListById")
@@ -72,20 +77,24 @@ public class TranController {
 
     @RequestMapping(value = "/addReceive" ,method = RequestMethod.POST)
     @ResponseBody
-    public boolean addReceive(@RequestBody MsleReceivePo receivePo) {
-        return tranService.addReceive(receivePo);
+    public PageUtil<Boolean> addReceive(@RequestBody MsleReceivePo receivePo) {
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.addReceive(receivePo));
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/getReceiveById" ,method = RequestMethod.GET)
     @ResponseBody
-    public MsleReceivePo getReceiveById(String id) {
-        return tranService.getReceiveById(id);
+    public PageUtil<MsleReceivePo> getReceiveById(String id) {
+        List<MsleReceivePo> resultList=new ArrayList<MsleReceivePo>();
+        resultList.add(tranService.getReceiveById(id));
+        return new PageUtil<MsleReceivePo>(resultList);
     }
 
     @RequestMapping(value = "/getReceiveByCenterId" ,method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleReceivePo> getReceiveByCenterId(String receiveCenterId) {
-        return tranService.getReceiveByCenterId(receiveCenterId);
+    public PageUtil<MsleReceivePo> getReceiveByCenterId(String receiveCenterId) {
+        return new PageUtil<MsleReceivePo>(tranService.getReceiveByCenterId(receiveCenterId));
     }
 
 //    @RequestMapping(value = "/updateReceiveStatus")
@@ -94,24 +103,33 @@ public class TranController {
 //        return tranService.updateReceiveStatus(id,status);
 //    }
 
+    @RequestMapping(value = "/deleteReceiveById" ,method=RequestMethod.DELETE)
+    @ResponseBody
+    public PageUtil<Boolean> deleteReceiveById(String receiveId){
+    return new PageUtil<Boolean>(tranService.deleteReceiveById(receiveId));
+}
 
 
     @RequestMapping(value = "/addDisptach" ,method = RequestMethod.POST)
     @ResponseBody
-    public boolean addDisptach(@RequestBody MsleDispatchPo dispatchPo) {
-        return tranService.addDisptach(dispatchPo);
+    public PageUtil<Boolean> addDisptach(@RequestBody MsleDispatchPo dispatchPo) {
+        List<Boolean> resultList=new ArrayList<Boolean>();
+        resultList.add(tranService.addDisptach(dispatchPo));
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/getDisptachById" ,method = RequestMethod.GET)
     @ResponseBody
-    public MsleDispatchPo getDisptachById(String dispatchId){
-        return tranService.getDisptachById(dispatchId);
+    public PageUtil<MsleDispatchPo> getDisptachById(String dispatchId){
+        List<MsleDispatchPo> resultList=new ArrayList<MsleDispatchPo>();
+        resultList.add(tranService.getDisptachById(dispatchId));
+        return new PageUtil<MsleDispatchPo>(resultList);
     }
 
     @RequestMapping(value = "/getDisptachByPostman" ,method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleDispatchPo> getDisptachByPostman(String dispatchPostman){
-        return tranService.getDisptachByPostman(dispatchPostman);
+    public PageUtil<MsleDispatchPo> getDisptachByPostman(String dispatchPostman){
+        return new PageUtil<MsleDispatchPo>(tranService.getDisptachByPostman(dispatchPostman));
     }
 
     @RequestMapping(value = "/getDisptachByHallId" ,method = RequestMethod.GET)
@@ -125,17 +143,28 @@ public class TranController {
 //    public boolean updateDisptachStatus(Integer id,String status){
 //        return tranService.updateDisptachStatus(id, status);
 //    }
+@RequestMapping(value = "/deleteDisptachById" ,method=RequestMethod.DELETE)
+@ResponseBody
+public PageUtil<Boolean> deleteDisptachById(String loadingListId){
+    return new PageUtil<Boolean>(tranService.deleteDisptachById(loadingListId));
+}
+
 
     @RequestMapping(value = "/addArrival" ,method = RequestMethod.POST)
     @ResponseBody
-    public boolean addArrival (@RequestBody MsleArrivalPo arrivalPo){
-        return tranService.addArrival(arrivalPo);
+    public PageUtil<Boolean> addArrival (@RequestBody MsleArrivalPo arrivalPo){
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.addArrival(arrivalPo));
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/getArrivalById" ,method = RequestMethod.GET)
     @ResponseBody
-    public MsleArrivalPo getArrivalById(String id){
-        return tranService.getArrivalById(id);
+    public PageUtil<MsleArrivalPo> getArrivalById(String id){
+        List<MsleArrivalPo> resultList=new ArrayList<MsleArrivalPo>();
+
+        resultList.add(tranService.getArrivalById(id));
+        return new PageUtil<MsleArrivalPo>(resultList);
     }
 
     @RequestMapping(value = "/getArrivalByHallId" ,method = RequestMethod.GET)
@@ -144,6 +173,12 @@ public class TranController {
         return new PageUtil<MsleArrivalPo>(tranService.getArrivalByHallId(id));
     }
 
+
+    @RequestMapping(value = "/deleteArrivalById" ,method=RequestMethod.DELETE)
+    @ResponseBody
+    public PageUtil<Boolean> deleteArrivalById(String loadingListId){
+        return new PageUtil<Boolean>(tranService.deleteArrivalById(loadingListId));
+    }
 //    @RequestMapping(value = "/updateArrivalStatus")
 //    @ResponseBody
 //    public  boolean updateArrivalStatus(Integer id,String status){
@@ -152,20 +187,30 @@ public class TranController {
 
     @RequestMapping(value = "/addCar" ,method = RequestMethod.POST)
     @ResponseBody
-    public boolean addCar(@RequestBody MsleCarPo carPo) {
-        return tranService.addCar(carPo);
+    public PageUtil<Boolean> addCar(@RequestBody MsleCarPo carPo)
+    {
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.addCar(carPo));
+
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/deleteCar" ,method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deleteCar(String id) {
-        return tranService.deleteCar(id);
+    public PageUtil<Boolean> deleteCar(String id) {
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.deleteCar(id));
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/updateCar",method = RequestMethod.PUT)
     @ResponseBody
-    public  boolean updateCar(@RequestBody MsleCarPo carPo) {
-        return tranService.updateCar(carPo);
+    public  PageUtil<Boolean> updateCar(@RequestBody MsleCarPo carPo) {
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.updateCar(carPo));
+
+
+        return new PageUtil<Boolean>(resultList);
     }
 
     @RequestMapping(value = "/queryAllCars",method = RequestMethod.GET)
@@ -176,14 +221,20 @@ public class TranController {
 
     @RequestMapping(value = "/queryCarById",method = RequestMethod.GET)
     @ResponseBody
-    public MsleCarPo queryCarById(String id) {
-        return tranService.queryCarById(id);
+    public PageUtil<MsleCarPo> queryCarById(String id) {
+        List<MsleCarPo> resultList =new ArrayList<MsleCarPo>();
+        resultList.add(tranService.queryCarById(id));
+        return new PageUtil<MsleCarPo>(resultList);
     }
 
     @RequestMapping(value = "/addCenterLoad",method = RequestMethod.POST)
     @ResponseBody
-    public  boolean addCenterLoad(@RequestBody MsleCenterLoadPo centerLoadPo){
-        return tranService.addCenterLoad(centerLoadPo);
+    public  PageUtil<Boolean> addCenterLoad(@Valid @RequestBody MsleCenterLoadPo centerLoadPo){
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.addCenterLoad(centerLoadPo));
+
+
+        return new PageUtil<Boolean>(resultList);
     }
 
 
@@ -192,14 +243,14 @@ public class TranController {
 
     @RequestMapping(value = "/getCenterLoadById",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleCenterLoadPo> getCenterLoadById(String id){
-        return tranService.getCenterLoadById(id);
+    public PageUtil<MsleCenterLoadPo> getCenterLoadById(String id){
+        return new PageUtil<MsleCenterLoadPo>(tranService.getCenterLoadById(id));
     }
 
     @RequestMapping(value = "/getCenterLoadByCenterId",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleCenterLoadPo> getCenterLoadByCenterId(String id){
-        return tranService.getCenterLoadByCenterId(id);
+    public PageUtil<MsleCenterLoadPo> getCenterLoadByCenterId(String id){
+        return new PageUtil<MsleCenterLoadPo>(tranService.getCenterLoadByCenterId(id));
     }
 
 //    @RequestMapping(value = "/updateCenterLoadStatus")
@@ -208,10 +259,19 @@ public class TranController {
 //        return tranService.updateCenterLoadStatus(id,status);
 //    }
 
+    @RequestMapping(value = "/deleteCenterLoadById" ,method=RequestMethod.DELETE)
+    @ResponseBody
+    public PageUtil<Boolean> deleteCenterLoadById(String loadingListId){
+        return new PageUtil<Boolean>(tranService.deleteCenterLoadById(loadingListId));
+    }
+
+
     @RequestMapping(value = "/addTransfer",method = RequestMethod.POST)
     @ResponseBody
-    public  boolean addTransfer(@RequestBody MsleTransferPo transferPo){
-        return tranService.addTransfer(transferPo);
+    public  PageUtil<Boolean> addTransfer(@RequestBody MsleTransferPo transferPo){
+        List<Boolean> resultList =new ArrayList<Boolean>();
+        resultList.add(tranService.addTransfer(transferPo));
+        return new PageUtil<Boolean>(resultList);
     }
 
 
@@ -219,21 +279,32 @@ public class TranController {
 
     @RequestMapping(value = "/getTransferById",method = RequestMethod.GET)
     @ResponseBody
-    public MsleTransferPo getTransferById(String id){
-        return tranService.getTransferById(id);
+    public PageUtil<MsleTransferPo> getTransferById(String id){
+        List<MsleTransferPo> resultList=new ArrayList<MsleTransferPo>();
+        resultList.add(tranService.getTransferById(id));
+
+        return new PageUtil<MsleTransferPo>(resultList);
     }
 
     @RequestMapping(value = "/getTransferByListId",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleTransferPo> getTransferByListId(String id){
-        return tranService.getTransferByListId(id);
+    public PageUtil<MsleTransferPo> getTransferByListId(String id){
+        return  new PageUtil<MsleTransferPo>(tranService.getTransferByListId(id));
     }
 
     @RequestMapping(value = "/getTransferByCenterId",method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleTransferPo> getTransferByCenterId(String id){
-        return tranService.getTransferByCenterId(id);
+    public PageUtil<MsleTransferPo> getTransferByCenterId(String id){
+        return new PageUtil<MsleTransferPo>(tranService.getTransferByCenterId(id));
     }
+
+    @RequestMapping(value = "/deleteTransferById" ,method=RequestMethod.DELETE)
+    @ResponseBody
+    public PageUtil<Boolean> deleteTransferById(String loadingListId){
+        return new PageUtil<Boolean>(tranService.deleteTransferById(loadingListId));
+    }
+
+
 
 //    @RequestMapping(value = "/updateTransferStatus")
 //    @ResponseBody
@@ -243,20 +314,20 @@ public class TranController {
 
     @RequestMapping(value = "/addDriver",method = RequestMethod.POST)
     @ResponseBody
-    public boolean addDriver(@RequestBody MsleDriverPo driverPo) {
-        return tranService.addDriver(driverPo);
+    public PageUtil<Boolean> addDriver(@RequestBody MsleDriverPo driverPo) {
+        return new PageUtil<Boolean>(tranService.addDriver(driverPo));
     }
 
     @RequestMapping(value = "/deleteDriver",method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deleteDriver(String id) {
-        return tranService.deleteDriver(id);
+    public PageUtil<Boolean> deleteDriver(String id) {
+        return new PageUtil<Boolean>(tranService.deleteDriver(id));
     }
 
     @RequestMapping(value = "/updateDriver",method = RequestMethod.PUT)
     @ResponseBody
-    public  boolean updateDriver(@RequestBody MsleDriverPo driverPo) {
-        return tranService.updateDriver(driverPo);
+    public  PageUtil<Boolean> updateDriver(@RequestBody MsleDriverPo driverPo) {
+        return new PageUtil<Boolean>(tranService.updateDriver(driverPo));
     }
 
     @RequestMapping(value = "/queryAllDrivers",method = RequestMethod.GET)
@@ -269,8 +340,8 @@ public class TranController {
 
     @RequestMapping(value = "/queryDriverById",method = RequestMethod.GET)
     @ResponseBody
-    public MsleDriverPo queryDriverById(String id) {
-        return tranService.queryDriverById(id);
+    public PageUtil<MsleDriverPo> queryDriverById(String id) {
+        return new PageUtil<MsleDriverPo>(tranService.queryDriverById(id));
     }
 
 

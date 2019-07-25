@@ -71,7 +71,7 @@ public class OrganizationController {
     /**
      增添机构
      */
-    @RequestMapping(value = "/insertOrganization",method = RequestMethod.GET)
+    @RequestMapping(value = "/insertOrganization",method = RequestMethod.POST)
     public PageUtil<String> insertOrganization (@Valid @RequestBody MsleOrganizationPo msleOrganizationPo){
         List<String> list=new ArrayList<String>();
         list.add(iOrganizationService.insertOrganization(msleOrganizationPo));

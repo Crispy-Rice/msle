@@ -9,10 +9,7 @@ import com.yuantu.service.accountservice.IAccountService;
 import com.yuantu.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -31,52 +28,75 @@ public class AccountController {
 
     @RequestMapping(value = "/addReceipt", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addReceipt(@RequestBody MsleReceiptPo receiptPo) {//添加收款单
+    public PageUtil<Boolean> addReceipt(@Valid @RequestBody MsleReceiptPo receiptPo,@RequestParam String peopleId) {//添加收款单
+        List<Boolean> resultList=new ArrayList<Boolean>();
 
-        return accountService.addReceipt(receiptPo);
+        resultList.add(accountService.addReceipt(receiptPo));
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/deleteReceiptById", method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deleteReceiptById(String receiptId) {//根据id删除收款单
-        return accountService.deleteReceiptById(receiptId);
+    public PageUtil<Boolean> deleteReceiptById(String receiptId,String peopleId) {//根据id删除收款单
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.deleteReceiptById(receiptId));
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updateReceiptDeleteState", method = RequestMethod.PUT)
     @ResponseBody
-    public  boolean updateReceiptDeleteState(String receiptDeleteState
-            , String receiptId) {//根据id查询收款单
-        return accountService.updateReceiptDeleteState(receiptDeleteState, receiptId);
+    public  PageUtil<Boolean> updateReceiptDeleteState(String receiptDeleteState
+            , String receiptId) {//修改收款单删除状态
+
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.updateReceiptDeleteState(receiptDeleteState, receiptId));
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updateReceiptStatus", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updateReceiptStatus(String receiptStatus
-            , String receiptId) {//根据id查询收款单
-        return accountService.updateReceiptStatus(receiptStatus, receiptId);
+    public PageUtil<Boolean> updateReceiptStatus(String receiptStatus
+            , String receiptId) {//
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.updateReceiptStatus(receiptStatus, receiptId));
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updatePaymentDeleteState", method = RequestMethod.GET)
     @ResponseBody
-    public boolean updatePaymentDeleteState(String paymentDeleteState,
+    public PageUtil<Boolean> updatePaymentDeleteState(String paymentDeleteState,
                                             String paymentId) {//根据id查询收款单
-        return accountService.updatePaymentDeleteState(paymentDeleteState, paymentId);
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.updatePaymentDeleteState(paymentDeleteState, paymentId));
+
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updatePaymentStatus", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updatePaymentStatus(String paymentStatus, String paymentId) {//根据id查询收款单
-        return accountService.updatePaymentStatus(paymentStatus, paymentId);
+    public PageUtil<Boolean> updatePaymentStatus(String paymentStatus, String paymentId) {//根据id查询收款单
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.updatePaymentStatus(paymentStatus, paymentId));
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
@@ -103,16 +123,20 @@ public class AccountController {
 
     @RequestMapping(value = "/getTotalReceiptByHallName", method = RequestMethod.GET)
     @ResponseBody
-    public Double getTotalReceiptByHallName(String hallName) {//根据营业厅名字查询收款单合计
-        return accountService.getTotalReceiptByHallName(hallName);
+    public PageUtil<Double> getTotalReceiptByHallName(String hallName) {//根据营业厅名字查询收款单合计
+        List<Double> resultList=new ArrayList<Double>();
+
+        resultList.add(accountService.getTotalReceiptByHallName(hallName));
+
+        return new PageUtil<Double>(resultList);
 
 
     }
 
     @RequestMapping(value = "/getReceipt", method = RequestMethod.GET)//查询全部收款单
     @ResponseBody
-    public List<MsleReceiptPo> getReceipt() {
-        return accountService.getReceipt();
+    public PageUtil<MsleReceiptPo> getReceipt() {
+        return new PageUtil<MsleReceiptPo>(accountService.getReceipt());
 
 
     }
@@ -120,18 +144,22 @@ public class AccountController {
 
     @RequestMapping(value = "/getReceiptByBeginAndEndDay", method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleReceiptPo> getReceiptByBeginAndEndDay(String beginDay, String endDay) {
+    public PageUtil<MsleReceiptPo> getReceiptByBeginAndEndDay(String beginDay, String endDay) {
         //查询指定日期内的收款单
-        return accountService.getReceiptByBeginAndEndDay(beginDay, endDay);
+        return new PageUtil<MsleReceiptPo>(accountService.getReceiptByBeginAndEndDay(beginDay, endDay));
 
 
     }
 
     @RequestMapping(value = "/getTotalReceiptByBeginAndEndDay", method = RequestMethod.GET)
     @ResponseBody
-    public Double getTotalReceiptByBeginAndEndDay(String beginDay, String endDay) {
+    public PageUtil<Double> getTotalReceiptByBeginAndEndDay(String beginDay, String endDay) {
         //查询指定日期内的收款单总计
-        return accountService.getTotalReceiptByBeginAndEndDay(beginDay, endDay);
+        List<Double> resultList=new ArrayList<Double>();
+
+        resultList.add( accountService.getTotalReceiptByBeginAndEndDay(beginDay, endDay));
+
+        return new PageUtil<Double>(resultList) ;
 
 
     }
@@ -139,104 +167,140 @@ public class AccountController {
 
     @RequestMapping(value = "/addAccount", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addAccount(@Valid  @RequestBody MsleAccountPo accountPo) {//增加账户
-        return accountService.addAccount(accountPo);
+    public PageUtil<Boolean> addAccount(@Valid  @RequestBody MsleAccountPo accountPo,String peopleId) {//增加账户
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.addAccount(accountPo));
+
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updateAccount", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updateAccount(String accountName,Double accountSurplus) {//更新账户
-        return accountService.updateAccount(accountName, accountSurplus);
+    public PageUtil<Boolean> updateAccount(String accountName,Double accountSurplus,String peopleId) {//更新账户
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.updateAccount(accountName, accountSurplus));
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/deleteAccountById", method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deleteAccountById(String id) {//删除账户
-        return accountService.deleteAccountById(id);
+    public PageUtil<Boolean> deleteAccountById(String id,String peopleId) {//删除账户
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.deleteAccountById(id));
+
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/getAccountByName", method = RequestMethod.GET)
     @ResponseBody
-    public MsleAccountPo getAccountByName(String accountName) {//查询账户
-        return accountService.getAccountByName(accountName);
+    public PageUtil<MsleAccountPo> getAccountByName(String accountName) {//查询账户
+        List<MsleAccountPo> resultList=new ArrayList<MsleAccountPo>();
+        resultList.add(accountService.getAccountByName(accountName));
+
+        return new PageUtil<MsleAccountPo>(resultList);
 
 
     }
 
     @RequestMapping(value = "/addPayment", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addPayment(@RequestBody MslePaymentPo paymentPo) {//新建付款单
-        return accountService.addPayment(paymentPo);
+    public PageUtil<Boolean> addPayment(@Valid @RequestBody MslePaymentPo paymentPo,String peopleId) {//新建付款单
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.addPayment(paymentPo));
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/deletePaymentById", method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deletePaymentById(String id) {//根据id删除付款单
-        return accountService.deletePaymentById(id);
+    public PageUtil<Boolean> deletePaymentById(String id,String peopleId) {//根据id删除付款单
+        List<Boolean> resultList=new ArrayList<Boolean>();
+
+        resultList.add(accountService.deletePaymentById(id));
+
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/updatePayment", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updatePayment(@RequestBody MslePaymentPo paymentPo) {
-        return accountService.updatePayment(paymentPo);//更新付款单
+    public PageUtil<Boolean> updatePayment(@RequestBody MslePaymentPo paymentPo,String peopleId) {
+        List<Boolean> resultList=new ArrayList<Boolean>();
+//更新付款单
+        resultList.add(accountService.updatePayment(paymentPo));
+
+
+        return new PageUtil<Boolean>(resultList);
 
 
     }
 
     @RequestMapping(value = "/getPaymentById", method = RequestMethod.GET)
     @ResponseBody
-    public MslePaymentPo getPaymentById(String id) {//根据id查询付款单
-        return accountService.getPaymentById(id);
+    public PageUtil<MslePaymentPo> getPaymentById(String id) {//根据id查询付款单
+       List<MslePaymentPo> resultList=new ArrayList<MslePaymentPo>();
+       resultList.add(accountService.getPaymentById(id));
+       return new PageUtil<MslePaymentPo>(resultList);
 
 
     }
 
     @RequestMapping(value = "/getPaymentByBeginAndEndDay", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
-        return accountService.getPaymentByBeginAndEndDay(beginDay, endDay);
+    public PageUtil<MslePaymentPo> getPaymentByBeginAndEndDay(String beginDay, String endDay) {
+        return new PageUtil<MslePaymentPo>(accountService.getPaymentByBeginAndEndDay(beginDay, endDay));
 
 
     }
 
     @RequestMapping(value = "/selectPaymentByType", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> selectPaymentByType(String type) {
-        return accountService.selectPaymentByType(type);
+    public PageUtil<MslePaymentPo> selectPaymentByType(String type) {
+        return new PageUtil<MslePaymentPo>(accountService.selectPaymentByType(type));
 
 
     }
 
     @RequestMapping(value = "/selectPayments", method = RequestMethod.GET)
     @ResponseBody
-    public List<MslePaymentPo> selectPayments() {
-        return accountService.selectPayments();
+    public PageUtil<MslePaymentPo> selectPayments() {
+        return new PageUtil<MslePaymentPo>(accountService.selectPayments());
 
 
     }
 
     @RequestMapping(value = "/getAccountById", method = RequestMethod.GET)
     @ResponseBody
-    public MsleAccountPo getAccountById(String id) {
-        return accountService.getAccountById(id);
+    public PageUtil<MsleAccountPo> getAccountById(String id) {
+        List<MsleAccountPo> resultList=new ArrayList<MsleAccountPo>();
+        resultList.add(accountService.getAccountById(id));
+
+        return new PageUtil<MsleAccountPo>(resultList);
 
 
     }
 
     @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
     @ResponseBody
-    public List<MsleAccountPo> getAccount() {
-        return accountService.getAccount();
+    public PageUtil<MsleAccountPo> getAccount() {
+        return new PageUtil<MsleAccountPo>(accountService.getAccount());
 
 
     }
