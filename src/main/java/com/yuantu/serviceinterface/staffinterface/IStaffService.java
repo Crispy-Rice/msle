@@ -13,6 +13,8 @@ import java.util.List;
  */
 public interface IStaffService {
 
+    List<MsleStaffPo> getPersonnelByOrganization( String organizationId);
+
     MsleStaffPo getPersonnelInformation(String staffId);
 
     List<MsleStaffPo> getAllStaffs();

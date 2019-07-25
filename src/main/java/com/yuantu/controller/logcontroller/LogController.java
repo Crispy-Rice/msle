@@ -27,7 +27,7 @@ public class LogController {
     /**
      获取某日期下所有日志
      */
-    @RequestMapping(value = "/getLog", method = RequestMethod.GET)
+    @RequestMapping(value = "/getLog", method = RequestMethod.POST)
     @ResponseBody
     PageUtil<MsleLogPo> getLog (String date) {
         List<MsleLogPo> list=iLogService.getLog(date);

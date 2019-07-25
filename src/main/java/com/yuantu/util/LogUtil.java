@@ -1,6 +1,7 @@
 package com.yuantu.util;
 
 import com.yuantu.po.MsleLogPo;
+import com.yuantu.service.logservice.LogServiceImpl;
 import com.yuantu.serviceinterface.loginterface.ILogService;
 import org.aspectj.lang.JoinPoint;
 import org.slf4j.Logger;
@@ -24,22 +25,31 @@ import java.util.Date;
 public class LogUtil {
 
     @Autowired
-    private   ILogService iLogService;
+    private ILogService iLogService;
 
    // private final Logger logger = LoggerFactory.getLogger(LogUtil.class);
     public  void logBeforeController(JoinPoint joinPoint,String message) {
+        LogServiceImpl logService=new LogServiceImpl();
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         //这个RequestContextHolder是Springmvc提供来获得请求的东西
         HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
         MsleLogPo msleLogPo=new MsleLogPo();
         //设置日期格式
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(df.format(new Date()).toString());
+
         msleLogPo.setLogDate(df.format(new Date()).toString());
         msleLogPo.setLogId(UUID.creatId());
         msleLogPo.setLogContent(message);
         msleLogPo.setLogPeople(joinPoint.getArgs().toString());
         msleLogPo.setLogPeople(request.getParameter("peopleId"));
-        iLogService.insertLog(msleLogPo);
+
+        System.out.println(msleLogPo);
+
+
+
+        logService.insertLog(msleLogPo);
 
     }
 

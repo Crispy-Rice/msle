@@ -26,7 +26,7 @@ public class OrderController {
     /**
      添加预约订单
      */
-    @RequestMapping(value = "/addBookingOrder", method = RequestMethod.GET)
+    @RequestMapping(value = "/addBookingOrder", method = RequestMethod.POST)
     public PageUtil<MsleOrderPo> addBookingOrder(@RequestBody MsleOrderPo msleOrderPo) {
         List<MsleOrderPo> list=new ArrayList<MsleOrderPo>();
         list.add(iOrderService.addBookingOrder(msleOrderPo));
@@ -37,7 +37,7 @@ public class OrderController {
     /**
      添加非预约订单
      */
-    @RequestMapping(value = "/addOrder", method = RequestMethod.GET)
+    @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
     public PageUtil<MsleOrderPo> addOrder(@Valid  @RequestBody MsleOrderPo msleOrderPo) {
         List<MsleOrderPo> list=new ArrayList<MsleOrderPo>();
         list.add(iOrderService.addOrder(msleOrderPo));
@@ -60,7 +60,7 @@ public class OrderController {
     /**
      填写收件信息
      */
-    @RequestMapping(value = "/writeConsigneeInformation", method = RequestMethod.GET)
+    @RequestMapping(value = "/writeConsigneeInformation", method = RequestMethod.POST)
     @ResponseBody
     public PageUtil<Integer> writeConsigneeInformation(@RequestBody MsleLogisticsPo msleLogisticsPo) {
         List<Integer> list=new ArrayList<Integer>();
