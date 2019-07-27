@@ -3,6 +3,7 @@ package com.yuantu.service.logservice;
 import com.yuantu.dao.ILogDao;
 import com.yuantu.po.MsleLogPo;
 import com.yuantu.serviceinterface.loginterface.ILogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -16,12 +17,12 @@ import java.util.List;
  */
 @Service
 public class LogServiceImpl implements ILogService {
-    @Resource
+    @Autowired
     private ILogDao iLogDao;
 
     @Override
-    public Integer insertLog(MsleLogPo msleLogPo) {
-        return iLogDao.insertLog(msleLogPo);
+    public int insertLog(MsleLogPo msleLogPo) {
+       return   iLogDao.insertLog(msleLogPo);
     }
 
     /**

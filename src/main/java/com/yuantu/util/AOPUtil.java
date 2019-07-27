@@ -6,6 +6,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,9 +35,10 @@ public class AOPUtil {
     @Autowired
     private  ILogService iLogService;
 
+
     private LogUtil logUtil=new LogUtil();
 
-    //private final Logger logger = LoggerFactory.getLogger(AOPUtil.class);
+    private final Logger logger = LoggerFactory.getLogger(AOPUtil.class);
 
     //切入点描述，这个是uiController包的切入点
     @Pointcut("execution(* updateStaffSalary(com.yuantu.po.MsleStaffPo,String)))")
@@ -72,7 +75,7 @@ public class AOPUtil {
 
     @Before(" updateStaffSalary()") //在切入点的方法run之前要干的
     public void logBeforeController(JoinPoint joinPoint) {
-       logUtil.logBeforeController(joinPoint,UPDATESALARY);
+        logUtil.logBeforeController(joinPoint,UPDATESALARY);
     }
 
     @Before(" addReceipt()") //在切入点的方法run之前要干的
@@ -102,7 +105,7 @@ public class AOPUtil {
 
     @Before(" deleteAccountById()") //在切入点的方法run之前要干的
     public void logBeforeDeleteAccountById(JoinPoint joinPoint) {
-      logUtil.logBeforeController(joinPoint,DELETEACCOUNT);
+        logUtil.logBeforeController(joinPoint,DELETEACCOUNT);
 
     }
 

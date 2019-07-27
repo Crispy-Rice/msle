@@ -102,5 +102,7 @@ public interface IStaffDao {
     List<MsleStaffPo> getStaffByServicehall(
             @Param("staff_Organization") String staffOrganization);
 
-
+    //根据用户名找密码
+    @Select("select * from msle_staff where staff_name='${staff_name}' ")
+    MsleStaffPo getPasswordByName(@Param("staff_name") String name);
 }
