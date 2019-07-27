@@ -21,6 +21,11 @@ public class StaffServiceImpl implements IStaffService {
     private IStaffDao iStaffDao;
 
     @Override
+    public List<MsleStaffPo> getPersonnelByOrganization(String organizationType) {
+        return iStaffDao.getPersonnelByOrganization(organizationType);
+    }
+
+    @Override
     public MsleStaffPo getPersonnelInformation(String staffId) {
         return iStaffDao.getPersonnelInformation(staffId);
     }

@@ -3,6 +3,10 @@ package com.yuantu.po.accountpo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Past;
+
 /**
  * @ClassName MsleReceiptPo
  * @Description 收款单po类
@@ -20,6 +24,7 @@ public class MsleReceiptPo {
     /**收款单id
      *
      */
+
     private String  receiptNo;
     /**收款日期
      *
@@ -32,10 +37,13 @@ public class MsleReceiptPo {
     /**收款快递员
      *
      */
+
     private String  receiptPostman;
     /**收款金额
      *
      */
+    @Max(value = 10000000 ,message="金额过大")
+    @DecimalMin(value="0.01", message = "金额必须大于0")
     private Double  receiptCollections;
     /**审核状态
      *

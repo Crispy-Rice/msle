@@ -3,6 +3,8 @@ package com.yuantu.po.tranpo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.Pattern;
+
 /**
  * @ClassName MslecarPo
  * @Description //汽车类po
@@ -24,6 +26,7 @@ public class MsleCarPo {
     /**
      * /车辆代号（城市编号（电话号码区号南京025）+营业厅编号（000三位数字）+000三位数字
      */
+    @Pattern(regexp = "^\\d{9,9}$ ",message = "车辆代号必须为9位纯数字")
     private String carCarNo;
     /**
      * 购买时间

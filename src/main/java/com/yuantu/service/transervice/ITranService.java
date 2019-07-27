@@ -18,6 +18,8 @@ public interface ITranService {
 
     List<String> getOrderByLoadingListId(String loadId);
 
+    boolean deleteLoadingListById(String loadingListId);
+
 
 
 //    boolean updateLoadingListStatus(Integer id, String status);
@@ -28,6 +30,8 @@ public interface ITranService {
     MsleReceivePo getReceiveById(String id);
 
     List<MsleReceivePo> getReceiveByCenterId(String receiveCenterId);
+
+    boolean deleteReceiveById(String receiveId);
 
 //    List<MslereceivePo> getReceiveByStatus(String status);
 //
@@ -41,6 +45,8 @@ public interface ITranService {
     List<MsleDispatchPo> getDisptachByPostman(String dispatchPostman);
 
     List<MsleDispatchPo> getDisptachByHallId(String dispatchHallId);
+
+    boolean deleteDisptachById(String disptachId);
 
 //    List<MsledispatchPo> getDisptachByStatus(String status);
 
@@ -56,6 +62,10 @@ public interface ITranService {
 //    boolean updateArrivalStatus(Integer id, String status);
 
     List<MsleArrivalPo> getArrivalByHallId(String id);//根据id查找到达单
+
+    boolean deleteArrivalById(String arrivalId);
+
+
 
 
     boolean addCar(MsleCarPo carPo);
@@ -76,6 +86,8 @@ public interface ITranService {
 
     List<MsleCenterLoadPo> getCenterLoadByCenterId(String id);
 
+
+    boolean deleteCenterLoadById(String centerloadId);
 //    List<MslecenterLoadPo> getCenterLoadByStatus(String status);
 //
 //    boolean updateCenterLoadStatus(Integer id, String status);
@@ -94,7 +106,7 @@ public interface ITranService {
 //
 //    boolean updateTransferStatus(Integer id, String status);
 
-
+    boolean deleteTransferById( String transferId);
 
 
 

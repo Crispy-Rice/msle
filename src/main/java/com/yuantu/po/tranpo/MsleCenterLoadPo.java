@@ -3,6 +3,8 @@ package com.yuantu.po.tranpo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.Pattern;
+
 /**
  * @ClassName MslecenterLoadPo
  * @Description //中转中心装车单po类
@@ -36,11 +38,12 @@ public class MsleCenterLoadPo {
     /**
      * 到达地（营业厅）
      */
-    private Integer centerLoadDsetination;
+    private String centerLoadDestination;
     /**
      * 车辆代号
      */
-    private Integer centerLoadCarNo;
+  //  @Pattern(regexp = "^\\d{9,9}$ ",message = "车辆代号必须为9位纯数字")
+    private String centerLoadCarNo;
     /**
      * 监装员
      */

@@ -43,6 +43,7 @@ public class HandleException {
             list.add(message.getDefaultMessage());
         }
         pageUtil.setMsg(list);
+        System.out.println("“有错误参数”");
         return pageUtil;
     }
 

@@ -50,6 +50,12 @@ public  class PageUtil<T> {
         this.data = data;
     }
 
+    public  PageUtil(T t){
+        List<T> temp=new ArrayList<T>();
+        temp.add(t);
+        this.data=temp;
+    }
+
 //    public PageUtil(List<String> msg) {
 //        this.msg = msg;
 //    }

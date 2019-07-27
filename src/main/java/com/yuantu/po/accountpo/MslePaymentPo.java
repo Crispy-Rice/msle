@@ -3,6 +3,10 @@ package com.yuantu.po.accountpo;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 
 /**
  * @ClassName MslePaymentPo
@@ -25,6 +29,8 @@ public class MslePaymentPo {
     /**付款金额
      *
      */
+    @Max(value = 10000000 ,message="金额过大")
+    @DecimalMin(value="0.01", message = "金额必须大于0")
     private Double  paymentAmount;
     /**付款人
      *

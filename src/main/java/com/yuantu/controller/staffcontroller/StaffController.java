@@ -60,7 +60,7 @@ public class StaffController {
  /**
   根据员工id修改薪资
   */
- @RequestMapping(value = "/updateStaffSalary",method = RequestMethod.GET)
+ @RequestMapping(value = "/updateStaffSalary",method = RequestMethod.POST)
  @ResponseBody
  PageUtil<Integer> updateStaffSalary(@RequestBody MsleStaffPo msleStaffPo, String peopleId){
   List<Integer> list=new ArrayList<Integer>();
@@ -86,7 +86,7 @@ public class StaffController {
   */
  @RequestMapping(value = "/updateStaffStatus",method = RequestMethod.GET)
  @ResponseBody
- PageUtil<Integer> updateStaffStatus( String staffId){
+ PageUtil<Integer> updateStaffStatus(String staffId){
   List<Integer> list=new ArrayList<Integer>();
   list.add(iStaffService.updateStaffStatus(staffId));
   PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);
@@ -96,7 +96,7 @@ public class StaffController {
  /**
   添加员工
   */
- @RequestMapping(value = "/addStaff",method = RequestMethod.GET)
+ @RequestMapping(value = "/addStaff",method = RequestMethod.POST)
  @ResponseBody
  PageUtil<Integer> addStaff(@Valid @RequestBody MsleStaffPo msleStaffPo){
   List<Integer> list=new ArrayList<Integer>();
@@ -108,7 +108,7 @@ public class StaffController {
  /**
   修改个人信息
   */
- @RequestMapping(value = "/updatePersonalInformation",method = RequestMethod.GET)
+ @RequestMapping(value = "/updatePersonalInformation",method = RequestMethod.POST)
  @ResponseBody
  PageUtil<Integer> updatePersonalInformation(@Valid @RequestBody MsleStaffPo msleStaffPo){
   List<Integer> list=new ArrayList<Integer>();
@@ -120,7 +120,7 @@ public class StaffController {
  /**
   根据职位改工资
   */
- @RequestMapping(value = "/updateSalaryByPosition",method = RequestMethod.GET)
+ @RequestMapping(value = "/updateSalaryByPosition",method = RequestMethod.POST)
  @ResponseBody
  PageUtil<Integer> updateSalaryByPosition (@RequestBody MsleStaffPo msleStaffPo){
   List<Integer> list=new ArrayList<Integer>();
@@ -128,4 +128,17 @@ public class StaffController {
   PageUtil<Integer> pageUtil=new PageUtil<Integer>(list);
   return pageUtil;
  }
+
+ /**
+  获取多条员工信息（根据机构id）
+  */
+ @RequestMapping(value = "/getPersonnelByOrganization",method = RequestMethod.GET)
+ @ResponseBody
+ PageUtil<MsleStaffPo> getPersonnelByOrganization( String organizationType){
+  List<MsleStaffPo> list=iStaffService.getPersonnelByOrganization(organizationType);
+  PageUtil<MsleStaffPo> pageUtil=new PageUtil<MsleStaffPo>(list);
+  return pageUtil;
+ }
+
+
 }
