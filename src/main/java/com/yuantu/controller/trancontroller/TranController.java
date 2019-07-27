@@ -22,15 +22,15 @@ public class TranController {
 
     @RequestMapping(value = "/addLoadingList" ,method = RequestMethod.POST)
     @ResponseBody
-    public boolean addLoadingList(@RequestBody MsleLoadingListPo loadingListPo) {
-        System.out.println(loadingListPo);
-        return tranService.addLoadingList(loadingListPo);
+    public PageUtil<Boolean> addLoadingList(@RequestBody MsleLoadingListPo loadingListPo) {
+
+        return  new PageUtil<Boolean>(tranService.addLoadingList(loadingListPo));
     }
 
     @RequestMapping(value = "/getLoadingListById" ,method = RequestMethod.GET)
     @ResponseBody
-    public MsleLoadingListPo getLoadingListById(String id) {
-        return tranService.getLoadingListById(id);
+    public PageUtil<MsleLoadingListPo> getLoadingListById(String id) {
+        return new PageUtil<MsleLoadingListPo>(tranService.getLoadingListById(id));
     }
 
     @RequestMapping(value = "/getLoadingListByHallId" ,method = RequestMethod.GET)

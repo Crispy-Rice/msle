@@ -32,28 +32,31 @@ public class LogUtil {
     private  ILogService iLogService;
 
 
-    // private final Logger logger = LoggerFactory.getLogger(LogUtil.class);
-    public  int logBeforeController(JoinPoint joinPoint,String message) {
+   // private final Logger logger = LoggerFactory.getLogger(LogUtil.class);
+//    public  void logBeforeController(JoinPoint joinPoint,String message) {
 //        LogServiceImpl logService=new LogServiceImpl();
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        //这个RequestContextHolder是Springmvc提供来获得请求的东西
-        HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
-        MsleLogPo msleLogPo=new MsleLogPo();
-        //设置日期格式
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+//        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+//        //这个RequestContextHolder是Springmvc提供来获得请求的东西
+//        HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
+//        MsleLogPo msleLogPo=new MsleLogPo();
+//        //设置日期格式
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//
 //        System.out.println(df.format(new Date()).toString());
-
-        msleLogPo.setLogDate(df.format(new Date()).toString());
-        msleLogPo.setLogId(UUID.creatId());
-        msleLogPo.setLogContent(message);
-        msleLogPo.setLogPeople(joinPoint.getArgs().toString());
-        msleLogPo.setLogPeople(request.getParameter("peopleId"));
-
+//
+//        msleLogPo.setLogDate(df.format(new Date()).toString());
+//        msleLogPo.setLogId(UUID.creatId());
+//        msleLogPo.setLogContent(message);
+//       // msleLogPo.setLogPeople(joinPoint.getArgs().toString());
+//        msleLogPo.setLogPeople(request.getParameter("peopleId"));
+//
 //        System.out.println(msleLogPo);
+//
+//
+//
+//        System.out.println(logService.insertLog(msleLogPo));
+//
+//    }
 
-        return (iLogService.insertLog(msleLogPo));
-
-    }
 
 }

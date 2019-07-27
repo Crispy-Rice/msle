@@ -133,9 +133,11 @@ public class StaffController {
   */
  @RequestMapping(value = "/getPersonnelByOrganization",method = RequestMethod.GET)
  @ResponseBody
- PageUtil<MsleStaffPo> getPersonnelByOrganization( String organizationId){
-  List<MsleStaffPo> list=iStaffService.getPersonnelByOrganization(organizationId);
+ PageUtil<MsleStaffPo> getPersonnelByOrganization( String organizationType){
+  List<MsleStaffPo> list=iStaffService.getPersonnelByOrganization(organizationType);
   PageUtil<MsleStaffPo> pageUtil=new PageUtil<MsleStaffPo>(list);
   return pageUtil;
  }
+
+
 }
