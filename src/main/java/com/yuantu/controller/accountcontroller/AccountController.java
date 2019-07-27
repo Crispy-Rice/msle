@@ -14,7 +14,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @ClassName AccountController
+ * @Description //账户操作
+ * @Author  yukun
+ * @Date  2019/7/26
+ * @Version  1.0
+ **/
 @Controller
 @RequestMapping(value = "/account")
 public class AccountController {
@@ -26,6 +32,13 @@ public class AccountController {
         return "SalesClerk";
     }
 
+
+    /*
+     * @Description //添加收款单
+     * @Date2019/7/26
+     * @Param [receiptPo, peopleId] 收款单  操作人员
+     * @return com.yuantu.util.PageUtil<java.lang.Boolean> 是否添加成功
+     **/
     @RequestMapping(value = "/addReceipt", method = RequestMethod.POST)
     @ResponseBody
     public PageUtil<Boolean> addReceipt(@Valid @RequestBody MsleReceiptPo receiptPo,@RequestParam String peopleId) {//添加收款单
@@ -41,8 +54,8 @@ public class AccountController {
     @ResponseBody
     public PageUtil<Boolean> deleteReceiptById(String receiptId,String peopleId) {//根据id删除收款单
         List<Boolean> resultList=new ArrayList<Boolean>();
-
-        resultList.add(accountService.deleteReceiptById(receiptId));
+        Boolean result=accountService.deleteReceiptById(receiptId);
+        resultList.add(result);
 
         return new PageUtil<Boolean>(resultList);
 

@@ -30,7 +30,10 @@ public interface IStaffDao {
     MsleStaffPo getPersonnelInformation(@Param("staffId") String staffId);
 
     //获取多条员工信息（根据机构id）
-    @Select("select * from msle_staff where staff_organization='${staff_organization}' AND staff_Status='onjob'")
+    @Select("select * from msle_staff WHERE staff_organization in " +
+            "(SELECT organization_id from msle_organization where " +
+           "organization_type='${staff_organization}')" +
+            " AND staff_status='onjob'")
     List<MsleStaffPo> getPersonnelByOrganization(@Param("staff_organization") String organizationId);
 
 

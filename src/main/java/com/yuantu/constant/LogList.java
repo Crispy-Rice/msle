@@ -2,7 +2,7 @@ package com.yuantu.constant;
 
 /**
  * @ClassName LogList
- * @Description TODO
+ * @Description 日志操作常量类
  * @Author yukun
  * @Date 2019/7/24 15:46
  * @Version 1.0

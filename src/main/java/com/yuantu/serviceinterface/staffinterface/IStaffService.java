@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface IStaffService {
 
-    List<MsleStaffPo> getPersonnelByOrganization( String organizationId);
+    List<MsleStaffPo> getPersonnelByOrganization( String organizationType);
 
     MsleStaffPo getPersonnelInformation(String staffId);
 

@@ -42,7 +42,7 @@ public class MsleCenterLoadPo {
     /**
      * 车辆代号
      */
-    @Pattern(regexp = "^\\d{9,9}$ ",message = "车辆代号必须为9位纯数字")
+  //  @Pattern(regexp = "^\\d{9,9}$ ",message = "车辆代号必须为9位纯数字")
     private String centerLoadCarNo;
     /**
      * 监装员

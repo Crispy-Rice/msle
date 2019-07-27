@@ -1,6 +1,8 @@
 package com.yuantu.util;
 
 
+import com.yuantu.po.MsleLogPo;
+import com.yuantu.service.logservice.LogServiceImpl;
 import com.yuantu.serviceinterface.loginterface.ILogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,6 +10,13 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.yuantu.constant.LogList.*;
 
@@ -72,54 +81,54 @@ public class AOPUtil {
 
     @Before(" updateStaffSalary()") //在切入点的方法run之前要干的
     public void logBeforeController(JoinPoint joinPoint) {
-       logUtil.logBeforeController(joinPoint,UPDATESALARY);
+      logBeforeController(joinPoint,UPDATESALARY);
     }
 
     @Before(" addReceipt()") //在切入点的方法run之前要干的
     public void logBeforeAddReceipt(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,ADDRECEIPT);
+       logBeforeController(joinPoint,ADDRECEIPT);
 
     }
 
     @Before(" deleteReceiptById()") //在切入点的方法run之前要干的
     public void logBeforeDeleteReceiptById(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,DELETERECEIPT);
+       logBeforeController(joinPoint,DELETERECEIPT);
 
     }
 
     @Before(" addAccount()") //在切入点的方法run之前要干的
     public void logBeforeAddAccount(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,ADDACCOUNT);
+        logBeforeController(joinPoint,ADDACCOUNT);
 
     }
 
     @Before(" updateAccount()") //在切入点的方法run之前要干的
     public void logBeforeUpdateAccount(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,UPDATEACCOUNT);
+        logBeforeController(joinPoint,UPDATEACCOUNT);
 
 
     }
 
     @Before(" deleteAccountById()") //在切入点的方法run之前要干的
     public void logBeforeDeleteAccountById(JoinPoint joinPoint) {
-      logUtil.logBeforeController(joinPoint,DELETEACCOUNT);
+   logBeforeController(joinPoint,DELETEACCOUNT);
 
     }
 
     @Before(" addPayment()") //在切入点的方法run之前要干的
     public void logBeforeAddPayment(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,ADDPAYMENT);
+        logBeforeController(joinPoint,ADDPAYMENT);
 
     }
 
     @Before(" deletePaymentById()") //在切入点的方法run之前要干的
     public void logBeforeDeletePaymentById(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,DELETEPAYMENT);
+      logBeforeController(joinPoint,DELETEPAYMENT);
     }
 
     @Before(" updatePayment()") //在切入点的方法run之前要干的
     public void logBeforeUpdatePayment(JoinPoint joinPoint) {
-        logUtil.logBeforeController(joinPoint,UPDATEPAYMENT);
+        logBeforeController(joinPoint,UPDATEPAYMENT);
     }
 
 
@@ -127,7 +136,30 @@ public class AOPUtil {
 
 
 
+    public  void logBeforeController(JoinPoint joinPoint,String message) {
+        //LogServiceImpl logService=new LogServiceImpl();
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        //这个RequestContextHolder是Springmvc提供来获得请求的东西
+        HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
+        MsleLogPo msleLogPo=new MsleLogPo();
+        //设置日期格式
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        System.out.println(df.format(new Date()).toString());
+
+        msleLogPo.setLogDate(df.format(new Date()).toString());
+        msleLogPo.setLogId(UUID.creatId());
+        msleLogPo.setLogContent(message);
+        // msleLogPo.setLogPeople(joinPoint.getArgs().toString());
+        msleLogPo.setLogPeople(request.getParameter("peopleId"));
+
+        System.out.println(msleLogPo);
+
+
+
+        System.out.println(iLogService.insertLog(msleLogPo));
+
+    }
 
 
 }
