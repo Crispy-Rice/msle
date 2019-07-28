@@ -36,4 +36,11 @@ public class LogServiceImpl implements ILogService {
         date=date+"%";
         return iLogDao.getLog(date);
     }
+
+    @Override
+    public List<MsleLogPo> getAllLog() {
+        return iLogDao.getAllLog();
+    }
+
+
 }

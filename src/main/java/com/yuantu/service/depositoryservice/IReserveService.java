@@ -16,6 +16,22 @@ public interface IReserveService {
 
     List<MsleReservePo> getReserveByClosurePoint(String storehouseid);
 
+    List<MsleReservePo> getReserveByStorehouseId(String storehouseid);
+
+    List<MsleReservePo> getReserveByAreaName(String areaNo,String storehuoseId);
+
+
+   List<MsleGoDownEntryPo> getGoDownEntryByStorehouseId(String storehouseId);
+
+
+
+    List<MsleOutBoundPo> getOutBoundByStorehouseId(String storehouseId);
+
+
+
+
+    List<MsleReservePo> getReserveById(String id);
+
     boolean updateReserve(String id ,String checkStatus);
 
     String  checkAlertline(String storehouseid,Integer areaid);

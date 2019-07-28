@@ -27,10 +27,18 @@ public class LogController {
     /**
      获取某日期下所有日志
      */
-    @RequestMapping(value = "/getLog", method = RequestMethod.POST)
+    @RequestMapping(value = "/getLog", method = RequestMethod.GET)
     @ResponseBody
     PageUtil<MsleLogPo> getLog (String date) {
         List<MsleLogPo> list=iLogService.getLog(date);
+        PageUtil<MsleLogPo> pageUtil=new PageUtil<MsleLogPo>(list);
+        return pageUtil;
+    }
+
+    @RequestMapping(value = "/getAllLog", method = RequestMethod.GET)
+    @ResponseBody
+    PageUtil<MsleLogPo> getAllLog () {
+        List<MsleLogPo> list=iLogService.getAllLog();
         PageUtil<MsleLogPo> pageUtil=new PageUtil<MsleLogPo>(list);
         return pageUtil;
     }

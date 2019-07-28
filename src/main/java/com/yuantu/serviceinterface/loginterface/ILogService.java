@@ -16,4 +16,6 @@ public interface ILogService {
     int insertLog(MsleLogPo msleLogPo);
 
     List<MsleLogPo> getLog (String date);
+
+    List<MsleLogPo> getAllLog();
 }

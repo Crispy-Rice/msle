@@ -57,6 +57,25 @@ private IReserveService reserveService;
        return  new PageUtil<MsleReservePo>(reserveService.getReserveByClosurePoint(storehouseid));
     }
 
+    @RequestMapping(value="/getReserveByStorehouseId",method = RequestMethod.GET)
+    @ResponseBody
+    public PageUtil<MsleReservePo> getReserveByStorehouseId(String storehouseid){
+        return  new PageUtil<MsleReservePo>(reserveService.getReserveByStorehouseId(storehouseid));
+    }
+
+    @RequestMapping(value="/getReserveById",method = RequestMethod.GET)
+    @ResponseBody
+    public PageUtil<MsleReservePo>  getReserveById(String id){
+        return  new PageUtil<MsleReservePo>(reserveService. getReserveById(id));
+    }
+
+    @RequestMapping(value="/getReserveByAreaNo",method = RequestMethod.GET)
+    @ResponseBody
+    public PageUtil<MsleReservePo>  getReserveByAreaNo(String areaNo,String storehouseId){
+        return  new PageUtil<MsleReservePo>(reserveService. getReserveByAreaName(areaNo,storehouseId));
+    }
+
+
     @RequestMapping(value="/updateReserve",method = RequestMethod.GET)
     @ResponseBody
     public PageUtil<Boolean> updateReserve(String id ,String checkStatus){
@@ -116,6 +135,20 @@ private IReserveService reserveService;
     public PageUtil<MsleOutBoundPo> getOutBoundByListId(String outboundOutboundId){
 
         return  new PageUtil<MsleOutBoundPo>(reserveService.getOutBoundByListId(outboundOutboundId));
+    }
+
+
+    @RequestMapping(value="/getGoDownEntryByStorehouseId",method = RequestMethod.GET)
+    @ResponseBody
+    public  PageUtil<MsleGoDownEntryPo> getGoDownEntryByStorehouseId(String storehouseId){
+        return  new PageUtil<MsleGoDownEntryPo>(reserveService.getGoDownEntryByStorehouseId(storehouseId));
+    }
+
+    @RequestMapping(value="/getOutBoundByStorehouseId",method = RequestMethod.GET)
+    @ResponseBody
+    public PageUtil<MsleOutBoundPo> getOutBoundByStorehouseId(String storehouseId){
+
+        return  new PageUtil<MsleOutBoundPo>(reserveService.getOutBoundByStorehouseId(storehouseId));
     }
 
 
