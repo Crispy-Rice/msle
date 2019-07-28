@@ -98,6 +98,8 @@ public class OrderServiceImpl implements IOrderService
 
     @Override
     public MsleLogisticsPo getLogisticsInformation(String logisticsOrderId) {
+        MsleLogisticsPo msleLogisticsPoView=new MsleLogisticsPo();
+
         return iLogisticsDao.getLogistics(logisticsOrderId);
     }
 

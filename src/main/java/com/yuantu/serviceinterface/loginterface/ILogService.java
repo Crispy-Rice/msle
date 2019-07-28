@@ -12,7 +12,9 @@ import java.util.List;
  *
  */
 public interface ILogService {
-    Integer insertLog(MsleLogPo msleLogPo);
+
+    int insertLog(MsleLogPo msleLogPo);
+
     List<MsleLogPo> getLog (String date);
 
     List<MsleLogPo> getAllLog();

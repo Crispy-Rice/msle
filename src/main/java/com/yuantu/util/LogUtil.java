@@ -7,10 +7,13 @@ import org.aspectj.lang.JoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,10 +25,12 @@ import java.util.Date;
  * @Date 2019/7/24 15:40
  * @Version 1.0
  **/
+@Component
 public class LogUtil {
 
     @Autowired
-    private ILogService iLogService;
+    private  ILogService iLogService;
+
 
    // private final Logger logger = LoggerFactory.getLogger(LogUtil.class);
 //    public  void logBeforeController(JoinPoint joinPoint,String message) {
@@ -52,5 +57,6 @@ public class LogUtil {
 //        System.out.println(logService.insertLog(msleLogPo));
 //
 //    }
+
 
 }

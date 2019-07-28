@@ -25,7 +25,7 @@ public interface ILogDao {
             "('${msleLogPo.logId}','${msleLogPo.logDate}'" +
             ",'${msleLogPo.logContent}'" +
             ",'${msleLogPo.logPeople}')")
-    Integer insertLog(@Param("msleLogPo") MsleLogPo msleLogPo);
+    int insertLog(@Param("msleLogPo") MsleLogPo msleLogPo);
 
     /**
      * 根据时间查看日志

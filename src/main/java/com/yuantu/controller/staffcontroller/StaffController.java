@@ -26,6 +26,7 @@ public class StaffController {
 
  /**
   获取一条员工信息
+
   */
  @RequestMapping(value = "/getPersonnelInformation",method = RequestMethod.GET)
  @ResponseBody
