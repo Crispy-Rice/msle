@@ -106,6 +106,31 @@ public class ReserveServiceImpl implements IReserveService {
     }
 
     @Override
+    public List<MsleReservePo> getReserveByStorehouseId(String storehousseid) {
+        return reserveDao.getReserveByStorehouseId(storehousseid);
+    }
+
+    @Override
+    public List<MsleReservePo> getReserveByAreaName(String areaNo,String storehouseId) {
+        return reserveDao.getReserveByAreaName(areaNo,storehouseId);
+    }
+
+    @Override
+    public List<MsleGoDownEntryPo> getGoDownEntryByStorehouseId(String storehouseId) {
+        return reserveDao.getGoDownEntryByListId(storehouseId);
+    }
+
+    @Override
+    public List<MsleOutBoundPo> getOutBoundByStorehouseId(String storehouseId) {
+        return reserveDao.getOutBoundByStorehouseId(storehouseId);
+    }
+
+    @Override
+    public List<MsleReservePo> getReserveById(String id) {
+        return reserveDao.getReserveById(id);
+    }
+
+    @Override
     public boolean updateReserve(String id, String checkStatus) {
         return reserveDao.updateReserve(id,checkStatus);
     }

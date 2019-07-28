@@ -88,7 +88,7 @@ public interface ITranDao {
 
     @Insert("insert into msle_car values(#{carId},#{carCarNo}," +
             "#{carNo},#{carBuyTime},#{carEngineNo}," +
-            "#{carBaseplateNo},#{carAge},#{carImage},#{carHallId},#{carState})")
+            "#{carBaseplateNo},#{carAge},#{carImage},#{carHallId},#{carStatus})")
     boolean addCar(MsleCarPo carPo);
 
     @Delete("delete from msle_car where car_id='${id}'")

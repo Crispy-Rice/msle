@@ -65,6 +65,19 @@ public interface IReserveDao {
                                                  @Param("clourse") String clourse,
                                                  @Param("storehouseid") String storehousseid);
 
+
+
+    @Select("select * from msle_reserve where reserve_storehouseId='${storehouseid}' ")
+    List<MsleReservePo> getReserveByStorehouseId(@Param("storehouseid") String storehouseid);
+
+
+    @Select("select * from msle_reserve where reserve_id='${id}' ")
+    List<MsleReservePo> getReserveById(@Param("id") String id);
+
+    @Select("select * from msle_reserve where reserve_areano='${areaNo}' and reserve_storehouseId='${storehuoseId}'")
+    List<MsleReservePo> getReserveByAreaName(@Param("areaNo") String areaNo,@Param("storehuoseId") String storehouseId);
+
+
     /**
      * 修改库存检查状态
      * @param reserveId
@@ -98,6 +111,13 @@ public interface IReserveDao {
 
     @Select("select * from msle_outbound where outbound_outboundid='${outboundOutboundId}'")
     List<MsleOutBoundPo> getOutBoundByListId(@Param("outboundOutboundId") String outboundOutboundId);
+
+    @Select("select * from msle_godownentry where godownentry_storehouseId='${storehouseId}'")
+   List <MsleGoDownEntryPo> getGoDownEntryByStorehouseId(@Param("storehouseId") String storehouseId);
+
+
+    @Select("select * from msle_outbound where outbound_storehouseId='${storehouseId}'")
+   List<MsleOutBoundPo> getOutBoundByStorehouseId(@Param("storehouseId") String storehouseId);
 
 //    @Select("select * from msle_godownentry wheregodownentryStatus='${status}'")
 //    List<MslegoDownEntryPo> getGoDownEntryByStatus(@Param("status") String status);

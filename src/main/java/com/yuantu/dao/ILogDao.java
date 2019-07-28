@@ -34,4 +34,7 @@ public interface ILogDao {
      */
     @Select("select * from msle_log where log_date like '${log_date}'")
     List<MsleLogPo> getLog(@Param("log_date") String date);
+
+    @Select("select * from msle_log")
+    List<MsleLogPo> getAllLog();
 }
