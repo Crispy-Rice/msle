@@ -21,6 +21,7 @@ public class logincontroller {
         List<String> list=new ArrayList<String>();
         if (psd.equals(iStaffDao.getPasswordByName(name).getStaffPassword())){
             list.add(iStaffDao.getPasswordByName(name).getStaffPosition());
+            list.add(iStaffDao.getPasswordByName(name).getStaffOrganization().toString());
             PageUtil<String> pageUtil=new PageUtil<String>(list);
             return pageUtil;
         }else{
