@@ -100,5 +100,16 @@ public class MsleLogisticsPo {
      */
     private String logisticsRecipientstime;
 
-   }
+
+
+    /**
+     * 收件人手机
+     */
+    private String logisticsRecipientsPhone;
+
+    /**
+     * 收件人地址
+     */
+    private String logisticsRecipientsAddress;
+}
 

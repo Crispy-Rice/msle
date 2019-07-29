@@ -40,7 +40,7 @@ public class MslePaymentPo {
      *
      */
     private String  paymentAccount;
-    /**付款类型
+    /**付款类型 工资 奖金 租金
      *
      */
     private String  paymentType;
