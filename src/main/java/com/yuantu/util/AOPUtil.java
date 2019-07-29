@@ -5,6 +5,8 @@ import com.yuantu.po.MsleLogPo;
 import com.yuantu.service.logservice.LogServiceImpl;
 import com.yuantu.serviceinterface.loginterface.ILogService;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -82,59 +84,59 @@ public class AOPUtil {
 
 
 
-    @Before(" updateStaffSalary()") //在切入点的方法run之前要干的
-    public void logBeforeController(JoinPoint joinPoint) {
+    @Around(" updateStaffSalary()") //在切入点的方法run之前要干的
+    public void logBeforeController(ProceedingJoinPoint joinPoint) throws Throwable  {
 
-      logBeforeController(joinPoint,UPDATESALARY);
-
-    }
-
-    @Before(" addReceipt()") //在切入点的方法run之前要干的
-    public void logBeforeAddReceipt(JoinPoint joinPoint) {
-       logBeforeController(joinPoint,ADDRECEIPT);
+        logBeforeController(joinPoint,UPDATESALARY);
 
     }
 
-    @Before(" deleteReceiptById()") //在切入点的方法run之前要干的
-    public void logBeforeDeleteReceiptById(JoinPoint joinPoint) {
-       logBeforeController(joinPoint,DELETERECEIPT);
+    @Around(" addReceipt()") //在切入点的方法run之前要干的
+    public void logBeforeAddReceipt(ProceedingJoinPoint joinPoint) throws Throwable {
+        logBeforeController(joinPoint,ADDRECEIPT);
 
     }
 
-    @Before(" addAccount()") //在切入点的方法run之前要干的
-    public void logBeforeAddAccount(JoinPoint joinPoint) {
+    @Around(" deleteReceiptById()") //在切入点的方法run之前要干的
+    public void logBeforeDeleteReceiptById(ProceedingJoinPoint joinPoint) throws Throwable {
+        logBeforeController(joinPoint,DELETERECEIPT);
+
+    }
+
+    @Around(" addAccount()") //在切入点的方法run之前要干的
+    public void logBeforeAddAccount(ProceedingJoinPoint joinPoint) throws Throwable  {
         logBeforeController(joinPoint,ADDACCOUNT);
 
     }
 
-    @Before(" updateAccount()") //在切入点的方法run之前要干的
-    public void logBeforeUpdateAccount(JoinPoint joinPoint) {
+    @Around(" updateAccount()") //在切入点的方法run之前要干的
+    public void logBeforeUpdateAccount(ProceedingJoinPoint joinPoint) throws Throwable  {
         logBeforeController(joinPoint,UPDATEACCOUNT);
 
 
     }
 
-    @Before(" deleteAccountById()") //在切入点的方法run之前要干的
-    public void logBeforeDeleteAccountById(JoinPoint joinPoint) {
+    @Around(" deleteAccountById()") //在切入点的方法run之前要干的
+    public void logBeforeDeleteAccountById(ProceedingJoinPoint joinPoint) throws Throwable  {
 
-   logBeforeController(joinPoint,DELETEACCOUNT);
+        logBeforeController(joinPoint,DELETEACCOUNT);
 
 
     }
 
-    @Before(" addPayment()") //在切入点的方法run之前要干的
-    public void logBeforeAddPayment(JoinPoint joinPoint) {
+    @Around(" addPayment()") //在切入点的方法run之前要干的
+    public void logBeforeAddPayment(ProceedingJoinPoint joinPoint) throws Throwable  {
         logBeforeController(joinPoint,ADDPAYMENT);
 
     }
 
-    @Before(" deletePaymentById()") //在切入点的方法run之前要干的
-    public void logBeforeDeletePaymentById(JoinPoint joinPoint) {
-      logBeforeController(joinPoint,DELETEPAYMENT);
+    @Around(" deletePaymentById()") //在切入点的方法run之前要干的
+    public void logBeforeDeletePaymentById(ProceedingJoinPoint joinPoint) throws Throwable  {
+        logBeforeController(joinPoint,DELETEPAYMENT);
     }
 
-    @Before(" updatePayment()") //在切入点的方法run之前要干的
-    public void logBeforeUpdatePayment(JoinPoint joinPoint) {
+    @Around(" updatePayment()") //在切入点的方法run之前要干的
+    public void logBeforeUpdatePayment(ProceedingJoinPoint joinPoint) throws Throwable  {
         logBeforeController(joinPoint,UPDATEPAYMENT);
     }
 
@@ -143,7 +145,7 @@ public class AOPUtil {
 
 
 
-    public  void logBeforeController(JoinPoint joinPoint,String message) {
+    public  Object logBeforeController(ProceedingJoinPoint joinPoint, String message) throws Throwable {
         //LogServiceImpl logService=new LogServiceImpl();
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         //这个RequestContextHolder是Springmvc提供来获得请求的东西
@@ -165,13 +167,8 @@ public class AOPUtil {
 
 
         System.out.println(iLogService.insertLog(msleLogPo));
-
+        return joinPoint.proceed();
     }
 
 
 }
-
-
-
-
-

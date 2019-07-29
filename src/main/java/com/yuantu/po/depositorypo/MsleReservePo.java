@@ -62,6 +62,9 @@ public class MsleReservePo {
      * 审核状态
      */
   private String   reserveStatus;
-
+  /**
+   *中转中心id
+   */
+  private  String   reserveCenterId;
 
 }

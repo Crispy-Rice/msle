@@ -62,6 +62,10 @@ public class MsleOutBoundPo {
      * 审核状态
      */
     private  String  outboundStatus;
+    /**
+     * 中转中心id
+     */
+    private  String  outboundCenterId;
 
 
 }

@@ -74,5 +74,10 @@ public class MsleGoDownEntryPo {
      */
     private String  godownentryStatus;
 
+    /**
+     *中转中心id
+     */
+    private String  godownentryCenterId;
+
 
 }

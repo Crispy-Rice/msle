@@ -59,7 +59,7 @@ public class MsleStaffPo {
      * 员工所属机构
      */
   //  @Size(min=12,max=12,message="员工所属机构id长度错误")
-    private Long staffOrganization;
+    private String staffOrganization;
     /**
      * 员工状态(在职-onjob/离职-dimission)
      */
