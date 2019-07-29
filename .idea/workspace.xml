@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa623d8d-bdd0-4467-a583-8b897303a2e0" name="Default Changelist" comment="">
+    <list default="true" id="1f16981c-08de-4e96-a44f-ff025c33bf52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Driver-mng-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Driver-mng-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Driver-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Driver-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Good-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Good-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/RecordCollection.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/RecordCollection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Send-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Send-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Vehicle-imfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Vehicle-imfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/html/Vehicle-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/html/Vehicle-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Receive .html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Receive .html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Receive-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Receive-add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Shipping-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/bish/logistics management/layui/transfer/Shipping-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/Driver-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/Driver-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/Good-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/Good-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/RecordCollection.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/RecordCollection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/Send-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/Send-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/Vehicle-imfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/Vehicle-imfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics management/layui/html/Vehicle-mng.html" beforeDir="false" afterPath="$PROJECT_DIR$/logistics management/layui/html/Vehicle-mng.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yuantu/controller/logincontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yuantu/controller/logincontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yuantu/dao/ILogisticsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yuantu/dao/ILogisticsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yuantu/dao/trandao/ITranDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yuantu/dao/trandao/ITranDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yuantu/po/MsleLogisticsPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yuantu/po/MsleLogisticsPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yuantu/po/accountpo/MslePaymentPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yuantu/po/accountpo/MslePaymentPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yuantu/controller/logincontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yuantu/controller/logincontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yuantu/dao/ILogisticsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yuantu/dao/ILogisticsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yuantu/po/MsleLogisticsPo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yuantu/po/MsleLogisticsPo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/msle-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/msle-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,21 +21,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1OdGVv0KqBZKOWBFaDoGVDioib4" />
   <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,57 +36,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="msle" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yuantu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yuantu.Main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="fa623d8d-bdd0-4467-a583-8b897303a2e0" name="Default Changelist" comment="" />
-      <created>1564299156581</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1564299156581</updated>
-      <workItem from="1564299160462" duration="788000" />
-      <workItem from="1564300092684" duration="2285000" />
-      <workItem from="1564339103428" duration="1373000" />
-      <workItem from="1564357199817" duration="4486000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

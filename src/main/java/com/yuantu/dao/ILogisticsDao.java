@@ -71,7 +71,8 @@ public interface ILogisticsDao {
             ",'${msleLogisticsPo.logisticsSenderIntermediate}'" +
             ",'${msleLogisticsPo.logisticsRecipientsServicehall}'" +
             ",'${msleLogisticsPo.logisticsRecipientsIntermediate}'" +
-            ",'${msleLogisticsPo.logisticsRecipients})'")
+            ",'${msleLogisticsPo.logisticsRecipients},'${msleLogisticsPo.logisticsRecipientsPhone}'" +
+            ",'${msleLogisticsPo.logisticsRecipientsAddress}')'")
     Integer addLogistics(@Param("msleLogisticsPo") MsleLogisticsPo msleLogisticsPo);
 
     /**

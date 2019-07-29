@@ -124,6 +124,14 @@ public interface ITranDao {
     @Delete("delete from msle_arrival where arrival_id='${arrivalId}'")
     boolean deleteArrivalById(@Param("arrivalId") String arrivalId);
 
+//    @Update("update msle_driver set driver_no=#{driverNo},driver_name=#{driverName}," +
+//            "driver_birthdate=#{driverBirthdate},driver_idnum=#{driverIdNum}," +
+//            "driver_phone=#{driverPhone}," +
+//            "driver_carUnit=#{driverCarUnit},driver_sex=#{driverSex}," +
+//            "driver_due=#{driverDue},driver_hallId=#{driverHallId},driver_status=#{driverStatus}" +
+//            "where driver_id=#{driverId}")
+//    boolean updateArrival(MsleArrivalPo drPo);
+
 //    @Select("select * from msle_arrival where arrivalStatus='${status}'")
 //    List<MslearrivalPo> getArrivalByStatus(@Param("status") String status);
 
